@@ -1,0 +1,288 @@
+<!DOCTYPE html>
+<html lang="ja">
+<head>
+<meta charset="UTF-8"><meta name="viewport" content="width=device-width,initial-scale=1">
+<title>結果・分析 — せかけん道場</title>
+<link rel="stylesheet" href="css/style.css">
+<script src="https://cdnjs.cloudflare.com/ajax/libs/Chart.js/4.4.0/chart.umd.min.js"></script>
+</head>
+<body>
+<div id="nav-placeholder"></div>
+<div class="container" style="padding-top:1.2rem">
+
+  <!-- ローディング -->
+  <div id="loading" class="loading">📊 結果を集計中…</div>
+
+  <!-- 結果コンテンツ -->
+  <div id="result-content" style="display:none;">
+
+    <!-- スコアヘッダー -->
+    <div class="card" style="text-align:center;margin-bottom:1rem;">
+      <div style="font-size:1rem;color:#666;margin-bottom:0.8rem;">模擬テスト 結果</div>
+      <div class="score-circle" id="score-circle" style="margin-bottom:1rem;"></div>
+      <div id="judgment-area"></div>
+      <div id="time-info" style="font-size:0.85rem;color:#888;margin-top:0.4rem;"></div>
+    </div>
+
+    <!-- カテゴリ別スコア -->
+    <div style="display:grid;grid-template-columns:1fr 1fr;gap:1rem;margin-bottom:1rem;" id="charts-row">
+      <div class="card">
+        <div class="section-title">📊 カテゴリ別正答率</div>
+        <canvas id="cat-bar-chart" style="max-height:200px;"></canvas>
+      </div>
+      <div class="card">
+        <div class="section-title">🕸️ レーダーチャート</div>
+        <div style="max-height:200px;"><canvas id="cat-radar-chart"></canvas></div>
+      </div>
+    </div>
+
+    <!-- カテゴリ別詳細 -->
+    <div class="card" style="margin-bottom:1rem;">
+      <div class="section-title">📋 カテゴリ別詳細</div>
+      <div id="cat-detail-area"></div>
+    </div>
+
+    <!-- 不正解問題一覧 -->
+    <div class="card" style="margin-bottom:1rem;">
+      <div class="section-title">❌ 間違えた問題</div>
+      <div id="wrong-list-area">
+        <div style="color:#7f8c8d;font-size:0.9rem;text-align:center;padding:1rem;">間違えた問題はありません 🎉</div>
+      </div>
+    </div>
+
+    <!-- アクションボタン -->
+    <div class="card">
+      <div style="display:flex;flex-direction:column;gap:0.6rem;">
+        <a href="weakness.html" class="btn btn-warning btn-block">🎯 苦手問題を特訓する</a>
+        <a href="mock.html" class="btn btn-block" style="background:#7c3aed;color:#fff;">🔄 もう一度模擬テスト</a>
+        <a href="index.html" class="btn btn-outline btn-block">📊 ダッシュボードへ</a>
+      </div>
+    </div>
+
+    <div style="padding-bottom:1.5rem;"></div>
+  </div>
+
+</div>
+
+<script src="data/questions_data.js"></script>
+<script src="data/heritage_data.js"></script>
+<script src="js/storage.js"></script>
+<script src="js/adaptive.js"></script>
+<script src="js/app.js"></script>
+<script>
+'use strict';
+
+document.addEventListener('DOMContentLoaded', async () => {
+  injectNav();
+  await loadData();
+
+  // sessionStorageからデータ取得
+  let result, questions;
+  try {
+    result    = JSON.parse(sessionStorage.getItem('mock_result'));
+    questions = JSON.parse(sessionStorage.getItem('mock_questions'));
+  } catch(e) {}
+
+  if (!result || !questions) {
+    // 直接アクセス時は直近の模擬結果を使用
+    result = storage.getLastMockScore();
+    questions = QUESTIONS; // 全問題（詳細マッピングは一部のみ）
+    if (!result) {
+      document.getElementById('loading').innerHTML =
+        '<div>結果データが見つかりません。<br><a href="mock.html">模擬テストへ</a></div>';
+      return;
+    }
+  }
+
+  document.getElementById('loading').style.display = 'none';
+  document.getElementById('result-content').style.display = '';
+
+  renderScore(result);
+  renderCharts(result);
+  renderCatDetail(result, questions);
+  renderWrongList(result, questions);
+
+  // レスポンシブ
+  if (window.innerWidth < 600) {
+    document.getElementById('charts-row').style.gridTemplateColumns = '1fr';
+  }
+});
+
+function renderScore(result) {
+  const pct = result.score;
+  const j = adaptive.judge(pct);
+
+  // スコア円
+  const circle = document.getElementById('score-circle');
+  const circleColor = j.border;
+  const circleBg    = j.bg;
+  circle.style.cssText += `background:${circleBg};border:6px solid ${circleColor};`;
+  circle.innerHTML = `
+    <div style="font-size:2.4rem;font-weight:bold;color:${circleColor};">${pct}%</div>
+    <div style="font-size:0.9rem;color:#555;">${result.correct}/${result.total}問</div>`;
+
+  // 判定
+  document.getElementById('judgment-area').innerHTML = `
+    <div class="judgment-badge" style="color:${j.border};border-color:${j.border};background:${j.bg};">${j.grade}</div>
+    <div style="font-size:1.2rem;font-weight:bold;margin-top:0.5rem;color:${j.border};">${j.label}</div>
+    <div style="font-size:0.88rem;color:#888;margin-top:0.2rem;">${result.date}</div>`;
+
+  // 経過時間
+  if (result.elapsed_seconds) {
+    const mins = Math.floor(result.elapsed_seconds / 60);
+    const secs = result.elapsed_seconds % 60;
+    document.getElementById('time-info').textContent =
+      `⏱️ 所要時間: ${mins}分${secs}秒`;
+  }
+}
+
+function renderCharts(result) {
+  const cats = result.category_scores || {};
+  const labels = ['基礎知識', '日本の遺産', '自然遺産', '文化遺産'];
+  const keys   = ['basics', 'japan', 'nature', 'culture'];
+  const data   = keys.map(k => cats[k] || 0);
+  const colors = ['#2E75B6','#E74C3C','#27AE60','#F39C12'];
+
+  // 棒グラフ
+  const barCtx = document.getElementById('cat-bar-chart').getContext('2d');
+  new Chart(barCtx, {
+    type: 'bar',
+    data: {
+      labels,
+      datasets: [{
+        label: '正答率(%)',
+        data,
+        backgroundColor: colors,
+        borderRadius: 6
+      }]
+    },
+    options: {
+      responsive: true, maintainAspectRatio: false,
+      scales: { y: { beginAtZero: true, max: 100,
+        ticks: { callback: v => v+'%' } } },
+      plugins: {
+        legend: { display: false },
+        tooltip: { callbacks: { label: ctx => ` ${ctx.raw}%` } }
+      }
+    }
+  });
+
+  // レーダーチャート
+  const radarCtx = document.getElementById('cat-radar-chart').getContext('2d');
+  new Chart(radarCtx, {
+    type: 'radar',
+    data: {
+      labels,
+      datasets: [{
+        label: '正答率(%)',
+        data,
+        fill: true,
+        backgroundColor: 'rgba(46,117,182,0.2)',
+        borderColor: '#2E75B6',
+        pointBackgroundColor: '#2E75B6',
+        pointBorderColor: '#fff',
+        pointRadius: 5
+      }]
+    },
+    options: {
+      responsive: true, maintainAspectRatio: true,
+      scales: { r: { beginAtZero: true, max: 100,
+        ticks: { stepSize: 25, font:{size:10} },
+        pointLabels: { font: { size: 11 } }
+      }},
+      plugins: { legend: { display: false } }
+    }
+  });
+}
+
+function renderCatDetail(result, questions) {
+  const cats = result.category_scores || {};
+  const keys   = ['basics', 'japan', 'nature', 'culture'];
+  const labels = { basics:'📚 基礎知識', japan:'🏯 日本の遺産', nature:'🌿 自然遺産', culture:'🏛️ 文化遺産' };
+  const colors = { basics:'#2E75B6', japan:'#E74C3C', nature:'#27AE60', culture:'#F39C12' };
+
+  // カテゴリごとの問題数を answers から計算
+  const catTotals = {};
+  const catCorrects = {};
+  if (result.answers) {
+    result.answers.forEach(a => {
+      catTotals[a.category] = (catTotals[a.category] || 0) + 1;
+      if (a.is_correct) catCorrects[a.category] = (catCorrects[a.category] || 0) + 1;
+    });
+  }
+
+  let html = '';
+  keys.forEach(k => {
+    const pct = cats[k] || 0;
+    const total   = catTotals[k] || 0;
+    const correct = catCorrects[k] || 0;
+    const color = colors[k];
+    html += `
+      <div style="margin-bottom:0.8rem;">
+        <div style="display:flex;justify-content:space-between;margin-bottom:0.3rem;">
+          <span style="font-weight:bold;color:${color};">${labels[k]}</span>
+          <span style="font-size:0.9rem;color:#555;">${correct}/${total}問 (<strong>${pct}%</strong>)</span>
+        </div>
+        <div class="progress-bar">
+          <div class="progress-fill" style="width:${pct}%;background:${color};"></div>
+        </div>
+        ${pct < 60
+          ? `<div style="font-size:0.8rem;color:#dc2626;margin-top:0.2rem;">⚠️ 要強化エリア — 集中練習が必要です</div>`
+          : pct < 80
+          ? `<div style="font-size:0.8rem;color:#ca8a04;margin-top:0.2rem;">△ もう少し強化が必要です</div>`
+          : `<div style="font-size:0.8rem;color:#059669;margin-top:0.2rem;">✅ 良好です！</div>`}
+      </div>`;
+  });
+  document.getElementById('cat-detail-area').innerHTML = html;
+}
+
+function renderWrongList(result, questions) {
+  if (!result.answers) return;
+
+  const wrongAnswers = result.answers.filter(a => !a.is_correct);
+  if (wrongAnswers.length === 0) return;
+
+  // 問題データをID検索
+  const qMap = {};
+  questions.forEach(q => qMap[q.id] = q);
+  // QUESTIONS グローバルも使う
+  if (typeof QUESTIONS !== 'undefined') QUESTIONS.forEach(q => qMap[q.id] = q);
+
+  let html = `<div style="font-size:0.88rem;color:#666;margin-bottom:0.6rem;">${wrongAnswers.length}問間違えました</div>`;
+
+  wrongAnswers.forEach((a, idx) => {
+    const q = qMap[a.id];
+    if (!q) return;
+
+    const userIdx = ['A','B','C','D'].indexOf(a.user_answer);
+    const correctIdx = ['A','B','C','D'].indexOf(a.correct_answer);
+    const userChoice = userIdx >= 0 ? q.choices[userIdx] : '（未回答）';
+    const correctChoice = correctIdx >= 0 ? q.choices[correctIdx] : '';
+
+    html += `
+      <div style="border:1px solid #fecaca;border-radius:8px;padding:0.8rem 1rem;margin-bottom:0.7rem;background:#fff5f5;">
+        <div style="display:flex;justify-content:space-between;align-items:flex-start;flex-wrap:wrap;gap:0.3rem;margin-bottom:0.5rem;">
+          <div style="display:flex;gap:0.3rem;flex-wrap:wrap;">
+            <span style="font-size:0.78rem;font-weight:bold;color:#888;">問${idx+1}</span>
+            <span class="badge badge-${q.category}">${CAT_NAMES[q.category]||q.category}</span>
+          </div>
+          <a href="quiz.html?id=${q.id}" class="btn btn-sm" style="background:#dc2626;color:#fff;font-size:0.78rem;padding:0.2rem 0.6rem;">復習する</a>
+        </div>
+        <div style="font-size:0.9rem;font-weight:bold;margin-bottom:0.5rem;">${escHtml(q.question.slice(0,80))}${q.question.length>80?'…':''}</div>
+        <div style="font-size:0.85rem;">
+          <span style="color:#dc2626;">✗ あなたの答え: ${a.user_answer||'未回答'}．${escHtml(userChoice)}</span>
+        </div>
+        <div style="font-size:0.85rem;margin-top:0.2rem;">
+          <span style="color:#059669;font-weight:bold;">✓ 正解: ${a.correct_answer}．${escHtml(correctChoice)}</span>
+        </div>
+        <div style="font-size:0.82rem;color:#555;margin-top:0.4rem;border-top:1px solid #fecaca;padding-top:0.4rem;">
+          💡 ${escHtml(q.short_explanation)}
+        </div>
+      </div>`;
+  });
+
+  document.getElementById('wrong-list-area').innerHTML = html;
+}
+</script>
+</body>
+</html>

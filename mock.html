@@ -1,0 +1,332 @@
+<!DOCTYPE html>
+<html lang="ja">
+<head>
+<meta charset="UTF-8"><meta name="viewport" content="width=device-width,initial-scale=1">
+<title>模擬テスト — せかけん道場</title>
+<link rel="stylesheet" href="css/style.css">
+</head>
+<body>
+<div id="nav-placeholder"></div>
+<div class="container" style="padding-top:1.2rem">
+
+  <!-- 開始画面 -->
+  <div id="start-screen">
+    <div class="card" style="background:linear-gradient(135deg,#5b21b6,#7c3aed);color:#fff;margin-bottom:1rem;">
+      <div style="font-size:1.4rem;font-weight:bold;">⏱️ 模擬テスト</div>
+      <div style="opacity:0.85;margin-top:0.3rem;">世界遺産検定3級 本番形式</div>
+    </div>
+    <div class="card">
+      <div class="section-title">📋 テスト概要</div>
+      <table style="width:100%;border-collapse:collapse;font-size:0.93rem;">
+        <tr><td style="padding:0.5rem 0;border-bottom:1px solid #eee;color:#666;width:40%;">問題数</td><td style="padding:0.5rem 0;border-bottom:1px solid #eee;font-weight:bold;">50問</td></tr>
+        <tr><td style="padding:0.5rem 0;border-bottom:1px solid #eee;color:#666;">制限時間</td><td style="padding:0.5rem 0;border-bottom:1px solid #eee;font-weight:bold;">50分</td></tr>
+        <tr><td style="padding:0.5rem 0;border-bottom:1px solid #eee;color:#666;">合格ライン</td><td style="padding:0.5rem 0;border-bottom:1px solid #eee;font-weight:bold;">70%（35問）以上</td></tr>
+        <tr><td style="padding:0.5rem 0;color:#666;">カテゴリ比率</td><td style="padding:0.5rem 0;">基礎20% / 日本40% / 自然20% / 文化20%</td></tr>
+      </table>
+      <div style="background:#fff8e1;border:1px solid #ffe082;border-radius:6px;padding:0.8rem;margin-top:1rem;font-size:0.88rem;color:#795548;">
+        ⚠️ テスト中は問題間を自由に移動できます。マークした問題は後で見直せます。時間切れになると自動提出されます。
+      </div>
+      <button id="start-btn" class="btn btn-primary btn-lg btn-block" style="margin-top:1.2rem;background:#7c3aed;">
+        ▶ 模擬テスト開始
+      </button>
+    </div>
+  </div>
+
+  <!-- テスト画面 -->
+  <div id="mock-screen" style="display:none;">
+    <!-- タイマー＋ヘッダー -->
+    <div class="card" style="margin-bottom:0.8rem;padding:0.8rem 1.2rem;">
+      <div style="display:flex;justify-content:space-between;align-items:center;flex-wrap:wrap;gap:0.5rem;">
+        <div>
+          <span style="font-size:0.85rem;color:#666;">進捗: </span>
+          <span id="answered-count" style="font-weight:bold;">0</span>
+          <span style="color:#666;font-size:0.85rem;">/ 50問回答済み</span>
+        </div>
+        <div style="text-align:center;">
+          <div style="font-size:0.75rem;color:#666;">残り時間</div>
+          <div class="timer" id="timer-display">50:00</div>
+        </div>
+        <button id="submit-btn" class="btn btn-block"
+          style="background:#7c3aed;color:#fff;max-width:140px;">
+          📝 提出する
+        </button>
+      </div>
+    </div>
+
+    <!-- 問題ナビゲーター -->
+    <div class="card" style="margin-bottom:0.8rem;padding:0.8rem 1rem;">
+      <div style="font-size:0.82rem;color:#666;margin-bottom:0.4rem;">問題一覧（クリックでジャンプ / 🚩=マーク済み / 青=回答済み）</div>
+      <div class="q-nav" id="q-nav"></div>
+    </div>
+
+    <!-- 問題本体 -->
+    <div class="question-card" id="mock-question-card">
+      <div style="display:flex;justify-content:space-between;align-items:center;margin-bottom:0.8rem;flex-wrap:wrap;gap:0.4rem;">
+        <div>
+          <span class="badge" id="mock-cat-badge"></span>
+          <span class="badge" id="mock-diff-badge" style="margin-left:0.3rem;"></span>
+        </div>
+        <button id="mark-btn" onclick="toggleMark()" style="background:none;border:1px solid #ddd;border-radius:4px;padding:0.25rem 0.7rem;cursor:pointer;font-size:0.85rem;color:#888;">
+          🚩 マーク
+        </button>
+      </div>
+      <div id="mock-q-num" style="font-size:0.85rem;color:#888;margin-bottom:0.5rem;"></div>
+      <div class="question-text" id="mock-question-text"></div>
+      <div id="mock-choices-area"></div>
+      <div style="display:flex;justify-content:space-between;margin-top:1.2rem;gap:0.5rem;">
+        <button class="btn btn-outline" id="prev-btn" onclick="navigate(-1)">← 前へ</button>
+        <button class="btn btn-primary" id="next-btn" onclick="navigate(1)">次へ →</button>
+      </div>
+    </div>
+  </div>
+
+  <!-- 確認モーダル -->
+  <div id="submit-modal" class="modal-overlay" style="display:none;">
+    <div class="modal-box">
+      <div style="font-size:1.2rem;font-weight:bold;margin-bottom:1rem;">📝 提出確認</div>
+      <div id="modal-stats" style="margin-bottom:1.2rem;font-size:0.93rem;"></div>
+      <div style="display:flex;gap:0.6rem;">
+        <button class="btn btn-outline" onclick="closeModal()" style="flex:1;">戻る</button>
+        <button class="btn btn-primary" onclick="submitTest()" style="flex:1;background:#7c3aed;">提出する</button>
+      </div>
+    </div>
+  </div>
+
+</div>
+
+<script src="data/questions_data.js"></script>
+<script src="data/heritage_data.js"></script>
+<script src="js/storage.js"></script>
+<script src="js/adaptive.js"></script>
+<script src="js/app.js"></script>
+<script>
+'use strict';
+
+let questions = [];
+let answers   = [];  // インデックス or null
+let marks     = [];  // フラグ
+let currentQ  = 0;
+let timerSec  = 50 * 60;
+let timerInterval = null;
+let testStarted = false;
+
+document.addEventListener('DOMContentLoaded', async () => {
+  injectNav();
+  await loadData();
+  document.getElementById('start-btn').addEventListener('click', startMock);
+  document.getElementById('submit-btn').addEventListener('click', confirmSubmit);
+});
+
+function startMock() {
+  if (QUESTIONS.length === 0) { alert('問題データを読み込めませんでした。'); return; }
+
+  questions = adaptive.buildMockSet(QUESTIONS);
+  answers   = new Array(questions.length).fill(null);
+  marks     = new Array(questions.length).fill(false);
+  currentQ  = 0;
+
+  storage.startSession();
+  document.getElementById('start-screen').style.display = 'none';
+  document.getElementById('mock-screen').style.display  = '';
+
+  buildNav();
+  showQ(0);
+  startTimer();
+  testStarted = true;
+}
+
+// ── タイマー ──
+function startTimer() {
+  updateTimerDisplay();
+  timerInterval = setInterval(() => {
+    timerSec--;
+    updateTimerDisplay();
+    if (timerSec <= 0) {
+      clearInterval(timerInterval);
+      autoSubmit();
+    }
+  }, 1000);
+}
+
+function updateTimerDisplay() {
+  const el = document.getElementById('timer-display');
+  el.textContent = formatTime(timerSec);
+  el.className = 'timer' +
+    (timerSec <= 300 ? ' danger' : timerSec <= 600 ? ' warning' : '');
+}
+
+// ── 問題ナビ ──
+function buildNav() {
+  const nav = document.getElementById('q-nav');
+  nav.innerHTML = '';
+  questions.forEach((_, i) => {
+    const btn = document.createElement('button');
+    btn.className = 'q-nav-btn';
+    btn.id = `nav-${i}`;
+    btn.textContent = i + 1;
+    btn.addEventListener('click', () => showQ(i));
+    nav.appendChild(btn);
+  });
+}
+
+function updateNav() {
+  questions.forEach((_, i) => {
+    const btn = document.getElementById(`nav-${i}`);
+    if (!btn) return;
+    btn.className = 'q-nav-btn' +
+      (i === currentQ ? ' current' : answers[i] !== null ? ' answered' : '') +
+      (marks[i] ? ' flagged' : '');
+  });
+  document.getElementById('answered-count').textContent =
+    answers.filter(a => a !== null).length;
+}
+
+// ── 問題表示 ──
+function showQ(idx) {
+  currentQ = idx;
+  const q = questions[idx];
+
+  // バッジ
+  const catBadge = document.getElementById('mock-cat-badge');
+  catBadge.textContent = CAT_NAMES[q.category] || q.category;
+  catBadge.className = `badge badge-${q.category}`;
+
+  const diffBadge = document.getElementById('mock-diff-badge');
+  const diffMap = {1:'★☆☆ 易', 2:'★★☆ 普', 3:'★★★ 難'};
+  diffBadge.textContent = diffMap[q.difficulty] || '';
+  diffBadge.className = `badge badge-${q.difficulty===1?'easy':q.difficulty===2?'normal':'hard'}`;
+
+  document.getElementById('mock-q-num').textContent = `問題 ${idx+1} / ${questions.length}`;
+  document.getElementById('mock-question-text').textContent = q.question;
+
+  // マークボタン
+  updateMarkBtn();
+
+  // 選択肢
+  const area = document.getElementById('mock-choices-area');
+  area.innerHTML = '';
+  q.choices.forEach((choice, i) => {
+    const btn = document.createElement('button');
+    btn.className = 'choice-btn' + (answers[idx] === i ? ' answered-sel' : '');
+    btn.textContent = `${['A','B','C','D'][i]}．${choice}`;
+    if (answers[idx] === i) {
+      btn.style.borderColor = '#2E75B6';
+      btn.style.background = '#dbeafe';
+      btn.style.fontWeight = 'bold';
+    }
+    btn.addEventListener('click', () => selectAnswer(i));
+    area.appendChild(btn);
+  });
+
+  // 前後ボタン
+  document.getElementById('prev-btn').disabled = idx === 0;
+  document.getElementById('next-btn').disabled = idx === questions.length - 1;
+
+  updateNav();
+}
+
+function selectAnswer(choiceIdx) {
+  answers[currentQ] = choiceIdx;
+  showQ(currentQ); // 再描画（選択状態を反映）
+}
+
+function navigate(dir) {
+  const next = currentQ + dir;
+  if (next >= 0 && next < questions.length) showQ(next);
+}
+
+function toggleMark() {
+  marks[currentQ] = !marks[currentQ];
+  updateMarkBtn();
+  updateNav();
+}
+
+function updateMarkBtn() {
+  const btn = document.getElementById('mark-btn');
+  if (marks[currentQ]) {
+    btn.style.background = '#fef3c7';
+    btn.style.borderColor = '#f59e0b';
+    btn.style.color = '#92400e';
+    btn.textContent = '🚩 マーク済み';
+  } else {
+    btn.style.background = '';
+    btn.style.borderColor = '#ddd';
+    btn.style.color = '#888';
+    btn.textContent = '🚩 マーク';
+  }
+}
+
+// ── 提出 ──
+function confirmSubmit() {
+  const total = questions.length;
+  const done  = answers.filter(a => a !== null).length;
+  const unanswered = total - done;
+  document.getElementById('modal-stats').innerHTML = `
+    <div>回答済み: <strong>${done} / ${total} 問</strong></div>
+    ${unanswered > 0 ? `<div style="color:#dc2626;margin-top:0.3rem;">⚠️ 未回答: ${unanswered}問</div>` : ''}
+    <div style="margin-top:0.5rem;color:#666;">提出すると採点結果が表示されます。</div>`;
+  document.getElementById('submit-modal').style.display = 'flex';
+}
+
+function closeModal() {
+  document.getElementById('submit-modal').style.display = 'none';
+}
+
+function autoSubmit() {
+  alert('⏰ 時間切れです！自動提出します。');
+  submitTest();
+}
+
+function submitTest() {
+  clearInterval(timerInterval);
+  document.getElementById('submit-modal').style.display = 'none';
+
+  // 採点
+  let correct = 0;
+  const correctMap = {};
+  const catScores = adaptive.calcCategoryScores(
+    answers.map((a, i) => a !== null ? ['A','B','C','D'][a] : null),
+    questions
+  );
+
+  questions.forEach((q, i) => {
+    const userChoice = answers[i] !== null ? ['A','B','C','D'][answers[i]] : null;
+    const isCorrect = userChoice === q.correct;
+    if (isCorrect) correct++;
+    correctMap[q.id] = { isCorrect, userChoice, correct: q.correct };
+    // ストレージ更新
+    if (userChoice !== null) {
+      storage.updateAfterAnswer(q.id, q.category, isCorrect);
+    }
+  });
+
+  const score = Math.round(correct / questions.length * 100);
+  const elapsed = 50 * 60 - timerSec;
+  storage.endSession(questions.length, correct);
+
+  // 模擬結果保存
+  const result = {
+    date: new Date().toISOString().slice(0, 10),
+    score,
+    correct,
+    total: questions.length,
+    elapsed_seconds: elapsed,
+    category_scores: catScores,
+    answers: answers.map((a, i) => ({
+      id: questions[i].id,
+      category: questions[i].category,
+      user_answer: a !== null ? ['A','B','C','D'][a] : null,
+      correct_answer: questions[i].correct,
+      is_correct: a !== null && ['A','B','C','D'][a] === questions[i].correct
+    }))
+  };
+  storage.addMockResult(result);
+
+  // result.html へ遷移（sessionStorage経由でデータ渡し）
+  sessionStorage.setItem('mock_result', JSON.stringify(result));
+  sessionStorage.setItem('mock_questions', JSON.stringify(questions));
+  location.href = 'result.html';
+}
+</script>
+</body>
+</html>

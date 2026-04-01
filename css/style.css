@@ -1,0 +1,154 @@
+/* せかけん道場 — カスタムCSS */
+:root {
+  --primary: #2E75B6;
+  --primary-dark: #1A5A8D;
+  --gold: #F0A500;
+  --success: #27AE60;
+  --warning: #F39C12;
+  --danger: #E74C3C;
+  --bg: #f0f4f8;
+  --card-bg: #ffffff;
+  --text: #2c3e50;
+  --text-light: #7f8c8d;
+  --radius: 10px;
+  --shadow: 0 2px 12px rgba(0,0,0,0.08);
+}
+
+* { box-sizing: border-box; margin: 0; padding: 0; }
+body { font-family: 'Hiragino Kaku Gothic ProN', 'Meiryo', 'Yu Gothic', sans-serif;
+  background: var(--bg); color: var(--text); line-height: 1.6; }
+
+/* カード */
+.card { background: var(--card-bg); border-radius: var(--radius);
+  padding: 1.2rem 1.4rem; box-shadow: var(--shadow); margin-bottom: 1rem; }
+.card-sm { padding: 0.8rem 1rem; }
+
+/* メインコンテナ */
+.container { max-width: 900px; margin: 0 auto; padding: 1rem; }
+
+/* 統計カード */
+.stat-grid { display: grid; grid-template-columns: repeat(auto-fit, minmax(160px,1fr)); gap: 0.8rem; }
+.stat-card { background: var(--card-bg); border-radius: var(--radius); padding: 1rem;
+  box-shadow: var(--shadow); text-align: center; border-top: 4px solid var(--primary); }
+.stat-card .val { font-size: 2rem; font-weight: bold; color: var(--primary); line-height: 1.2; }
+.stat-card .lbl { font-size: 0.8rem; color: var(--text-light); margin-top: 0.2rem; }
+
+/* ボタン */
+.btn { display: inline-block; padding: 0.6rem 1.4rem; border-radius: 6px; border: none;
+  cursor: pointer; font-size: 0.95rem; font-weight: bold; text-decoration: none;
+  transition: all 0.15s; text-align: center; }
+.btn-primary { background: var(--primary); color: #fff; }
+.btn-primary:hover { background: var(--primary-dark); transform: translateY(-1px); }
+.btn-success { background: var(--success); color: #fff; }
+.btn-success:hover { background: #219a52; }
+.btn-warning { background: var(--warning); color: #fff; }
+.btn-danger  { background: var(--danger);  color: #fff; }
+.btn-gray    { background: #95a5a6; color: #fff; }
+.btn-outline { background: transparent; color: var(--primary); border: 2px solid var(--primary); }
+.btn-outline:hover { background: var(--primary); color: #fff; }
+.btn-lg { padding: 0.9rem 2rem; font-size: 1.05rem; border-radius: 8px; }
+.btn-sm { padding: 0.35rem 0.8rem; font-size: 0.82rem; }
+.btn-block { display: block; width: 100%; }
+
+/* 問題カード */
+.question-card { background: var(--card-bg); border-radius: var(--radius);
+  padding: 1.6rem; box-shadow: var(--shadow); }
+.question-text { font-size: 1.1rem; font-weight: bold; line-height: 1.7;
+  margin-bottom: 1.4rem; color: var(--text); }
+.choice-btn { display: block; width: 100%; text-align: left; padding: 0.85rem 1.2rem;
+  margin-bottom: 0.6rem; border: 2px solid #d5e8f5; border-radius: 8px;
+  background: #f7fbff; cursor: pointer; font-size: 0.97rem; line-height: 1.5;
+  transition: all 0.15s; color: var(--text); }
+.choice-btn:hover:not(:disabled) { border-color: var(--primary); background: #e8f2fc; }
+.choice-btn.correct  { border-color: var(--success); background: #d4edda; color: #155724; font-weight: bold; }
+.choice-btn.wrong    { border-color: var(--danger);  background: #f8d7da; color: #721c24; }
+.choice-btn.revealed { border-color: #adb5bd; background: #f8f9fa; color: #6c757d; }
+.choice-btn:disabled { cursor: not-allowed; }
+
+/* フィードバックエリア */
+.feedback { border-radius: 8px; padding: 1rem 1.2rem; margin-top: 1rem; }
+.feedback-correct { background: #d4edda; border-left: 5px solid var(--success); }
+.feedback-wrong   { background: #f8d7da; border-left: 5px solid var(--danger); }
+.feedback-title   { font-size: 1.15rem; font-weight: bold; margin-bottom: 0.5rem; }
+.feedback-exp     { font-size: 0.93rem; line-height: 1.7; }
+
+/* 詳細解説（折りたたみ） */
+.detail-toggle { background: #fff; border: 1px solid #ced4da; border-radius: 6px;
+  padding: 0.5rem 1rem; cursor: pointer; font-size: 0.88rem; margin-top: 0.6rem;
+  color: var(--primary); width: 100%; text-align: left; }
+.detail-body { background: #f8f9fa; border: 1px solid #ced4da; border-radius: 6px;
+  padding: 0.9rem 1.1rem; margin-top: 0.4rem; font-size: 0.9rem; line-height: 1.75;
+  display: none; }
+
+/* 進捗バー */
+.progress-bar { height: 8px; background: #dee2e6; border-radius: 4px; overflow: hidden; }
+.progress-fill { height: 100%; background: var(--primary); border-radius: 4px; transition: width 0.3s; }
+
+/* バッジ */
+.badge { display: inline-block; padding: 0.2rem 0.6rem; border-radius: 20px;
+  font-size: 0.78rem; font-weight: bold; }
+.badge-basics  { background: #dbeafe; color: #1d4ed8; }
+.badge-japan   { background: #fee2e2; color: #991b1b; }
+.badge-nature  { background: #d1fae5; color: #065f46; }
+.badge-culture { background: #fef9c3; color: #92400e; }
+.badge-easy    { background: #d1fae5; color: #065f46; }
+.badge-normal  { background: #fef9c3; color: #92400e; }
+.badge-hard    { background: #fee2e2; color: #991b1b; }
+
+/* タイマー */
+.timer { font-size: 2.2rem; font-weight: bold; font-variant-numeric: tabular-nums;
+  color: var(--primary); letter-spacing: 0.05em; }
+.timer.warning { color: var(--warning); animation: pulse 1s infinite; }
+.timer.danger  { color: var(--danger);  animation: pulse 0.5s infinite; }
+@keyframes pulse { 0%,100%{opacity:1} 50%{opacity:0.6} }
+
+/* 模擬テスト ナビゲーション */
+.q-nav { display: flex; flex-wrap: wrap; gap: 0.3rem; padding: 0.6rem 0; }
+.q-nav-btn { width: 36px; height: 36px; border: 2px solid #ced4da; border-radius: 4px;
+  background: #fff; cursor: pointer; font-size: 0.8rem; font-weight: bold;
+  transition: all 0.1s; color: #555; }
+.q-nav-btn.answered { background: #dbeafe; border-color: var(--primary); color: var(--primary); }
+.q-nav-btn.flagged  { background: #fef9c3; border-color: var(--warning); color: #92400e; }
+.q-nav-btn.current  { background: var(--primary); border-color: var(--primary); color: #fff; }
+
+/* 結果ページ */
+.score-circle { width: 140px; height: 140px; border-radius: 50%;
+  display: flex; flex-direction: column; align-items: center; justify-content: center;
+  font-weight: bold; margin: 0 auto; box-shadow: 0 4px 16px rgba(0,0,0,0.12); }
+.judgment-badge { display: inline-block; font-size: 2rem; font-weight: bold;
+  padding: 0.4rem 1.2rem; border-radius: 8px; border: 3px solid; }
+
+/* モーダル */
+.modal-overlay { position: fixed; inset: 0; background: rgba(0,0,0,0.5);
+  display: flex; align-items: center; justify-content: center; z-index: 999;
+  padding: 1rem; }
+.modal-box { background: #fff; border-radius: var(--radius); padding: 1.6rem;
+  max-width: 480px; width: 100%; box-shadow: 0 10px 40px rgba(0,0,0,0.2); }
+
+/* セクションタイトル */
+.section-title { font-size: 1.1rem; font-weight: bold; color: var(--primary-dark);
+  margin-bottom: 0.8rem; padding-bottom: 0.4rem;
+  border-bottom: 3px solid var(--primary); display: flex; align-items: center; gap: 0.4rem; }
+
+/* 難易度→テキスト */
+.diff-1::before { content: '★☆☆ 易'; }
+.diff-2::before { content: '★★☆ 普'; }
+.diff-3::before { content: '★★★ 難'; }
+
+/* レスポンシブ */
+@media (max-width: 600px) {
+  .stat-grid { grid-template-columns: repeat(2, 1fr); }
+  .question-text { font-size: 1rem; }
+  .timer { font-size: 1.7rem; }
+  .container { padding: 0.6rem; }
+}
+
+/* 遺産詳細 */
+.heritage-header { background: linear-gradient(135deg, var(--primary-dark), var(--primary));
+  color: #fff; border-radius: var(--radius); padding: 1.4rem; margin-bottom: 1rem; }
+.criteria-chip { display: inline-block; background: var(--gold); color: #fff;
+  border-radius: 4px; padding: 0.15rem 0.5rem; font-size: 0.78rem;
+  font-weight: bold; margin: 0.1rem; }
+
+/* ローディング */
+.loading { text-align: center; padding: 3rem; color: var(--text-light); font-size: 1.1rem; }

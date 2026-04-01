@@ -1,0 +1,201 @@
+<!DOCTYPE html>
+<html lang="ja">
+<head>
+<meta charset="UTF-8"><meta name="viewport" content="width=device-width,initial-scale=1">
+<title>遺産詳細 — せかけん道場</title>
+<link rel="stylesheet" href="css/style.css">
+</head>
+<body>
+<div id="nav-placeholder"></div>
+<div class="container" style="padding-top:1.2rem">
+
+  <div id="loading" class="loading">🏛️ 遺産データを読み込み中…</div>
+  <div id="content" style="display:none;"></div>
+
+  <!-- 遺産一覧（IDなしでアクセス時） -->
+  <div id="list-view" style="display:none;">
+    <div class="card" style="margin-bottom:1rem;">
+      <div class="section-title">🗾 日本の世界遺産一覧</div>
+      <div id="heritage-list"></div>
+    </div>
+  </div>
+
+</div>
+
+<script src="data/questions_data.js"></script>
+<script src="data/heritage_data.js"></script>
+<script src="js/storage.js"></script>
+<script src="js/adaptive.js"></script>
+<script src="js/app.js"></script>
+<script>
+'use strict';
+
+document.addEventListener('DOMContentLoaded', async () => {
+  injectNav();
+  await loadData();
+
+  const id = qs('id');
+  document.getElementById('loading').style.display = 'none';
+
+  if (id) {
+    showDetail(id);
+  } else {
+    showList();
+  }
+});
+
+function showDetail(id) {
+  const h = HERITAGE.find(x => x.id === id);
+  if (!h) {
+    document.getElementById('content').style.display = '';
+    document.getElementById('content').innerHTML = `
+      <div class="card">
+        <div style="color:#dc2626;font-weight:bold;">遺産データが見つかりません: ${escHtml(id)}</div>
+        <a href="heritage.html" class="btn btn-outline" style="margin-top:1rem;">← 一覧へ戻る</a>
+      </div>`;
+    return;
+  }
+
+  const typeLabel = h.type === 'cultural' ? '文化遺産' : h.type === 'natural' ? '自然遺産' : '複合遺産';
+  const typeColor = h.type === 'cultural' ? '#F39C12' : h.type === 'natural' ? '#27AE60' : '#2E75B6';
+
+  // 関連問題を取得
+  const relatedQs = QUESTIONS.filter(q =>
+    q.related_heritage_ids && q.related_heritage_ids.includes(id)
+  );
+
+  let html = `
+    <!-- ヘッダー -->
+    <div class="heritage-header" style="margin-bottom:1rem;">
+      <div style="display:flex;justify-content:space-between;align-items:flex-start;flex-wrap:wrap;gap:0.5rem;">
+        <div>
+          <div style="font-size:0.82rem;opacity:0.75;margin-bottom:0.3rem;">
+            <a href="heritage.html" style="color:#cce4ff;text-decoration:none;">← 遺産一覧</a>
+          </div>
+          <div style="font-size:1.4rem;font-weight:bold;">${escHtml(h.name_jp)}</div>
+          <div style="font-size:0.9rem;opacity:0.85;margin-top:0.2rem;">${escHtml(h.name_en)}</div>
+        </div>
+        <div style="text-align:right;">
+          <div style="background:${typeColor};color:#fff;display:inline-block;padding:0.2rem 0.7rem;border-radius:4px;font-size:0.85rem;font-weight:bold;">${typeLabel}</div>
+          <div style="font-size:0.82rem;opacity:0.8;margin-top:0.3rem;">登録: ${h.year_inscribed}年</div>
+          <div style="font-size:0.82rem;opacity:0.8;">${escHtml(h.region || h.country)}</div>
+        </div>
+      </div>
+    </div>
+
+    <!-- 登録基準 -->
+    <div class="card" style="margin-bottom:1rem;">
+      <div class="section-title">📜 登録基準（OUV）</div>
+      <div style="margin-bottom:0.6rem;">
+        ${h.criteria.map(c => `<span class="criteria-chip">基準(${c})</span>`).join('')}
+      </div>
+      <div style="font-size:0.88rem;color:#555;line-height:1.7;">${escHtml(h.summary)}</div>
+    </div>
+
+    <!-- ハイライト -->
+    <div class="card" style="margin-bottom:1rem;">
+      <div class="section-title">✨ 見どころ・特徴</div>
+      <ul style="padding-left:1.2rem;line-height:1.9;font-size:0.93rem;color:#444;">
+        ${h.highlights.map(hi => `<li>${escHtml(hi)}</li>`).join('')}
+      </ul>
+    </div>
+
+    <!-- リンク -->
+    <div class="card" style="margin-bottom:1rem;">
+      <div class="section-title">🔗 参考リンク</div>
+      <div style="display:flex;flex-wrap:wrap;gap:0.6rem;">
+        ${h.related_video
+          ? `<a href="${h.related_video}" target="_blank" rel="noopener" class="btn btn-sm" style="background:#dc2626;color:#fff;">🎬 YouTube動画</a>` : ''}
+        ${h.official_url
+          ? `<a href="${h.official_url}" target="_blank" rel="noopener" class="btn btn-sm btn-outline">🌐 公式サイト</a>` : ''}
+        <a href="https://ja.wikipedia.org/wiki/${encodeURIComponent(h.name_jp)}" target="_blank" rel="noopener" class="btn btn-sm btn-outline">📖 Wikipedia</a>
+      </div>
+    </div>`;
+
+  // 関連問題
+  if (relatedQs.length > 0) {
+    html += `
+    <div class="card" style="margin-bottom:1rem;">
+      <div class="section-title">📝 この遺産に関する問題 (${relatedQs.length}問)</div>
+      ${relatedQs.map(q => {
+        const rec = storage.getQRecord(q.id);
+        const statusIcon = rec.mastered ? '✅' : rec.weak_flag ? '⚠️' : rec.attempts > 0 ? '🔄' : '🆕';
+        const diffMap = {1:'★☆☆', 2:'★★☆', 3:'★★★'};
+        return `
+        <div style="border:1px solid #e2e8f0;border-radius:6px;padding:0.7rem 1rem;margin-bottom:0.5rem;background:#f8fafc;">
+          <div style="display:flex;justify-content:space-between;align-items:flex-start;flex-wrap:wrap;gap:0.3rem;">
+            <div>
+              <span style="font-size:0.82rem;color:#888;margin-right:0.4rem;">${statusIcon} ${diffMap[q.difficulty]||''}</span>
+              <span class="badge badge-${q.category}">${CAT_NAMES[q.category]||q.category}</span>
+            </div>
+            ${rec.attempts > 0
+              ? `<span style="font-size:0.78rem;color:#888;">${rec.correct}/${rec.attempts} 正解</span>` : ''}
+          </div>
+          <div style="font-size:0.9rem;margin:0.4rem 0;">${escHtml(q.question.slice(0,60))}${q.question.length>60?'…':''}</div>
+          <a href="quiz.html?id=${q.id}" class="btn btn-sm btn-primary">解く</a>
+        </div>`;
+      }).join('')}
+    </div>`;
+  }
+
+  html += `<div style="padding-bottom:1.5rem;"></div>`;
+
+  document.getElementById('content').style.display = '';
+  document.getElementById('content').innerHTML = html;
+}
+
+function showList() {
+  document.getElementById('list-view').style.display = '';
+
+  if (HERITAGE.length === 0) {
+    document.getElementById('heritage-list').innerHTML =
+      '<div style="color:#888;">遺産データが読み込まれていません。</div>';
+    return;
+  }
+
+  // タイプ別グループ
+  const cultural = HERITAGE.filter(h => h.type === 'cultural');
+  const natural  = HERITAGE.filter(h => h.type === 'natural');
+  const mixed    = HERITAGE.filter(h => h.type === 'mixed');
+
+  let html = '';
+  const groups = [
+    { label: '🏛️ 文化遺産', items: cultural, color: '#F39C12' },
+    { label: '🌿 自然遺産', items: natural, color: '#27AE60' },
+    { label: '🌄 複合遺産', items: mixed, color: '#2E75B6' }
+  ];
+
+  groups.forEach(g => {
+    if (g.items.length === 0) return;
+    html += `<div style="margin-bottom:1rem;">
+      <div style="font-size:0.95rem;font-weight:bold;color:${g.color};margin-bottom:0.5rem;padding-bottom:0.3rem;border-bottom:2px solid ${g.color};">
+        ${g.label}（${g.items.length}件）
+      </div>
+      <div style="display:grid;gap:0.4rem;">`;
+    g.items.forEach(h => {
+      const questCount = QUESTIONS.filter(q =>
+        q.related_heritage_ids && q.related_heritage_ids.includes(h.id)
+      ).length;
+      html += `
+        <a href="heritage.html?id=${h.id}" style="display:flex;justify-content:space-between;align-items:center;
+          padding:0.6rem 0.9rem;border:1px solid #e2e8f0;border-radius:6px;background:#fff;
+          text-decoration:none;color:var(--text);transition:background 0.15s;"
+          onmouseover="this.style.background='#f0f4f8'" onmouseout="this.style.background='#fff'">
+          <div>
+            <div style="font-weight:bold;font-size:0.93rem;">${escHtml(h.name_jp)}</div>
+            <div style="font-size:0.78rem;color:#888;">${h.year_inscribed}年登録 · ${escHtml(h.region||h.country)}</div>
+          </div>
+          <div style="text-align:right;font-size:0.8rem;color:#888;white-space:nowrap;">
+            ${questCount > 0 ? `📝 ${questCount}問` : ''}
+            <span style="margin-left:0.3rem;color:#2E75B6;">→</span>
+          </div>
+        </a>`;
+    });
+    html += '</div></div>';
+  });
+
+  document.getElementById('heritage-list').innerHTML = html;
+}
+</script>
+</body>
+</html>

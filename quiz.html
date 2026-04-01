@@ -1,0 +1,448 @@
+<!DOCTYPE html>
+<html lang="ja">
+<head>
+<meta charset="UTF-8"><meta name="viewport" content="width=device-width,initial-scale=1">
+<title>問題演習 — せかけん道場</title>
+<link rel="stylesheet" href="css/style.css">
+</head>
+<body>
+<div id="nav-placeholder"></div>
+<div class="container" style="padding-top:1.2rem">
+
+  <!-- 設定画面 -->
+  <div id="setup-screen">
+    <div class="card">
+      <div class="section-title">📚 問題演習の設定</div>
+      <div style="display:grid;gap:1.2rem;">
+
+        <div>
+          <div style="font-size:0.9rem;font-weight:bold;margin-bottom:0.5rem;color:#555;">カテゴリ</div>
+          <div style="display:flex;flex-wrap:wrap;gap:0.5rem;">
+            <button class="cat-btn btn btn-sm" data-cat="all" style="background:#2E75B6;color:#fff;">📚 全カテゴリ</button>
+            <button class="cat-btn btn btn-sm btn-outline" data-cat="basics">📖 基礎知識</button>
+            <button class="cat-btn btn btn-sm btn-outline" data-cat="japan">🏯 日本の遺産</button>
+            <button class="cat-btn btn btn-sm btn-outline" data-cat="nature">🌿 自然遺産</button>
+            <button class="cat-btn btn btn-sm btn-outline" data-cat="culture">🏛️ 文化遺産</button>
+          </div>
+        </div>
+
+        <div>
+          <div style="font-size:0.9rem;font-weight:bold;margin-bottom:0.5rem;color:#555;">難易度</div>
+          <div style="display:flex;flex-wrap:wrap;gap:0.5rem;">
+            <button class="diff-btn btn btn-sm" data-diff="all" style="background:#2E75B6;color:#fff;">すべて</button>
+            <button class="diff-btn btn btn-sm btn-outline" data-diff="1">★☆☆ 易</button>
+            <button class="diff-btn btn btn-sm btn-outline" data-diff="2">★★☆ 普</button>
+            <button class="diff-btn btn btn-sm btn-outline" data-diff="3">★★★ 難</button>
+          </div>
+        </div>
+
+        <div>
+          <div style="font-size:0.9rem;font-weight:bold;margin-bottom:0.5rem;color:#555;">問題数</div>
+          <div style="display:flex;flex-wrap:wrap;gap:0.5rem;">
+            <button class="num-btn btn btn-sm btn-outline" data-num="5">5問</button>
+            <button class="num-btn btn btn-sm" data-num="10" style="background:#2E75B6;color:#fff;">10問</button>
+            <button class="num-btn btn btn-sm btn-outline" data-num="20">20問</button>
+            <button class="num-btn btn btn-sm btn-outline" data-num="30">30問</button>
+            <button class="num-btn btn btn-sm btn-outline" data-num="all">全問</button>
+          </div>
+        </div>
+
+        <div>
+          <div style="font-size:0.9rem;font-weight:bold;margin-bottom:0.5rem;color:#555;">出題モード</div>
+          <div style="display:flex;flex-wrap:wrap;gap:0.5rem;">
+            <button class="mode-btn btn btn-sm" data-mode="adaptive" style="background:#2E75B6;color:#fff;">🧠 適応型（苦手優先）</button>
+            <button class="mode-btn btn btn-sm btn-outline" data-mode="random">🎲 ランダム</button>
+          </div>
+        </div>
+
+        <button id="start-btn" class="btn btn-primary btn-lg btn-block" style="margin-top:0.5rem;">
+          ▶ 演習スタート
+        </button>
+      </div>
+    </div>
+  </div>
+
+  <!-- 問題画面 -->
+  <div id="quiz-screen" style="display:none;">
+    <!-- 進捗バー -->
+    <div style="margin-bottom:0.8rem;">
+      <div style="display:flex;justify-content:space-between;font-size:0.85rem;color:#666;margin-bottom:0.3rem;">
+        <span id="progress-txt">問題 1 / 10</span>
+        <span id="score-txt">正解: 0問</span>
+      </div>
+      <div class="progress-bar"><div class="progress-fill" id="progress-fill" style="width:0%"></div></div>
+    </div>
+
+    <!-- 問題カード -->
+    <div class="question-card" id="question-card">
+      <div style="display:flex;justify-content:space-between;align-items:flex-start;margin-bottom:1rem;flex-wrap:wrap;gap:0.4rem;">
+        <div style="display:flex;gap:0.4rem;flex-wrap:wrap;">
+          <span class="badge" id="q-category-badge"></span>
+          <span class="badge" id="q-diff-badge"></span>
+        </div>
+        <button id="flag-btn" onclick="toggleFlag()" style="background:none;border:1px solid #ddd;border-radius:4px;padding:0.25rem 0.7rem;cursor:pointer;font-size:0.85rem;color:#888;">
+          🚩 苦手登録
+        </button>
+      </div>
+      <div class="question-text" id="question-text"></div>
+      <div id="choices-area"></div>
+      <div id="feedback-area" style="display:none;"></div>
+      <div id="action-btns" style="margin-top:1rem;display:none;"></div>
+    </div>
+  </div>
+
+  <!-- セッション終了画面 -->
+  <div id="end-screen" style="display:none;">
+    <div class="card" style="text-align:center;">
+      <div style="font-size:1.5rem;font-weight:bold;margin-bottom:1rem;">🎉 演習終了！</div>
+      <div class="score-circle" id="end-circle" style="margin-bottom:1.2rem;"></div>
+      <div id="end-stats" style="margin-bottom:1.4rem;"></div>
+      <div style="display:flex;flex-direction:column;gap:0.6rem;max-width:320px;margin:0 auto;">
+        <button class="btn btn-primary btn-block" onclick="restartSameSettings()">🔄 同じ設定でもう一度</button>
+        <a href="weakness.html" class="btn btn-warning btn-block">🎯 苦手問題を特訓</a>
+        <a href="index.html" class="btn btn-outline btn-block">📊 ダッシュボードへ</a>
+      </div>
+    </div>
+  </div>
+
+</div>
+
+<script src="data/questions_data.js"></script>
+<script src="data/heritage_data.js"></script>
+<script src="js/storage.js"></script>
+<script src="js/adaptive.js"></script>
+<script src="js/app.js"></script>
+<script>
+'use strict';
+
+// ── 状態管理 ──
+let settings = { cat: 'all', diff: 'all', num: 10, mode: 'adaptive' };
+let pool = [];
+let sessionQs = [];
+let currentIdx = 0;
+let correctCount = 0;
+let answered = false;
+let currentQ = null;
+
+// URL引数で即スタート対応
+document.addEventListener('DOMContentLoaded', async () => {
+  injectNav();
+  await loadData();
+
+  // URLからプリセット
+  const catParam = qs('cat');
+  const idParam  = qs('id');
+
+  if (idParam) {
+    // 特定ID指定
+    settings.cat = 'all'; settings.num = 'all'; settings.mode = 'adaptive';
+    applySettingUI();
+    startSessionWith([QUESTIONS.find(q => q.id === idParam)].filter(Boolean));
+    return;
+  }
+  if (catParam && catParam !== 'all') {
+    settings.cat = catParam;
+    applySettingUI();
+  }
+
+  // ボタンUI初期化
+  setupSettingBtns();
+});
+
+function applySettingUI() {
+  document.querySelectorAll('.cat-btn').forEach(b => {
+    const on = b.dataset.cat === settings.cat;
+    b.style.background = on ? '#2E75B6' : '';
+    b.style.color = on ? '#fff' : '';
+    b.classList.toggle('btn-outline', !on);
+  });
+}
+
+function setupSettingBtns() {
+  document.querySelectorAll('.cat-btn').forEach(b => {
+    b.addEventListener('click', () => {
+      settings.cat = b.dataset.cat;
+      document.querySelectorAll('.cat-btn').forEach(x => {
+        x.style.background=''; x.style.color=''; x.classList.add('btn-outline');
+      });
+      b.style.background='#2E75B6'; b.style.color='#fff'; b.classList.remove('btn-outline');
+    });
+  });
+  document.querySelectorAll('.diff-btn').forEach(b => {
+    b.addEventListener('click', () => {
+      settings.diff = b.dataset.diff;
+      document.querySelectorAll('.diff-btn').forEach(x => {
+        x.style.background=''; x.style.color=''; x.classList.add('btn-outline');
+      });
+      b.style.background='#2E75B6'; b.style.color='#fff'; b.classList.remove('btn-outline');
+    });
+  });
+  document.querySelectorAll('.num-btn').forEach(b => {
+    b.addEventListener('click', () => {
+      settings.num = b.dataset.num === 'all' ? 'all' : parseInt(b.dataset.num);
+      document.querySelectorAll('.num-btn').forEach(x => {
+        x.style.background=''; x.style.color=''; x.classList.add('btn-outline');
+      });
+      b.style.background='#2E75B6'; b.style.color='#fff'; b.classList.remove('btn-outline');
+    });
+  });
+  document.querySelectorAll('.mode-btn').forEach(b => {
+    b.addEventListener('click', () => {
+      settings.mode = b.dataset.mode;
+      document.querySelectorAll('.mode-btn').forEach(x => {
+        x.style.background=''; x.style.color=''; x.classList.add('btn-outline');
+      });
+      b.style.background='#2E75B6'; b.style.color='#fff'; b.classList.remove('btn-outline');
+    });
+  });
+
+  document.getElementById('start-btn').addEventListener('click', startSession);
+}
+
+function startSession() {
+  // フィルタリング
+  let filtered = QUESTIONS;
+  if (settings.cat !== 'all') filtered = filtered.filter(q => q.category === settings.cat);
+  if (settings.diff !== 'all') filtered = filtered.filter(q => q.difficulty === parseInt(settings.diff));
+  if (filtered.length === 0) {
+    alert('該当する問題がありません。条件を変更してください。');
+    return;
+  }
+  startSessionWith(filtered);
+}
+
+function startSessionWith(filteredPool) {
+  pool = filteredPool;
+  sessionQs = [];
+  currentIdx = 0;
+  correctCount = 0;
+
+  // 問題数決定
+  const total = settings.num === 'all' ? pool.length : Math.min(settings.num, pool.length);
+
+  // 適応型：selectNext で total 問選ぶ
+  const usedIds = [];
+  for (let i = 0; i < total; i++) {
+    const q = adaptive.selectNext(pool, usedIds, settings.mode);
+    if (!q) break;
+    sessionQs.push(q);
+    usedIds.push(q.id);
+  }
+
+  if (sessionQs.length === 0) { alert('問題を取得できませんでした。'); return; }
+
+  storage.startSession();
+  document.getElementById('setup-screen').style.display = 'none';
+  document.getElementById('quiz-screen').style.display = '';
+  showQuestion(0);
+}
+
+function showQuestion(idx) {
+  currentIdx = idx;
+  currentQ = sessionQs[idx];
+  answered = false;
+
+  const total = sessionQs.length;
+  document.getElementById('progress-txt').textContent = `問題 ${idx+1} / ${total}`;
+  document.getElementById('score-txt').textContent = `正解: ${correctCount}問`;
+  document.getElementById('progress-fill').style.width = `${(idx/total)*100}%`;
+
+  // バッジ
+  const catBadge = document.getElementById('q-category-badge');
+  catBadge.textContent = CAT_NAMES[currentQ.category] || currentQ.category;
+  catBadge.className = `badge badge-${currentQ.category}`;
+
+  const diffBadge = document.getElementById('q-diff-badge');
+  const diffMap = {1:'★☆☆ 易', 2:'★★☆ 普', 3:'★★★ 難'};
+  diffBadge.textContent = diffMap[currentQ.difficulty] || '';
+  diffBadge.className = `badge badge-${currentQ.difficulty===1?'easy':currentQ.difficulty===2?'normal':'hard'}`;
+
+  // 苦手フラグボタン
+  const rec = storage.getQRecord(currentQ.id);
+  updateFlagBtn(rec.weak_flag);
+
+  // 問題文
+  document.getElementById('question-text').textContent = currentQ.question;
+
+  // 選択肢
+  const choicesArea = document.getElementById('choices-area');
+  choicesArea.innerHTML = '';
+  currentQ.choices.forEach((choice, i) => {
+    const btn = document.createElement('button');
+    btn.className = 'choice-btn';
+    btn.textContent = `${['A','B','C','D'][i]}．${choice}`;
+    btn.addEventListener('click', () => handleAnswer(i, btn));
+    choicesArea.appendChild(btn);
+  });
+
+  // フィードバック・アクションリセット
+  document.getElementById('feedback-area').style.display = 'none';
+  document.getElementById('feedback-area').innerHTML = '';
+  document.getElementById('action-btns').style.display = 'none';
+  document.getElementById('action-btns').innerHTML = '';
+}
+
+function handleAnswer(idx, clickedBtn) {
+  if (answered) return;
+  answered = true;
+
+  const correctIdx = ['A','B','C','D'].indexOf(currentQ.correct);
+  const isCorrect = idx === correctIdx;
+
+  if (isCorrect) correctCount++;
+  storage.updateAfterAnswer(currentQ.id, currentQ.category, isCorrect);
+
+  // 選択肢の色付け
+  const allBtns = document.querySelectorAll('.choice-btn');
+  allBtns.forEach((btn, i) => {
+    btn.disabled = true;
+    if (i === correctIdx) btn.classList.add('correct');
+    else if (i === idx && !isCorrect) btn.classList.add('wrong');
+    else btn.classList.add('revealed');
+  });
+
+  // フィードバック表示
+  const fbArea = document.getElementById('feedback-area');
+  fbArea.style.display = '';
+
+  if (isCorrect) {
+    fbArea.innerHTML = `
+      <div class="feedback feedback-correct">
+        <div class="feedback-title">✅ 正解！</div>
+        <div class="feedback-exp">${escHtml(currentQ.short_explanation)}</div>
+        ${currentQ.related_heritage_ids && currentQ.related_heritage_ids.length > 0
+          ? `<div style="margin-top:0.5rem;font-size:0.85rem;">
+               🏛️ 関連遺産: ${currentQ.related_heritage_ids.map(id=>`<a href="heritage.html?id=${id}" style="color:#1A5A8D;">${id}</a>`).join(', ')}
+             </div>` : ''}
+      </div>`;
+    buildActionBtns(isCorrect);
+  } else {
+    fbArea.innerHTML = `
+      <div class="feedback feedback-wrong">
+        <div class="feedback-title">❌ 不正解…  正解: <span style="color:#155724;">${currentQ.correct}．${currentQ.choices[correctIdx]}</span></div>
+        <div class="feedback-exp">${escHtml(currentQ.short_explanation)}</div>
+        <button class="detail-toggle" onclick="toggleDetail(this)" style="margin-top:0.6rem;">
+          📖 詳細解説を見る ▼
+        </button>
+        <div class="detail-body">
+          <div>${escHtml(currentQ.detailed_explanation)}</div>
+          ${currentQ.related_video
+            ? `<div style="margin-top:0.6rem;">🎬 <a href="${currentQ.related_video}" target="_blank" rel="noopener" style="color:#1A5A8D;">関連動画を見る</a></div>` : ''}
+          ${currentQ.related_heritage_ids && currentQ.related_heritage_ids.length > 0
+            ? `<div style="margin-top:0.4rem;">🏛️ 関連遺産: ${currentQ.related_heritage_ids.map(id=>`<a href="heritage.html?id=${id}" style="color:#1A5A8D;">${id}</a>`).join(', ')}</div>` : ''}
+        </div>
+      </div>`;
+    buildActionBtns(isCorrect);
+  }
+}
+
+function toggleDetail(btn) {
+  const body = btn.nextElementSibling;
+  if (body.style.display === 'none' || !body.style.display) {
+    body.style.display = 'block';
+    btn.textContent = '📖 詳細解説を閉じる ▲';
+  } else {
+    body.style.display = 'none';
+    btn.textContent = '📖 詳細解説を見る ▼';
+  }
+}
+
+function buildActionBtns(isCorrect) {
+  const area = document.getElementById('action-btns');
+  area.style.display = '';
+  area.innerHTML = '';
+
+  const isLast = currentIdx >= sessionQs.length - 1;
+
+  if (!isCorrect && !isLast) {
+    // 類似問題ボタン（不正解時）
+    const usedIds = sessionQs.map(q => q.id);
+    const similar = adaptive.getSimilar(pool, currentQ, usedIds);
+    if (similar) {
+      const simBtn = document.createElement('button');
+      simBtn.className = 'btn btn-warning btn-block';
+      simBtn.style.marginBottom = '0.5rem';
+      simBtn.textContent = '🔁 類似問題を解く';
+      simBtn.addEventListener('click', () => {
+        // 類似問題をセッションに挿入（現在位置の次）
+        sessionQs.splice(currentIdx + 1, 0, similar);
+        nextQuestion();
+      });
+      area.appendChild(simBtn);
+    }
+  }
+
+  if (isLast) {
+    const endBtn = document.createElement('button');
+    endBtn.className = 'btn btn-primary btn-block';
+    endBtn.textContent = '🏁 結果を見る';
+    endBtn.addEventListener('click', showEndScreen);
+    area.appendChild(endBtn);
+  } else {
+    const nextBtn = document.createElement('button');
+    nextBtn.className = 'btn btn-success btn-block';
+    nextBtn.textContent = '次の問題へ →';
+    nextBtn.addEventListener('click', nextQuestion);
+    area.appendChild(nextBtn);
+  }
+}
+
+function nextQuestion() {
+  showQuestion(currentIdx + 1);
+}
+
+function showEndScreen() {
+  const total = sessionQs.length;
+  const pct = total > 0 ? Math.round(correctCount / total * 100) : 0;
+  storage.endSession(total, correctCount);
+
+  document.getElementById('quiz-screen').style.display = 'none';
+  document.getElementById('end-screen').style.display = '';
+
+  // スコア円
+  const circleColors = pct >= 80 ? ['#059669','#d1fae5'] : pct >= 60 ? ['#2563eb','#dbeafe'] : ['#dc2626','#fee2e2'];
+  document.getElementById('end-circle').style.cssText +=
+    `background:${circleColors[1]};border:6px solid ${circleColors[0]};`;
+  document.getElementById('end-circle').innerHTML = `
+    <div style="font-size:2.2rem;font-weight:bold;color:${circleColors[0]};">${pct}%</div>
+    <div style="font-size:0.85rem;color:#555;">${correctCount}/${total}</div>`;
+
+  const j = adaptive.judge(pct);
+  document.getElementById('end-stats').innerHTML = `
+    <div class="judgment-badge" style="color:${j.border};border-color:${j.border};background:${j.bg};">${j.grade}</div>
+    <div style="font-size:1.1rem;font-weight:bold;margin-top:0.5rem;">${j.label}</div>
+    <div style="font-size:0.9rem;color:#666;margin-top:0.3rem;">正解 ${correctCount} / ${total} 問（${pct}%）</div>`;
+
+  document.getElementById('progress-fill').style.width = '100%';
+}
+
+function restartSameSettings() {
+  document.getElementById('end-screen').style.display = 'none';
+  document.getElementById('quiz-screen').style.display = 'none';
+  document.getElementById('setup-screen').style.display = '';
+}
+
+function toggleFlag() {
+  const rec = storage.getQRecord(currentQ.id);
+  rec.weak_flag = !rec.weak_flag;
+  storage.saveQRecord(currentQ.id, rec);
+  updateFlagBtn(rec.weak_flag);
+}
+
+function updateFlagBtn(flagged) {
+  const btn = document.getElementById('flag-btn');
+  if (flagged) {
+    btn.style.background = '#fef3c7';
+    btn.style.borderColor = '#f59e0b';
+    btn.style.color = '#92400e';
+    btn.textContent = '🚩 苦手登録済み';
+  } else {
+    btn.style.background = '';
+    btn.style.borderColor = '#ddd';
+    btn.style.color = '#888';
+    btn.textContent = '🚩 苦手登録';
+  }
+}
+</script>
+</body>
+</html>

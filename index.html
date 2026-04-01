@@ -1,0 +1,232 @@
+<!DOCTYPE html>
+<html lang="ja">
+<head>
+<meta charset="UTF-8"><meta name="viewport" content="width=device-width,initial-scale=1">
+<title>せかけん道場 — ダッシュボード</title>
+<link rel="stylesheet" href="css/style.css">
+<script src="https://cdnjs.cloudflare.com/ajax/libs/Chart.js/4.4.0/chart.umd.min.js"></script>
+</head>
+<body>
+<div id="nav-placeholder"></div>
+<div class="container" style="padding-top:1.2rem">
+
+  <!-- ヘッダー -->
+  <div class="card" style="background:linear-gradient(135deg,#1A5A8D,#2E75B6);color:#fff;margin-bottom:1rem;">
+    <div style="display:flex;justify-content:space-between;align-items:center;flex-wrap:wrap;gap:0.5rem;">
+      <div>
+        <div style="font-size:0.85rem;opacity:0.8;">世界遺産検定3級対策</div>
+        <div style="font-size:1.4rem;font-weight:bold;">🏛️ せかけん道場</div>
+        <div id="last-study-txt" style="font-size:0.82rem;opacity:0.8;margin-top:0.2rem;"></div>
+      </div>
+      <div style="text-align:right;">
+        <div style="font-size:0.8rem;opacity:0.7;">目標試験日</div>
+        <div style="font-size:1.1rem;font-weight:bold;">第61回CBT</div>
+        <div style="font-size:0.85rem;opacity:0.85;">2025年8月31日〜9月14日</div>
+        <div id="days-left" style="font-size:0.82rem;margin-top:0.2rem;"></div>
+      </div>
+    </div>
+  </div>
+
+  <!-- 統計カード -->
+  <div class="stat-grid" style="margin-bottom:1rem;">
+    <div class="stat-card">
+      <div class="val" id="stat-total-q">0</div>
+      <div class="lbl">📝 総問題数</div>
+    </div>
+    <div class="stat-card" style="border-top-color:#27AE60">
+      <div class="val" id="stat-accuracy" style="color:#27AE60">--%</div>
+      <div class="lbl">✅ 全体正答率</div>
+    </div>
+    <div class="stat-card" style="border-top-color:#F39C12">
+      <div class="val" id="stat-study-time" style="color:#F39C12">0</div>
+      <div class="lbl">⏱️ 総学習時間(分)</div>
+    </div>
+    <div class="stat-card" style="border-top-color:#E74C3C">
+      <div class="val" id="stat-mock-score" style="color:#E74C3C">--</div>
+      <div class="lbl">🎓 最新模擬点数</div>
+    </div>
+  </div>
+
+  <!-- 合格可能性 + レーダーチャート -->
+  <div style="display:grid;grid-template-columns:1fr 1fr;gap:1rem;margin-bottom:1rem;" id="charts-row">
+    <div class="card">
+      <div class="section-title">🎯 合格可能性</div>
+      <div id="judgment-area" style="text-align:center;padding:0.6rem 0;">
+        <div style="font-size:0.9rem;color:#7f8c8d;">模擬テストを受験すると表示されます</div>
+      </div>
+    </div>
+    <div class="card">
+      <div class="section-title">📊 カテゴリ別習熟度</div>
+      <div style="max-height:200px;"><canvas id="radar-chart"></canvas></div>
+    </div>
+  </div>
+
+  <!-- 今日のおすすめ & クイックスタート -->
+  <div style="display:grid;grid-template-columns:1fr 1fr;gap:1rem;margin-bottom:1rem;" id="bottom-row">
+    <div class="card">
+      <div class="section-title">⚡ 今日のおすすめ</div>
+      <div id="recommend-area">
+        <div style="font-size:0.9rem;color:#7f8c8d;text-align:center;padding:1rem 0;">
+          問題を解くとおすすめが表示されます
+        </div>
+      </div>
+      <a href="weakness.html" class="btn btn-warning btn-block" style="margin-top:0.8rem;font-size:0.9rem;">
+        🎯 苦手問題を集中特訓
+      </a>
+    </div>
+    <div class="card">
+      <div class="section-title">🚀 クイックスタート</div>
+      <div style="display:flex;flex-direction:column;gap:0.6rem;">
+        <a href="quiz.html?cat=all" class="btn btn-primary btn-block">📚 全カテゴリ演習</a>
+        <a href="quiz.html?cat=basics" class="btn btn-block" style="background:#2E75B6;color:#fff;">📖 基礎知識</a>
+        <a href="quiz.html?cat=japan" class="btn btn-block" style="background:#E74C3C;color:#fff;">🏯 日本の遺産</a>
+        <a href="quiz.html?cat=nature" class="btn btn-block" style="background:#27AE60;color:#fff;">🌿 自然遺産</a>
+        <a href="quiz.html?cat=culture" class="btn btn-block" style="background:#F39C12;color:#fff;">🏛️ 文化遺産</a>
+        <a href="mock.html" class="btn btn-block" style="background:#8e44ad;color:#fff;">⏱️ 模擬テスト（50問）</a>
+      </div>
+    </div>
+  </div>
+
+  <!-- 学習進捗グラフ -->
+  <div class="card">
+    <div class="section-title">📈 カテゴリ別正答率</div>
+    <canvas id="bar-chart" style="max-height:180px;"></canvas>
+  </div>
+
+  <!-- フッター -->
+  <div style="text-align:right;margin-top:0.8rem;padding-bottom:1.5rem;">
+    <button onclick="storage.exportJSON()" class="btn btn-sm btn-outline" style="margin-right:0.4rem;">💾 データ保存</button>
+    <button onclick="storage.reset()" class="btn btn-sm" style="background:#e0e0e0;color:#666;">🗑️ リセット</button>
+  </div>
+</div>
+
+<script src="data/questions_data.js"></script>
+<script src="data/heritage_data.js"></script>
+<script src="js/storage.js"></script>
+<script src="js/adaptive.js"></script>
+<script src="js/app.js"></script>
+<script>
+document.addEventListener('DOMContentLoaded', async () => {
+  injectNav();
+
+  // 目標日まであと何日
+  const target = new Date('2025-08-31');
+  const today  = new Date();
+  const diff   = Math.ceil((target - today) / 86400000);
+  const daysEl = document.getElementById('days-left');
+  if (diff > 0) daysEl.textContent = `⏳ あと約 ${diff} 日`;
+  else daysEl.textContent = '🎓 試験期間中！';
+
+  const d = storage.load();
+  const last = d.last_study;
+  document.getElementById('last-study-txt').textContent =
+    last ? `最終学習日: ${last}` : '学習はまだ始まっていません';
+
+  // 統計カード
+  const totalQ = storage.getTotalQuestions();
+  const acc    = storage.getOverallAccuracy();
+  document.getElementById('stat-total-q').textContent = totalQ.toLocaleString();
+  document.getElementById('stat-accuracy').textContent =
+    totalQ > 0 ? acc + '%' : '--%';
+  document.getElementById('stat-study-time').textContent = d.total_study_minutes;
+
+  const mock = storage.getLastMockScore();
+  document.getElementById('stat-mock-score').textContent =
+    mock ? mock.score + '点' : '--';
+
+  // 合格可能性
+  if (mock) {
+    const j = adaptive.judge(mock.score);
+    document.getElementById('judgment-area').innerHTML = `
+      <div class="judgment-badge" style="color:${j.border};border-color:${j.border};background:${j.bg};">
+        ${j.grade}
+      </div>
+      <div style="font-size:1.1rem;font-weight:bold;margin-top:0.5rem;">${j.label}</div>
+      <div style="font-size:0.85rem;color:#666;margin-top:0.2rem;">最新模擬テスト: ${mock.score}点</div>
+      <div style="font-size:0.8rem;color:#888;">(${mock.date})</div>`;
+  }
+
+  // レーダーチャート
+  const catAcc = storage.getCategoryAccuracy();
+  const radarCtx = document.getElementById('radar-chart').getContext('2d');
+  new Chart(radarCtx, {
+    type: 'radar',
+    data: {
+      labels: ['基礎知識', '日本の遺産', '自然遺産', '文化遺産'],
+      datasets: [{
+        label: '正答率(%)',
+        data: [catAcc.basics||0, catAcc.japan||0, catAcc.nature||0, catAcc.culture||0],
+        fill: true,
+        backgroundColor: 'rgba(46,117,182,0.2)',
+        borderColor: '#2E75B6',
+        pointBackgroundColor: '#2E75B6',
+        pointBorderColor: '#fff',
+        pointRadius: 5
+      }]
+    },
+    options: {
+      responsive: true, maintainAspectRatio: true,
+      scales: { r: { beginAtZero: true, max: 100,
+        ticks: { stepSize: 25, font:{size:10} },
+        pointLabels: { font: { size: 11 } }
+      }},
+      plugins: { legend: { display: false } }
+    }
+  });
+
+  // 棒グラフ（カテゴリ別正答率）
+  const barCtx = document.getElementById('bar-chart').getContext('2d');
+  new Chart(barCtx, {
+    type: 'bar',
+    data: {
+      labels: ['基礎知識', '日本の遺産', '自然遺産', '文化遺産'],
+      datasets: [{
+        label: '正答率(%)',
+        data: [catAcc.basics||0, catAcc.japan||0, catAcc.nature||0, catAcc.culture||0],
+        backgroundColor: ['#2E75B6','#E74C3C','#27AE60','#F39C12'],
+        borderRadius: 6
+      }]
+    },
+    options: {
+      responsive: true, maintainAspectRatio: false,
+      scales: { y: { beginAtZero: true, max: 100, ticks: { callback: v => v+'%' } } },
+      plugins: {
+        legend: { display: false },
+        tooltip: { callbacks: { label: ctx => ` ${ctx.raw}%` } }
+      }
+    }
+  });
+
+  // おすすめ問題
+  const weakIds = storage.getWeakQuestions(3);
+  if (weakIds.length > 0) {
+    await loadData();
+    const qMap = {};
+    QUESTIONS.forEach(q => qMap[q.id] = q);
+    let html = '';
+    weakIds.forEach(id => {
+      const q = qMap[id];
+      if (!q) return;
+      const rec = storage.getQRecord(id);
+      html += `
+        <div style="border:1px solid #ffe0b2;border-radius:6px;padding:0.6rem 0.8rem;margin-bottom:0.5rem;background:#fff8e1;">
+          <div style="font-size:0.78rem;color:#f57c00;margin-bottom:0.2rem;">
+            <span class="badge badge-${q.category}">${CAT_NAMES[q.category]||q.category}</span>
+            誤答${rec.wrong_count||0}回
+          </div>
+          <div style="font-size:0.88rem;font-weight:bold;">${escHtml(q.question.slice(0,45))}${q.question.length>45?'…':''}</div>
+          <a href="quiz.html?id=${q.id}" class="btn btn-sm btn-warning" style="margin-top:0.4rem;">解く</a>
+        </div>`;
+    });
+    document.getElementById('recommend-area').innerHTML = html;
+  }
+
+  // レスポンシブ対応
+  if (window.innerWidth < 600) {
+    document.getElementById('charts-row').style.gridTemplateColumns = '1fr';
+    document.getElementById('bottom-row').style.gridTemplateColumns = '1fr';
+  }
+});
+</script>
+</body>
+</html>

@@ -1,0 +1,2610 @@
+[
+  {
+    "id": "Q001",
+    "category": "basics",
+    "subcategory": "OUV",
+    "difficulty": 1,
+    "question": "世界遺産が持つとされる特別な価値を何と呼ぶか。",
+    "choices": [
+      "A：普遍的文化価値",
+      "B：顕著な普遍的価値",
+      "C：国際的遺産価値",
+      "D：絶対的保存価値"
+    ],
+    "correct": "B",
+    "short_explanation": "OUV（Outstanding Universal Value）。人類全体に共通する現在・将来にわたる重要性をもつ価値。",
+    "detailed_explanation": "顕著な普遍的価値（OUV）とは、国家の境界を超え、人類全体にとって現在だけでなく将来世代にも共通した重要性をもつ文化的・自然的価値のこと。世界遺産に登録されるための最大の条件であり、登録基準（i〜x）のうち少なくとも一つを満たす必要がある。",
+    "related_video": "https://www.youtube.com/watch?v=hvIi6LcEWLA",
+    "related_heritage_ids": [],
+    "related_question_ids": [
+      "Q002",
+      "Q003"
+    ],
+    "source": "tool_01",
+    "tags": [
+      "OUV",
+      "顕著な普遍的価値",
+      "基礎"
+    ]
+  },
+  {
+    "id": "Q002",
+    "category": "basics",
+    "subcategory": "worldheritagelist",
+    "difficulty": 1,
+    "question": "世界遺産に登録された遺産が掲載されている文書を何と呼ぶか。",
+    "choices": [
+      "A：世界遺産目録",
+      "B：遺産保存台帳",
+      "C：世界遺産リスト",
+      "D：ユネスコ遺産名簿"
+    ],
+    "correct": "C",
+    "short_explanation": "「世界遺産リスト」。世界遺産委員会が作成・管理する正式な登録一覧。",
+    "detailed_explanation": "世界遺産リストは、世界遺産条約に基づき世界遺産委員会が作成・管理する登録遺産の一覧表。各遺産の名称・所在国・登録基準・登録年などが記載されている。危機にある遺産は「危機遺産リスト」に別途記載される。",
+    "related_video": "https://www.youtube.com/watch?v=hvIi6LcEWLA",
+    "related_heritage_ids": [],
+    "related_question_ids": [
+      "Q001",
+      "Q010"
+    ],
+    "source": "tool_01",
+    "tags": [
+      "世界遺産リスト",
+      "世界遺産委員会"
+    ]
+  },
+  {
+    "id": "Q003",
+    "category": "basics",
+    "subcategory": "history",
+    "difficulty": 2,
+    "question": "1978年に世界で最初に登録された世界遺産は何件か。",
+    "choices": [
+      "A：5件",
+      "B：8件",
+      "C：12件",
+      "D：20件"
+    ],
+    "correct": "C",
+    "short_explanation": "1978年に12件が最初の世界遺産として登録された。イエローストーン・ガラパゴス諸島など。",
+    "detailed_explanation": "1978年の第2回世界遺産委員会（ワシントンD.C.）で12件が最初に登録された。自然遺産：イエローストーン国立公園・ガラパゴス諸島・シミエン国立公園・ナハニ国立公園。文化遺産：ゴレ島・キトの市街・クラクフの歴史地区・アーヘンの大聖堂・ラリベラの岩の聖堂群・ヴィエリチカとボフニャの王立岩塩坑・メサ・ヴェルデ国立公園・ランス・オー・メドー国立歴史公園。",
+    "related_video": "https://www.youtube.com/watch?v=hvIi6LcEWLA",
+    "related_heritage_ids": [
+      "WH_W_001",
+      "WH_W_002"
+    ],
+    "related_question_ids": [
+      "Q004"
+    ],
+    "source": "tool_01",
+    "tags": [
+      "1978年",
+      "最初の世界遺産",
+      "12件"
+    ]
+  },
+  {
+    "id": "Q004",
+    "category": "basics",
+    "subcategory": "classification",
+    "difficulty": 1,
+    "question": "世界遺産の3つの分類として正しいものはどれか。",
+    "choices": [
+      "A：文化遺産・自然遺産・無形遺産",
+      "B：文化遺産・自然遺産・複合遺産",
+      "C：有形遺産・無形遺産・複合遺産",
+      "D：建築遺産・自然遺産・文化的景観"
+    ],
+    "correct": "B",
+    "short_explanation": "文化遺産・自然遺産・複合遺産の3分類。複合遺産は両方の基準を満たす。",
+    "detailed_explanation": "世界遺産は文化遺産・自然遺産・複合遺産の3種類に分類される。文化遺産は記念工作物・建造物群・遺跡など。自然遺産は自然の地形・生態系・生物多様性など。複合遺産は文化・自然両方の基準を満たすもの（例：トンガリロ国立公園・ピレネー山脈のモン・ペルデュ）。",
+    "related_video": "https://www.youtube.com/watch?v=hvIi6LcEWLA",
+    "related_heritage_ids": [],
+    "related_question_ids": [
+      "Q001"
+    ],
+    "source": "tool_01",
+    "tags": [
+      "分類",
+      "文化遺産",
+      "自然遺産",
+      "複合遺産"
+    ]
+  },
+  {
+    "id": "Q005",
+    "category": "basics",
+    "subcategory": "committee",
+    "difficulty": 1,
+    "question": "推薦された遺産の審議や世界遺産基金の使い道を話し合う組織として正しいものはどれか。",
+    "choices": [
+      "A：ユネスコ総会",
+      "B：世界遺産決定会議",
+      "C：世界遺産委員会",
+      "D：国連世界遺産部会"
+    ],
+    "correct": "C",
+    "short_explanation": "世界遺産委員会。年1回開催。委員国は21カ国。登録可否・危機遺産・基金使途を審議する。",
+    "detailed_explanation": "世界遺産委員会（World Heritage Committee）は世界遺産条約締約国の中から選ばれた21カ国で構成され、年1回開催される。主な役割は①世界遺産リストへの登録審議②危機遺産リストへの記載③世界遺産基金の使途決定④各遺産の保全状況の監視。",
+    "related_video": "https://www.youtube.com/watch?v=hvIi6LcEWLA",
+    "related_heritage_ids": [],
+    "related_question_ids": [
+      "Q006",
+      "Q007"
+    ],
+    "source": "tool_01",
+    "tags": [
+      "世界遺産委員会",
+      "審議",
+      "21カ国"
+    ]
+  },
+  {
+    "id": "Q006",
+    "category": "basics",
+    "subcategory": "committee",
+    "difficulty": 2,
+    "question": "世界遺産委員会の委員国は何カ国か。",
+    "choices": [
+      "A：15カ国",
+      "B：21カ国",
+      "C：25カ国",
+      "D：30カ国"
+    ],
+    "correct": "B",
+    "short_explanation": "委員国は21カ国。世界遺産条約締約国会議で選出され、任期6年（4年での交代が望ましい）。",
+    "detailed_explanation": "世界遺産委員会は21カ国の委員国で構成される。締約国会議で選出され任期は6年だが、4年での交代が望ましいとされる。地域バランスを考慮して選出され、特定の国が長期にわたって委員国を独占しないよう運用されている。",
+    "related_video": "https://www.youtube.com/watch?v=hvIi6LcEWLA",
+    "related_heritage_ids": [],
+    "related_question_ids": [
+      "Q005",
+      "Q007"
+    ],
+    "source": "tool_03",
+    "tags": [
+      "世界遺産委員会",
+      "21カ国",
+      "委員国"
+    ]
+  },
+  {
+    "id": "Q007",
+    "category": "basics",
+    "subcategory": "committee",
+    "difficulty": 2,
+    "question": "世界遺産委員会の委員国の任期は何年か。",
+    "choices": [
+      "A：3年",
+      "B：4年",
+      "C：6年",
+      "D：8年"
+    ],
+    "correct": "C",
+    "short_explanation": "任期は6年。ただし4年での交代が望ましいとされている。",
+    "detailed_explanation": "世界遺産委員会委員国の任期は6年だが、より多くの国が参加できるよう4年での任期途中交代が望ましいとされている。委員国は世界遺産条約締約国会議で改選される。",
+    "related_video": "https://www.youtube.com/watch?v=hvIi6LcEWLA",
+    "related_heritage_ids": [],
+    "related_question_ids": [
+      "Q005",
+      "Q006"
+    ],
+    "source": "tool_03",
+    "tags": [
+      "世界遺産委員会",
+      "任期",
+      "6年"
+    ]
+  },
+  {
+    "id": "Q008",
+    "category": "basics",
+    "subcategory": "convention",
+    "difficulty": 1,
+    "question": "世界遺産条約が採択された年はいつか。",
+    "choices": [
+      "A：1954年",
+      "B：1972年",
+      "C：1978年",
+      "D：1992年"
+    ],
+    "correct": "B",
+    "short_explanation": "1972年11月16日、パリのユネスコ総会で採択。正式名称は「世界の文化遺産及び自然遺産の保護に関する条約」。",
+    "detailed_explanation": "世界遺産条約は1972年11月16日、第17回ユネスコ総会（パリ）で採択された。正式名称は「世界の文化遺産及び自然遺産の保護に関する条約」。1978年に最初の遺産が登録された。日本は1992年に条約を締結した。",
+    "related_video": "https://www.youtube.com/watch?v=hvIi6LcEWLA",
+    "related_heritage_ids": [],
+    "related_question_ids": [
+      "Q009"
+    ],
+    "source": "original",
+    "tags": [
+      "世界遺産条約",
+      "1972年",
+      "採択"
+    ]
+  },
+  {
+    "id": "Q009",
+    "category": "basics",
+    "subcategory": "convention",
+    "difficulty": 2,
+    "question": "世界遺産条約の特徴として正しいものはどれか。",
+    "choices": [
+      "A：無形文化遺産と自然遺産を初めて1つの条約で保護",
+      "B：文化遺産と自然遺産を初めて1つの条約で保護",
+      "C：有形遺産と無形遺産を初めて1つの条約で保護",
+      "D：建築遺産と景観遺産を初めて1つの条約で保護"
+    ],
+    "correct": "B",
+    "short_explanation": "文化遺産と自然遺産を初めて一体的に保護した条約。以前は別々に保護されていた。",
+    "detailed_explanation": "世界遺産条約以前、文化遺産と自然遺産は別々の枠組みで保護されていた。世界遺産条約は両者を分けることのできないものとして初めて1つの条約の中で統合して保護することを定めた点が画期的だった。",
+    "related_video": "https://www.youtube.com/watch?v=hvIi6LcEWLA",
+    "related_heritage_ids": [],
+    "related_question_ids": [
+      "Q008",
+      "Q010"
+    ],
+    "source": "tool_02",
+    "tags": [
+      "世界遺産条約",
+      "文化遺産",
+      "自然遺産",
+      "特徴"
+    ]
+  },
+  {
+    "id": "Q010",
+    "category": "basics",
+    "subcategory": "convention",
+    "difficulty": 2,
+    "question": "世界遺産の保護・保全の第一の義務と責任があるのは誰か。",
+    "choices": [
+      "A：ユネスコ",
+      "B：世界遺産委員会",
+      "C：遺産保有国",
+      "D：ICOMOS"
+    ],
+    "correct": "C",
+    "short_explanation": "遺産保有国が第一の責任を負う。国際社会による支援はあくまで補完的なもの。",
+    "detailed_explanation": "世界遺産条約では、遺産を保有する国（遺産保有国）が自国の世界遺産を識別・保護・保全・整備・後世への継承に関して第一の義務と責任を負うことを定めている。ユネスコや世界遺産委員会による国際支援はあくまで補完的な役割に過ぎない。",
+    "related_video": "https://www.youtube.com/watch?v=hvIi6LcEWLA",
+    "related_heritage_ids": [],
+    "related_question_ids": [
+      "Q008",
+      "Q009"
+    ],
+    "source": "tool_02",
+    "tags": [
+      "遺産保有国",
+      "保護責任",
+      "世界遺産条約"
+    ]
+  },
+  {
+    "id": "Q011",
+    "category": "basics",
+    "subcategory": "convention",
+    "difficulty": 2,
+    "question": "世界遺産条約のきっかけとなった建設事業はどれか。",
+    "choices": [
+      "A：スエズ運河",
+      "B：パナマ運河",
+      "C：アスワン・ハイ・ダム",
+      "D：三峡ダム"
+    ],
+    "correct": "C",
+    "short_explanation": "エジプトのアスワン・ハイ・ダム建設。完成するとアブ・シンベル神殿などが水没する危機があった。",
+    "detailed_explanation": "エジプトのアスワン・ハイ・ダム建設により、ヌビア地方のアブ・シンベル神殿やフィラエのイシス神殿が水没する危機に。ユネスコが救済キャンペーンを展開し、世界各国が協力。この経験が「人類共通の遺産を国際社会で守る」という世界遺産条約の理念につながった。",
+    "related_video": "https://www.youtube.com/watch?v=hvIi6LcEWLA",
+    "related_heritage_ids": [],
+    "related_question_ids": [
+      "Q008",
+      "Q009"
+    ],
+    "source": "tool_02",
+    "tags": [
+      "アスワン・ハイ・ダム",
+      "アブ・シンベル神殿",
+      "条約のきっかけ"
+    ]
+  },
+  {
+    "id": "Q012",
+    "category": "basics",
+    "subcategory": "registration",
+    "difficulty": 1,
+    "question": "世界遺産申請の条件として正しくないものはどれか。",
+    "choices": [
+      "A：遺産を持つ国が締約国であること",
+      "B：遺産が観光客を多く集める名所であること",
+      "C：暫定リストに記載されていること",
+      "D：遺産が保有国の法律で保護されていること"
+    ],
+    "correct": "B",
+    "short_explanation": "観光的価値は申請条件に含まれない。観光客が多くても少なくても無関係。",
+    "detailed_explanation": "世界遺産登録の申請条件は①締約国であること②暫定リスト（テンタティブ・リスト）への記載③顕著な普遍的価値を持つこと④不動産であること⑤国内法で保護されていること⑥保有国自身からの申請、など。観光価値・知名度・来訪者数は条件に含まれない。",
+    "related_video": "https://www.youtube.com/watch?v=hvIi6LcEWLA",
+    "related_heritage_ids": [],
+    "related_question_ids": [
+      "Q013"
+    ],
+    "source": "tool_02",
+    "tags": [
+      "登録条件",
+      "暫定リスト",
+      "観光価値"
+    ]
+  },
+  {
+    "id": "Q013",
+    "category": "basics",
+    "subcategory": "advisory_bodies",
+    "difficulty": 2,
+    "question": "文化遺産の専門調査を行い勧告を出す機関はどれか。",
+    "choices": [
+      "A：IUCN",
+      "B：ICOMOS",
+      "C：UNESCO",
+      "D：UNEP"
+    ],
+    "correct": "B",
+    "short_explanation": "ICOMOS（国際記念物遺跡会議）。推薦書提出の文化遺産を専門調査し4段階の勧告を出す。",
+    "detailed_explanation": "ICOMOS（International Council on Monuments and Sites：国際記念物遺跡会議）は文化遺産を専門的に調査・評価する諮問機関。推薦書が提出された文化遺産について現地調査などを行い「登録」「情報照会」「登録延期」「不登録」の4段階の勧告を世界遺産委員会に提出する。",
+    "related_video": "https://www.youtube.com/watch?v=hvIi6LcEWLA",
+    "related_heritage_ids": [],
+    "related_question_ids": [
+      "Q014"
+    ],
+    "source": "tool_03",
+    "tags": [
+      "ICOMOS",
+      "文化遺産",
+      "諮問機関"
+    ]
+  },
+  {
+    "id": "Q014",
+    "category": "basics",
+    "subcategory": "advisory_bodies",
+    "difficulty": 2,
+    "question": "自然遺産の専門調査を行い勧告を出す機関はどれか。",
+    "choices": [
+      "A：IUCN",
+      "B：ICOMOS",
+      "C：WWF",
+      "D：UNEP"
+    ],
+    "correct": "A",
+    "short_explanation": "IUCN（国際自然保護連合）。自然遺産を専門調査し4段階の勧告を出す。",
+    "detailed_explanation": "IUCN（International Union for Conservation of Nature：国際自然保護連合）は自然遺産を専門的に調査・評価する諮問機関。ICOMOSと同様に4段階の勧告（登録・情報照会・登録延期・不登録）を世界遺産委員会に提出する。スイスのグランに本部を置く。",
+    "related_video": "https://www.youtube.com/watch?v=hvIi6LcEWLA",
+    "related_heritage_ids": [],
+    "related_question_ids": [
+      "Q013"
+    ],
+    "source": "tool_03",
+    "tags": [
+      "IUCN",
+      "自然遺産",
+      "諮問機関"
+    ]
+  },
+  {
+    "id": "Q015",
+    "category": "basics",
+    "subcategory": "criteria",
+    "difficulty": 1,
+    "question": "建物や景観などがその文化の独自性や伝統・技術を継承していることを示す概念はどれか。",
+    "choices": [
+      "A：本物性",
+      "B：伝統性",
+      "C：真正性",
+      "D：継続性"
+    ],
+    "correct": "C",
+    "short_explanation": "真正性（オーセンティシティ）。修復の際も伝統的な技術・部材の使用が求められる。",
+    "detailed_explanation": "真正性（authenticity）とは、遺産が持つ文化的な独自性・伝統・技術が本物であり継承されていることを示す概念。修復の際には厳密に伝統的な技術や部材の使用が求められる。特に文化遺産の登録基準において重要な概念。1994年の「奈良文書」で多様な文化における真正性の理解が深まった。",
+    "related_video": "https://www.youtube.com/watch?v=hvIi6LcEWLA",
+    "related_heritage_ids": [],
+    "related_question_ids": [
+      "Q016"
+    ],
+    "source": "tool_04",
+    "tags": [
+      "真正性",
+      "オーセンティシティ",
+      "登録基準"
+    ]
+  },
+  {
+    "id": "Q016",
+    "category": "basics",
+    "subcategory": "criteria",
+    "difficulty": 1,
+    "question": "世界遺産の顕著な普遍的価値を保護・保全するための必要条件がすべて揃っていることを示す概念はどれか。",
+    "choices": [
+      "A：完全性",
+      "B：完璧性",
+      "C：包括性",
+      "D：全体性"
+    ],
+    "correct": "A",
+    "short_explanation": "完全性（インテグリティ）。保護区の広さ・保全計画・人員・予算などが整っていること。",
+    "detailed_explanation": "完全性（integrity）とは、顕著な普遍的価値を保護・保全するために必要な条件がすべて揃っていることを示す概念。十分な広さの保護区・保全計画・予算・人員などの確保が含まれる。自然遺産では特に重要で、生態系全体が保護されているかが問われる。",
+    "related_video": "https://www.youtube.com/watch?v=hvIi6LcEWLA",
+    "related_heritage_ids": [],
+    "related_question_ids": [
+      "Q015"
+    ],
+    "source": "tool_04",
+    "tags": [
+      "完全性",
+      "インテグリティ",
+      "登録基準"
+    ]
+  },
+  {
+    "id": "Q017",
+    "category": "basics",
+    "subcategory": "concepts",
+    "difficulty": 2,
+    "question": "人類が長い時間をかけて自然と共につくり上げた景観などを保護する概念は何か。",
+    "choices": [
+      "A：複合景観",
+      "B：文化的景観",
+      "C：歴史的景観",
+      "D：伝統的景観"
+    ],
+    "correct": "B",
+    "short_explanation": "文化的景観。日本では2004年登録の『紀伊山地の霊場と参詣道』が最初。",
+    "detailed_explanation": "文化的景観とは、人間と自然の長年にわたる相互作用によって形成された景観や土地利用を保護する概念。登録基準の(v)に関連する。日本では2004年登録の『紀伊山地の霊場と参詣道』が初の文化的景観として認定。ニュージーランドの『トンガリロ国立公園』が1993年に世界初の文化的景観として複合遺産になった。",
+    "related_video": "https://www.youtube.com/watch?v=hvIi6LcEWLA",
+    "related_heritage_ids": [
+      "WH_JP_012",
+      "WH_W_NZ001"
+    ],
+    "related_question_ids": [
+      "Q047"
+    ],
+    "source": "tool_04",
+    "tags": [
+      "文化的景観",
+      "トンガリロ",
+      "紀伊山地"
+    ]
+  },
+  {
+    "id": "Q018",
+    "category": "basics",
+    "subcategory": "concepts",
+    "difficulty": 2,
+    "question": "文化や歴史的背景・自然環境などが共通する複数の遺産を「1つの遺産」として登録する概念は何か。",
+    "choices": [
+      "A：トランスバウンダリー・サイト",
+      "B：シリアル・ノミネーション・サイト",
+      "C：クラスター遺産",
+      "D：複合遺産"
+    ],
+    "correct": "B",
+    "short_explanation": "シリアル・ノミネーション・サイト（連続性のある遺産）。「明治日本の産業革命遺産」「古都京都の文化財」などが例。",
+    "detailed_explanation": "シリアル・ノミネーション・サイト（serial nomination site）とは、共通のテーマ・歴史・文化・自然環境を持つ複数の遺産を一括して「1件」として登録する手法。「明治日本の産業革命遺産」（23資産）や「古都京都の文化財」（17資産）などが日本の例。",
+    "related_video": "https://www.youtube.com/watch?v=hvIi6LcEWLA",
+    "related_heritage_ids": [
+      "WH_JP_019",
+      "WH_JP_005"
+    ],
+    "related_question_ids": [
+      "Q019"
+    ],
+    "source": "tool_04",
+    "tags": [
+      "シリアル・ノミネーション",
+      "連続性",
+      "複数資産"
+    ]
+  },
+  {
+    "id": "Q019",
+    "category": "basics",
+    "subcategory": "concepts",
+    "difficulty": 2,
+    "question": "国境をまたいで複数の国が共同で保有する遺産を登録する概念は何か。",
+    "choices": [
+      "A：マルチ・ノミネーション",
+      "B：トランスバウンダリー・サイト",
+      "C：クロスボーダー遺産",
+      "D：シリアル・ノミネーション・サイト"
+    ],
+    "correct": "B",
+    "short_explanation": "トランスバウンダリー・サイト（越境遺産）。日本初は「ル・コルビュジエの建築作品」（7カ国）。",
+    "detailed_explanation": "トランスバウンダリー・サイト（transboundary site）とは、国境をまたいで存在する自然・文化遺産を複数の国が共同で推薦・保有する形態。日本初のトランスバウンダリー・サイトは2016年登録の「ル・コルビュジエの建築作品」（日・仏・スイス・独・ベルギー・印・アルゼンチンの7カ国）。",
+    "related_video": "https://www.youtube.com/watch?v=hvIi6LcEWLA",
+    "related_heritage_ids": [
+      "WH_JP_020"
+    ],
+    "related_question_ids": [
+      "Q018",
+      "Q044"
+    ],
+    "source": "tool_04",
+    "tags": [
+      "トランスバウンダリー",
+      "越境遺産",
+      "ル・コルビュジエ"
+    ]
+  },
+  {
+    "id": "Q020",
+    "category": "basics",
+    "subcategory": "UNESCO",
+    "difficulty": 1,
+    "question": "ユネスコの前文に記された言葉として正しいものはどれか。",
+    "choices": [
+      "A：「戦争は人の心の中に生まれるものだから、人の心の中にこそ知恵の砦を築かなければならない」",
+      "B：「戦争は人の心の中に生まれるものだから、人の心の中にこそ平和のとりでを築かなければならない」",
+      "C：「平和は人の心の中に生まれるものだから、人の心の中にこそ希望の灯を灯さなければならない」",
+      "D：「人類の共通遺産は、すべての人の心の中にこそ平和のとりでを築かなければならない」"
+    ],
+    "correct": "B",
+    "short_explanation": "「戦争は人の心の中に生まれるものだから、人の心の中にこそ平和のとりでを築かなければならない」。",
+    "detailed_explanation": "ユネスコ（UNESCO）の前文にある有名な一節。世界遺産条約もユネスコの平和活動の一環であり、世界遺産の保護・保全も「平和のとりで」を心に築くことにつながるとされる。ユネスコは1946年に設立された国連教育科学文化機関。",
+    "related_video": "https://www.youtube.com/watch?v=hvIi6LcEWLA",
+    "related_heritage_ids": [],
+    "related_question_ids": [
+      "Q021"
+    ],
+    "source": "tool_05",
+    "tags": [
+      "ユネスコ",
+      "前文",
+      "平和のとりで"
+    ]
+  },
+  {
+    "id": "Q021",
+    "category": "basics",
+    "subcategory": "Japan_basics",
+    "difficulty": 2,
+    "question": "日本で最初に登録された世界遺産（1993年）として正しいものはどれか（4件）。",
+    "choices": [
+      "A：法隆寺・姫路城・屋久島・白神山地",
+      "B：法隆寺・金閣寺・屋久島・富士山",
+      "C：姫路城・白神山地・古都京都の文化財・知床",
+      "D：法隆寺・姫路城・屋久島・古都奈良の文化財"
+    ],
+    "correct": "A",
+    "short_explanation": "1993年登録の4件：法隆寺地域の仏教建造物（文化）・姫路城（文化）・屋久島（自然）・白神山地（自然）。",
+    "detailed_explanation": "1992年に日本が世界遺産条約を締結後、1993年に最初の4件が登録された。文化遺産が法隆寺地域の仏教建造物・姫路城の2件、自然遺産が屋久島・白神山地の2件。この4件は今も基礎知識として頻出の問題。",
+    "related_video": "https://www.youtube.com/watch?v=p2Fv8rQygAY",
+    "related_heritage_ids": [
+      "WH_JP_001",
+      "WH_JP_002",
+      "WH_JP_003",
+      "WH_JP_004"
+    ],
+    "related_question_ids": [
+      "Q022"
+    ],
+    "source": "tool_05",
+    "tags": [
+      "日本最初",
+      "1993年",
+      "4件",
+      "法隆寺",
+      "姫路城",
+      "屋久島",
+      "白神山地"
+    ]
+  },
+  {
+    "id": "Q022",
+    "category": "basics",
+    "subcategory": "Japan_basics",
+    "difficulty": 2,
+    "question": "日本が世界遺産条約を締結した年はいつか。",
+    "choices": [
+      "A：1972年",
+      "B：1988年",
+      "C：1992年",
+      "D：1993年"
+    ],
+    "correct": "C",
+    "short_explanation": "日本は1992年に締結。翌1993年に初の4件が登録された。",
+    "detailed_explanation": "世界遺産条約は1972年採択。日本は1992年（平成4年）に締結した。締結の翌年1993年に法隆寺地域の仏教建造物・姫路城・屋久島・白神山地の4件が最初に登録された。",
+    "related_video": "https://www.youtube.com/watch?v=hvIi6LcEWLA",
+    "related_heritage_ids": [],
+    "related_question_ids": [
+      "Q021"
+    ],
+    "source": "original",
+    "tags": [
+      "日本",
+      "条約締結",
+      "1992年"
+    ]
+  },
+  {
+    "id": "Q023",
+    "category": "basics",
+    "subcategory": "related_conventions",
+    "difficulty": 2,
+    "question": "世界の伝統儀礼・風俗習慣・音楽・舞踏などを登録する条約は何か。",
+    "choices": [
+      "A：世界遺産条約",
+      "B：無形文化遺産保護条約",
+      "C：文化的多様性条約",
+      "D：記録遺産保護条約"
+    ],
+    "correct": "B",
+    "short_explanation": "無形文化遺産保護条約（2003年採択）。日本から「能楽」「歌舞伎」「和食」「和紙の伝統技術」などが登録。",
+    "detailed_explanation": "無形文化遺産保護条約は2003年にユネスコ総会で採択。伝統工芸・舞台芸術・祭礼・口承伝統などの無形文化遺産を保護する。日本からは能楽・歌舞伎・人形浄瑠璃文楽・雅楽・和食・和紙の伝統技術・山・鉾・屋台行事など多数が登録されている。",
+    "related_video": "https://www.youtube.com/watch?v=hvIi6LcEWLA",
+    "related_heritage_ids": [],
+    "related_question_ids": [
+      "Q024"
+    ],
+    "source": "tool_05",
+    "tags": [
+      "無形文化遺産保護条約",
+      "能楽",
+      "歌舞伎",
+      "和食"
+    ]
+  },
+  {
+    "id": "Q024",
+    "category": "basics",
+    "subcategory": "related_conventions",
+    "difficulty": 2,
+    "question": "書物・文書・絵画などの記録を守るユネスコのプログラムは何か。",
+    "choices": [
+      "A：世界の記憶",
+      "B：文化的多様性記録",
+      "C：書物遺産",
+      "D：記録遺産リスト"
+    ],
+    "correct": "A",
+    "short_explanation": "「世界の記憶（Memory of the World）」。日本からは「山本作兵衛炭坑記録画・記録文書」などが選ばれている。",
+    "detailed_explanation": "「世界の記憶（Memory of the World）」はユネスコが1992年に設立したプログラム。図書館・文書館・博物館などが所蔵する重要な記録遺産を登録して保護する。日本からは「山本作兵衛炭坑記録画・記録文書」「東寺百合文書」「御堂関白記」「朝鮮通信使に関する記録」などが登録されている。",
+    "related_video": "https://www.youtube.com/watch?v=hvIi6LcEWLA",
+    "related_heritage_ids": [],
+    "related_question_ids": [
+      "Q023"
+    ],
+    "source": "tool_05",
+    "tags": [
+      "世界の記憶",
+      "ユネスコ",
+      "記録遺産"
+    ]
+  },
+  {
+    "id": "Q025",
+    "category": "basics",
+    "subcategory": "committee",
+    "difficulty": 2,
+    "question": "危機遺産リストへの記載についての説明として正しいものはどれか。",
+    "choices": [
+      "A：登録が取り消された遺産が記載される",
+      "B：顕著な普遍的価値が脅かされている遺産が記載される",
+      "C：登録申請中の遺産が一時的に記載される",
+      "D：自然災害で被害を受けた遺産のみが記載される"
+    ],
+    "correct": "B",
+    "short_explanation": "武力紛争・自然災害・開発・密猟など様々な脅威により価値が損なわれる恐れがある遺産が記載される。",
+    "detailed_explanation": "危機遺産リスト（危機にさらされている世界遺産リスト）には、武力紛争・自然災害・急速な都市化・大型開発・密猟・放置による劣化など、顕著な普遍的価値が深刻な脅威にさらされている遺産が記載される。記載により国際的な支援や協力が促進される。改善されれば除外、回復不可能なほど価値が失われれば登録抹消となる。",
+    "related_video": "https://www.youtube.com/watch?v=hvIi6LcEWLA",
+    "related_heritage_ids": [],
+    "related_question_ids": [
+      "Q005"
+    ],
+    "source": "original",
+    "tags": [
+      "危機遺産リスト",
+      "脅威",
+      "保全"
+    ]
+  },
+  {
+    "id": "Q026",
+    "category": "basics",
+    "subcategory": "criteria",
+    "difficulty": 3,
+    "question": "世界遺産の登録基準（クライテリア）は何番まであるか。",
+    "choices": [
+      "A：6番",
+      "B：8番",
+      "C：10番",
+      "D：12番"
+    ],
+    "correct": "C",
+    "short_explanation": "登録基準は(i)〜(x)の10項目。(i)〜(vi)が文化遺産基準、(vii)〜(x)が自然遺産基準。",
+    "detailed_explanation": "世界遺産の登録基準（クライテリア）は(i)〜(x)の全10項目。(i)傑作・(ii)交流・(iii)証拠・(iv)建築様式・(v)文化的景観・(vi)思想・芸術が文化遺産基準。(vii)自然美・(viii)地球の歴史・(ix)生態系・(x)生物多様性が自然遺産基準。少なくとも1つを満たし、かつ真正性・完全性の条件を満たす必要がある。",
+    "related_video": "https://www.youtube.com/watch?v=hvIi6LcEWLA",
+    "related_heritage_ids": [],
+    "related_question_ids": [
+      "Q015",
+      "Q016"
+    ],
+    "source": "original",
+    "tags": [
+      "登録基準",
+      "クライテリア",
+      "10項目"
+    ]
+  },
+  {
+    "id": "Q027",
+    "category": "basics",
+    "subcategory": "Japan_basics",
+    "difficulty": 2,
+    "question": "2021年時点での日本の世界遺産数として正しいものはどれか。",
+    "choices": [
+      "A：20件",
+      "B：23件",
+      "C：25件",
+      "D：27件"
+    ],
+    "correct": "C",
+    "short_explanation": "2021年に奄美大島等・縄文遺跡群が登録され25件。文化遺産20件・自然遺産5件。",
+    "detailed_explanation": "日本の世界遺産は2021年の「奄美大島、徳之島、沖縄島北部及び西表島」「北海道・北東北の縄文遺跡群」の登録により25件（文化遺産20件・自然遺産5件）となった。2025年現在も25件。",
+    "related_video": "https://www.youtube.com/watch?v=p2Fv8rQygAY",
+    "related_heritage_ids": [],
+    "related_question_ids": [
+      "Q021"
+    ],
+    "source": "original",
+    "tags": [
+      "日本",
+      "25件",
+      "2021年",
+      "遺産数"
+    ]
+  },
+  {
+    "id": "Q028",
+    "category": "basics",
+    "subcategory": "world_stats",
+    "difficulty": 2,
+    "question": "世界遺産の総数として最も近いものはどれか（2024年時点）。",
+    "choices": [
+      "A：約800件",
+      "B：約1000件",
+      "C：約1200件",
+      "D：約1500件"
+    ],
+    "correct": "C",
+    "short_explanation": "2024年時点で約1,199件（文化遺産933・自然遺産227・複合遺産39）。",
+    "detailed_explanation": "世界遺産の総数は年々増加している。2024年の世界遺産委員会（インド・ニューデリー）の審議後、約1,199件（文化遺産933件・自然遺産227件・複合遺産39件）。締約国は194カ国（2024年時点）。",
+    "related_video": "https://www.youtube.com/watch?v=hvIi6LcEWLA",
+    "related_heritage_ids": [],
+    "related_question_ids": [
+      "Q003"
+    ],
+    "source": "original",
+    "tags": [
+      "総数",
+      "1199件",
+      "文化遺産",
+      "自然遺産",
+      "複合遺産"
+    ]
+  },
+  {
+    "id": "Q029",
+    "category": "basics",
+    "subcategory": "world_stats",
+    "difficulty": 2,
+    "question": "世界遺産の保有数が最も多い国として正しいものはどれか（2024年時点）。",
+    "choices": [
+      "A：アメリカ合衆国",
+      "B：フランス",
+      "C：イタリア",
+      "D：中華人民共和国"
+    ],
+    "correct": "C",
+    "short_explanation": "イタリアが世界最多の59件（2024年時点）。中国・ドイツ・フランスが上位に続く。",
+    "detailed_explanation": "世界遺産の国別保有数は、イタリアが最多で59件（2024年）。続いて中国57件・ドイツ54件・フランス52件・スペイン50件など。2020年時点ではイタリア・中国が同数（55件）で最多だったが、その後の登録によりイタリアが首位に。",
+    "related_video": "https://www.youtube.com/watch?v=hvIi6LcEWLA",
+    "related_heritage_ids": [],
+    "related_question_ids": [
+      "Q027"
+    ],
+    "source": "original",
+    "tags": [
+      "保有数",
+      "イタリア",
+      "最多",
+      "国別"
+    ]
+  },
+  {
+    "id": "Q030",
+    "category": "basics",
+    "subcategory": "UNESCO",
+    "difficulty": 1,
+    "question": "ユネスコ（UNESCO）の正式名称として正しいものはどれか。",
+    "choices": [
+      "A：国連教育文化財団",
+      "B：国連教育科学文化機関",
+      "C：国際遺産文化教育機構",
+      "D：国連文化遺産保護機構"
+    ],
+    "correct": "B",
+    "short_explanation": "UNESCO＝United Nations Educational, Scientific and Cultural Organization（国連教育科学文化機関）。1946年設立。",
+    "detailed_explanation": "ユネスコ（UNESCO）は1946年設立の国際連合専門機関で、本部はフランス・パリ。教育・科学・文化の国際協力を通じた平和と安全の促進を目的とする。世界遺産条約の管理・運営、無形文化遺産保護条約の管理なども担う。加盟国数は194カ国（2024年）。",
+    "related_video": "https://www.youtube.com/watch?v=hvIi6LcEWLA",
+    "related_heritage_ids": [],
+    "related_question_ids": [
+      "Q020"
+    ],
+    "source": "original",
+    "tags": [
+      "ユネスコ",
+      "UNESCO",
+      "正式名称",
+      "1946年"
+    ]
+  },
+  {
+    "id": "Q031",
+    "category": "japan",
+    "subcategory": "horyuji",
+    "difficulty": 1,
+    "question": "日本最古の木造建築を含み、1993年に最初の世界遺産の一つとなった奈良の遺産はどれか。",
+    "choices": [
+      "A：東大寺",
+      "B：法隆寺地域の仏教建造物",
+      "C：春日大社",
+      "D：興福寺"
+    ],
+    "correct": "B",
+    "short_explanation": "法隆寺地域の仏教建造物。7世紀創建で日本最古の木造建築群。登録基準(i)(ii)(iv)(vi)。",
+    "detailed_explanation": "奈良県の法隆寺は聖徳太子が607年に創建（飛鳥時代）。五重塔・金堂などは世界最古の木造建築。世界遺産には法隆寺と法起寺を含む「法隆寺地域の仏教建造物」として登録。登録基準(i)(ii)(iv)(vi)。日本が1992年に世界遺産条約を批准後、1993年に最初に登録された4件の一つ。",
+    "related_video": "https://www.youtube.com/watch?v=p2Fv8rQygAY",
+    "related_heritage_ids": [
+      "WH_JP_001"
+    ],
+    "related_question_ids": [
+      "Q032"
+    ],
+    "source": "original",
+    "tags": [
+      "法隆寺",
+      "奈良",
+      "1993年",
+      "木造",
+      "7世紀"
+    ]
+  },
+  {
+    "id": "Q032",
+    "category": "japan",
+    "subcategory": "himeji",
+    "difficulty": 1,
+    "question": "「白鷺城」とも呼ばれ、日本の城郭建築の最高傑作として1993年に登録された世界遺産はどれか。",
+    "choices": [
+      "A：大阪城",
+      "B：松本城",
+      "C：姫路城",
+      "D：熊本城"
+    ],
+    "correct": "C",
+    "short_explanation": "姫路城（兵庫県）。白い漆喰塗りの外壁から「白鷺城」の別名。登録基準(i)(iv)。",
+    "detailed_explanation": "姫路城（兵庫県姫路市）は白い漆喰塗りの外壁が白鷺（サギ）を思わせることから「白鷺城」とも呼ばれる。17世紀初頭の姿をほぼ完全な形で残す日本の城郭建築の最高傑作。1993年登録。登録基準(i)(iv)。天守閣が現存する数少ない城の一つ。",
+    "related_video": "https://www.youtube.com/watch?v=p2Fv8rQygAY",
+    "related_heritage_ids": [
+      "WH_JP_002"
+    ],
+    "related_question_ids": [
+      "Q031"
+    ],
+    "source": "original",
+    "tags": [
+      "姫路城",
+      "白鷺城",
+      "兵庫県",
+      "1993年",
+      "城郭"
+    ]
+  },
+  {
+    "id": "Q033",
+    "category": "japan",
+    "subcategory": "yakushima",
+    "difficulty": 1,
+    "question": "樹齢数千年の屋久杉で知られ、1993年に自然遺産として登録された鹿児島県の島はどれか。",
+    "choices": [
+      "A：種子島",
+      "B：奄美大島",
+      "C：屋久島",
+      "D：トカラ列島"
+    ],
+    "correct": "C",
+    "short_explanation": "屋久島（鹿児島県）。縄文杉など樹齢数千年の屋久杉が生息。「月のうち35日は雨」といわれる多雨の島。",
+    "detailed_explanation": "屋久島（鹿児島県）は九州南部に位置し、樹齢数千年に達する屋久杉（スギ）の原生林で知られる。「月に35日雨が降る」といわれるほど降水量が多く、豊かな生態系を育む。縄文杉・弥生杉などの古木が有名。1993年自然遺産登録。登録基準(vii)(ix)。",
+    "related_video": "https://www.youtube.com/watch?v=p2Fv8rQygAY",
+    "related_heritage_ids": [
+      "WH_JP_003"
+    ],
+    "related_question_ids": [
+      "Q034"
+    ],
+    "source": "original",
+    "tags": [
+      "屋久島",
+      "鹿児島",
+      "屋久杉",
+      "縄文杉",
+      "自然遺産",
+      "1993年"
+    ]
+  },
+  {
+    "id": "Q034",
+    "category": "japan",
+    "subcategory": "shirakami",
+    "difficulty": 2,
+    "question": "ブナを中心とする原生林と特別天然記念物・ニホンカモシカで知られる世界遺産はどれか。",
+    "choices": [
+      "A：知床",
+      "B：白神山地",
+      "C：小笠原諸島",
+      "D：奄美大島"
+    ],
+    "correct": "B",
+    "short_explanation": "白神山地（青森・秋田）。人の手が入っていないブナ原生林が世界最大級。1993年自然遺産登録。",
+    "detailed_explanation": "白神山地（青森県・秋田県の県境）にはブナを中心とする落葉広葉樹の原生林が広がり、その規模は世界最大級。氷河期にも氷河に覆われなかったため原生林が残った。ニホンカモシカ（特別天然記念物）のほか14種の哺乳類が生息。1993年自然遺産登録。",
+    "related_video": "https://www.youtube.com/watch?v=p2Fv8rQygAY",
+    "related_heritage_ids": [
+      "WH_JP_004"
+    ],
+    "related_question_ids": [
+      "Q033"
+    ],
+    "source": "tool_06",
+    "tags": [
+      "白神山地",
+      "ブナ",
+      "ニホンカモシカ",
+      "1993年",
+      "自然遺産",
+      "青森",
+      "秋田"
+    ]
+  },
+  {
+    "id": "Q035",
+    "category": "japan",
+    "subcategory": "kyoto",
+    "difficulty": 1,
+    "question": "金閣寺（鹿苑寺）・銀閣寺・二条城などを含む1994年登録の世界遺産はどれか。",
+    "choices": [
+      "A：古都奈良の文化財",
+      "B：古都京都の文化財",
+      "C：紀伊山地の霊場と参詣道",
+      "D：琉球王国のグスク及び関連遺産群"
+    ],
+    "correct": "B",
+    "short_explanation": "古都京都の文化財（京都・宇治・大津）。17資産で構成。1994年文化遺産登録。",
+    "detailed_explanation": "「古都京都の文化財」は京都府・滋賀県に点在する17の構成資産（寺社など）からなるシリアル・ノミネーション・サイト。賀茂別雷神社・賀茂御祖神社・教王護国寺・清水寺・醍醐寺・仁和寺・平等院・宇治上神社・高山寺・西芳寺・天龍寺・鹿苑寺・慈照寺・龍安寺・本願寺・二条城・比叡山延暦寺。1994年登録。",
+    "related_video": "https://www.youtube.com/watch?v=p2Fv8rQygAY",
+    "related_heritage_ids": [
+      "WH_JP_005"
+    ],
+    "related_question_ids": [
+      "Q036"
+    ],
+    "source": "original",
+    "tags": [
+      "古都京都",
+      "金閣寺",
+      "銀閣寺",
+      "二条城",
+      "1994年",
+      "17資産"
+    ]
+  },
+  {
+    "id": "Q036",
+    "category": "japan",
+    "subcategory": "shirakawago",
+    "difficulty": 1,
+    "question": "急勾配の茅葺き屋根が特徴の「合掌造り」の集落として世界遺産登録されたのはどれか。",
+    "choices": [
+      "A：岐阜県の白川郷・五箇山",
+      "B：秋田県の角館",
+      "C：長野県の妻籠宿",
+      "D：島根県の津和野"
+    ],
+    "correct": "A",
+    "short_explanation": "白川郷（岐阜）・五箇山（富山）の合掌造り集落。急勾配の茅葺き屋根が特徴。1995年登録。",
+    "detailed_explanation": "岐阜県白川村（白川郷）と富山県南砺市（五箇山の菅沼・相倉集落）の合掌造り集落。合掌造りは雪の重みに耐えるため60度前後の急勾配に設計された茅葺きの民家。江戸時代から火薬の原料となる塩硝（えんしょう）の生産で知られた。1995年文化遺産登録。",
+    "related_video": "https://www.youtube.com/watch?v=p2Fv8rQygAY",
+    "related_heritage_ids": [
+      "WH_JP_006"
+    ],
+    "related_question_ids": [
+      "Q035"
+    ],
+    "source": "original",
+    "tags": [
+      "白川郷",
+      "五箇山",
+      "合掌造り",
+      "茅葺き",
+      "1995年"
+    ]
+  },
+  {
+    "id": "Q037",
+    "category": "japan",
+    "subcategory": "genbaku",
+    "difficulty": 1,
+    "question": "1996年に負の遺産として登録された、戦争の悲惨さと平和の大切さを伝える広島の世界遺産はどれか。",
+    "choices": [
+      "A：広島城",
+      "B：厳島神社",
+      "C：原爆ドーム（広島平和記念碑）",
+      "D：大和ミュージアム"
+    ],
+    "correct": "C",
+    "short_explanation": "原爆ドーム（広島平和記念碑）。1945年8月6日の原爆投下後の姿をとどめる「負の遺産」。1996年登録。",
+    "detailed_explanation": "広島平和記念碑（原爆ドーム）は1945年8月6日の原爆投下で破壊された旧産業奨励館の残骸。二度と同じ惨禍が繰り返されないことを願う「負の遺産」（人類の負の記憶を伝える遺産）として1996年に文化遺産登録。登録基準(vi)のみで登録された数少ない遺産の一つ。",
+    "related_video": "https://www.youtube.com/watch?v=p2Fv8rQygAY",
+    "related_heritage_ids": [
+      "WH_JP_007"
+    ],
+    "related_question_ids": [
+      "Q038"
+    ],
+    "source": "original",
+    "tags": [
+      "原爆ドーム",
+      "広島",
+      "負の遺産",
+      "平和",
+      "1996年"
+    ]
+  },
+  {
+    "id": "Q038",
+    "category": "japan",
+    "subcategory": "itsukushima",
+    "difficulty": 1,
+    "question": "海上に浮かぶ大鳥居で知られ、広島湾に浮かぶ島に立地する世界遺産はどれか。",
+    "choices": [
+      "A：住吉大社",
+      "B：伊勢神宮",
+      "C：厳島神社",
+      "D：出雲大社"
+    ],
+    "correct": "C",
+    "short_explanation": "厳島神社（広島県廿日市市宮島）。平安時代の海上社殿。大鳥居が有名。1996年文化遺産登録。",
+    "detailed_explanation": "広島県廿日市市の宮島（厳島）に鎮座する厳島神社は、平安時代に平清盛が現在の社殿の形を整えたとされる。海中に立つ大鳥居と社殿が一体となった景観は日本三景の一つ「安芸の宮島」として知られる。1996年文化遺産登録。登録基準(i)(ii)(iv)(vi)。",
+    "related_video": "https://www.youtube.com/watch?v=p2Fv8rQygAY",
+    "related_heritage_ids": [
+      "WH_JP_008"
+    ],
+    "related_question_ids": [
+      "Q037"
+    ],
+    "source": "original",
+    "tags": [
+      "厳島神社",
+      "広島",
+      "宮島",
+      "大鳥居",
+      "1996年",
+      "平清盛"
+    ]
+  },
+  {
+    "id": "Q039",
+    "category": "japan",
+    "subcategory": "nara",
+    "difficulty": 2,
+    "question": "東大寺・春日大社・興福寺・平城宮跡などを含む奈良の世界遺産はどれか。",
+    "choices": [
+      "A：古都京都の文化財",
+      "B：古都奈良の文化財",
+      "C：法隆寺地域の仏教建造物",
+      "D：紀伊山地の霊場と参詣道"
+    ],
+    "correct": "B",
+    "short_explanation": "古都奈良の文化財（1998年）。東大寺・春日大社・興福寺・元興寺・唐招提寺・薬師寺・平城宮跡・春日山原始林の8資産。",
+    "detailed_explanation": "「古都奈良の文化財」は奈良市内の8つの構成資産からなる。東大寺（大仏殿・正倉院）・春日大社・興福寺（五重塔）・元興寺・唐招提寺・薬師寺・平城宮跡・春日山原始林。奈良時代（8世紀）の日本の古都の姿を伝える。1998年文化遺産登録。",
+    "related_video": "https://www.youtube.com/watch?v=p2Fv8rQygAY",
+    "related_heritage_ids": [
+      "WH_JP_009"
+    ],
+    "related_question_ids": [
+      "Q035"
+    ],
+    "source": "original",
+    "tags": [
+      "古都奈良",
+      "東大寺",
+      "春日大社",
+      "興福寺",
+      "1998年",
+      "8資産"
+    ]
+  },
+  {
+    "id": "Q040",
+    "category": "japan",
+    "subcategory": "nikko",
+    "difficulty": 2,
+    "question": "東照宮の権現造りと、神道と仏教が融合した「神仏習合」の聖地として知られる世界遺産はどれか。",
+    "choices": [
+      "A：鶴岡八幡宮",
+      "B：日光の社寺",
+      "C：伊勢神宮",
+      "D：吉野・高野山の文化遺産"
+    ],
+    "correct": "B",
+    "short_explanation": "日光の社寺（栃木県）。東照宮・二荒山神社・輪王寺の2社1寺。神仏習合・権現造り。1999年登録。",
+    "detailed_explanation": "栃木県日光市の「日光の社寺」は東照宮・二荒山神社・輪王寺の2社1寺（103棟）から構成。8世紀末に修験僧の勝道上人が開いた日光山は神仏習合の聖地。東照宮は徳川家康を祀り、「寛永の大造替」で豪華絢爛な権現造りに改修された。1999年文化遺産登録。",
+    "related_video": "https://www.youtube.com/watch?v=p2Fv8rQygAY",
+    "related_heritage_ids": [
+      "WH_JP_010"
+    ],
+    "related_question_ids": [
+      "Q041"
+    ],
+    "source": "tool_07",
+    "tags": [
+      "日光の社寺",
+      "東照宮",
+      "神仏習合",
+      "権現造り",
+      "1999年",
+      "徳川家康"
+    ]
+  },
+  {
+    "id": "Q041",
+    "category": "japan",
+    "subcategory": "nikko",
+    "difficulty": 3,
+    "question": "日光の社寺「東照宮」の本社の建築様式は何か。",
+    "choices": [
+      "A：大社造",
+      "B：神明造",
+      "C：権現造",
+      "D：八幡造"
+    ],
+    "correct": "C",
+    "short_explanation": "権現造（ごんげんづくり）。拝殿と本殿を「石の間」でつなぐ様式で、東照宮が権現造の代表例。",
+    "detailed_explanation": "権現造は、拝殿と本殿の間を「石の間（相の間）」でつないだ複合社殿様式。徳川家光による「寛永の大造替」で現在の豪華な姿となった。東照宮の陽明門は「日暮しの門」とも呼ばれ、精緻な彫刻で覆われている。",
+    "related_video": "https://www.youtube.com/watch?v=p2Fv8rQygAY",
+    "related_heritage_ids": [
+      "WH_JP_010"
+    ],
+    "related_question_ids": [
+      "Q040"
+    ],
+    "source": "tool_07",
+    "tags": [
+      "日光",
+      "東照宮",
+      "権現造",
+      "建築様式"
+    ]
+  },
+  {
+    "id": "Q042",
+    "category": "japan",
+    "subcategory": "ryukyu",
+    "difficulty": 2,
+    "question": "2000年に登録された「琉球王国のグスク及び関連遺産群」の「グスク」とは何か。",
+    "choices": [
+      "A：琉球の宮殿",
+      "B：琉球の城",
+      "C：琉球の神社",
+      "D：琉球の庭園"
+    ],
+    "correct": "B",
+    "short_explanation": "グスクは沖縄の城（城郭）。首里城を含む5つのグスクと関連遺産で構成。2000年登録。",
+    "detailed_explanation": "グスク（御嶽とも関連）は沖縄の城郭で、12〜17世紀に琉球王国時代に建てられた。「琉球王国のグスク及び関連遺産群」は首里城跡・中城城跡・勝連城跡・座喜味城跡・今帰仁城跡の5城跡と、玉陵・識名園・園比屋武御嶽石門・斎場御嶽の4遺産の計9資産。2000年文化遺産登録。",
+    "related_video": "https://www.youtube.com/watch?v=p2Fv8rQygAY",
+    "related_heritage_ids": [
+      "WH_JP_011"
+    ],
+    "related_question_ids": [
+      "Q043"
+    ],
+    "source": "original",
+    "tags": [
+      "琉球王国",
+      "グスク",
+      "首里城",
+      "沖縄",
+      "2000年",
+      "城"
+    ]
+  },
+  {
+    "id": "Q043",
+    "category": "japan",
+    "subcategory": "kii",
+    "difficulty": 2,
+    "question": "2004年に「文化的景観」として日本で初めて認定された世界遺産はどれか。",
+    "choices": [
+      "A：富士山",
+      "B：石見銀山",
+      "C：紀伊山地の霊場と参詣道",
+      "D：高野山"
+    ],
+    "correct": "C",
+    "short_explanation": "紀伊山地の霊場と参詣道（和歌山・三重・奈良）。高野山・熊野三山・吉野・大峯を含む。2004年登録。",
+    "detailed_explanation": "「紀伊山地の霊場と参詣道」は和歌山・三重・奈良の3県にまたがる。吉野・大峯（修験道）・熊野三山（熊野本宮大社・熊野速玉大社・熊野那智大社）・高野山（真言宗）の3霊場と参詣道（熊野古道）から構成。日本初の「文化的景観」として認定された。2004年文化遺産登録。",
+    "related_video": "https://www.youtube.com/watch?v=p2Fv8rQygAY",
+    "related_heritage_ids": [
+      "WH_JP_012"
+    ],
+    "related_question_ids": [
+      "Q017"
+    ],
+    "source": "original",
+    "tags": [
+      "紀伊山地",
+      "熊野古道",
+      "高野山",
+      "文化的景観",
+      "2004年"
+    ]
+  },
+  {
+    "id": "Q044",
+    "category": "japan",
+    "subcategory": "shiretoko",
+    "difficulty": 2,
+    "question": "地球上で最も低緯度の「季節海氷域」として知られる北海道の世界自然遺産はどれか。",
+    "choices": [
+      "A：大雪山",
+      "B：支笏湖",
+      "C：知床",
+      "D：礼文島"
+    ],
+    "correct": "C",
+    "short_explanation": "知床（北海道）。季節海氷域・豊富な生態系。「しれとこ100平方メートル運動」でも有名。2005年自然遺産登録。",
+    "detailed_explanation": "北海道の知床半島は、地球上で最も低緯度で海水が凍る季節海氷域。流氷が運ぶ植物プランクトンが豊かな食物連鎖を生み、ヒグマ・シマフクロウ・シャチなど多様な生物が生息。「しれとこ100平方メートル運動」（ナショナル・トラスト運動が手本）でも知られる。2005年自然遺産登録。",
+    "related_video": "https://www.youtube.com/watch?v=p2Fv8rQygAY",
+    "related_heritage_ids": [
+      "WH_JP_013"
+    ],
+    "related_question_ids": [
+      "Q045"
+    ],
+    "source": "tool_06",
+    "tags": [
+      "知床",
+      "北海道",
+      "季節海氷域",
+      "流氷",
+      "2005年",
+      "自然遺産"
+    ]
+  },
+  {
+    "id": "Q045",
+    "category": "japan",
+    "subcategory": "iwami",
+    "difficulty": 2,
+    "question": "16〜17世紀に世界の銀産出量の約3分の1を占めた、島根県の世界遺産はどれか。",
+    "choices": [
+      "A：別子銅山",
+      "B：足尾銅山",
+      "C：石見銀山遺跡とその文化的景観",
+      "D：生野銀山"
+    ],
+    "correct": "C",
+    "short_explanation": "石見銀山遺跡とその文化的景観（島根県）。最盛期に世界の銀産出量の約1/3を占めた。2007年登録。",
+    "detailed_explanation": "島根県大田市の石見銀山は16〜17世紀に最盛期を迎え、当時の世界銀産出量の約3分の1を占めたとされる。銀の採掘・精錬・輸送の各工程を示す遺跡と、それを取り巻く自然・文化的景観が評価された。2007年文化遺産登録。登録基準(ii)(iii)(v)。",
+    "related_video": "https://www.youtube.com/watch?v=p2Fv8rQygAY",
+    "related_heritage_ids": [
+      "WH_JP_014"
+    ],
+    "related_question_ids": [
+      "Q044"
+    ],
+    "source": "original",
+    "tags": [
+      "石見銀山",
+      "島根",
+      "銀山",
+      "2007年",
+      "文化的景観"
+    ]
+  },
+  {
+    "id": "Q046",
+    "category": "japan",
+    "subcategory": "hiraizumi",
+    "difficulty": 2,
+    "question": "浄土思想に基づく理想世界の実現を目指した奥州藤原氏ゆかりの世界遺産はどれか。",
+    "choices": [
+      "A：鎌倉の寺社",
+      "B：日光の社寺",
+      "C：平泉―仏国土（浄土）を表す建築・庭園及び考古学的遺跡群―",
+      "D：比叡山延暦寺"
+    ],
+    "correct": "C",
+    "short_explanation": "平泉（岩手県）。奥州藤原氏が浄土思想で栄えた地。毛越寺・中尊寺金色堂など。2011年登録。",
+    "detailed_explanation": "岩手県平泉町。平安時代末期の浄土思想（末法思想）のもと、奥州藤原氏4代が「理想世界（仏国土）」の実現を目指して建立。中尊寺金色堂・毛越寺（唯一残る浄土庭園）・観自在王院跡・無量光院跡・金鶏山の5資産。2011年文化遺産登録。",
+    "related_video": "https://www.youtube.com/watch?v=p2Fv8rQygAY",
+    "related_heritage_ids": [
+      "WH_JP_015"
+    ],
+    "related_question_ids": [
+      "Q047"
+    ],
+    "source": "tool_07",
+    "tags": [
+      "平泉",
+      "岩手",
+      "浄土思想",
+      "奥州藤原氏",
+      "毛越寺",
+      "2011年"
+    ]
+  },
+  {
+    "id": "Q047",
+    "category": "japan",
+    "subcategory": "hiraizumi",
+    "difficulty": 3,
+    "question": "平泉の毛越寺（奥州藤原氏2代基衡が再興）に唯一残る建築物は何か。",
+    "choices": [
+      "A：常行堂",
+      "B：金色堂",
+      "C：浄土庭園",
+      "D：大泉が池"
+    ],
+    "correct": "C",
+    "short_explanation": "浄土庭園。毛越寺の建物は度重なる戦火で焼失したが、浄土庭園のみ残存。",
+    "detailed_explanation": "毛越寺は奥州藤原氏2代基衡が再興した寺院だが、度重なる戦火により当時の建築物はすべて焼失した。現在まで残るのが浄土庭園（大泉が池を中心とする池泉浄土庭園）のみ。平安時代の庭園文化を伝える貴重な遺構として保護されている。",
+    "related_video": "https://www.youtube.com/watch?v=p2Fv8rQygAY",
+    "related_heritage_ids": [
+      "WH_JP_015"
+    ],
+    "related_question_ids": [
+      "Q046"
+    ],
+    "source": "tool_07",
+    "tags": [
+      "毛越寺",
+      "浄土庭園",
+      "奥州藤原氏",
+      "平泉"
+    ]
+  },
+  {
+    "id": "Q048",
+    "category": "japan",
+    "subcategory": "ogasawara",
+    "difficulty": 2,
+    "question": "東洋のガラパゴスとも呼ばれ、適応放散の例として知られる2011年登録の自然遺産はどれか。",
+    "choices": [
+      "A：西表島",
+      "B：屋久島",
+      "C：小笠原諸島",
+      "D：奄美大島"
+    ],
+    "correct": "C",
+    "short_explanation": "小笠原諸島（東京都）。海洋島の固有種が多く「東洋のガラパゴス」とも。適応放散・陸産貝類。2011年自然遺産登録。",
+    "detailed_explanation": "東京都小笠原村の小笠原諸島は太平洋の孤島で、大陸との陸続きになったことがない「海洋島」。固有種・固有亜種が多く「東洋のガラパゴス」と呼ばれる。陸産貝類の適応放散（約95%固有率）が顕著。外来種のグリーンアノール（北米産トカゲ）が生態系を脅かしている。2011年自然遺産登録。",
+    "related_video": "https://www.youtube.com/watch?v=p2Fv8rQygAY",
+    "related_heritage_ids": [
+      "WH_JP_016"
+    ],
+    "related_question_ids": [
+      "Q049"
+    ],
+    "source": "tool_08",
+    "tags": [
+      "小笠原諸島",
+      "東洋のガラパゴス",
+      "適応放散",
+      "固有種",
+      "2011年"
+    ]
+  },
+  {
+    "id": "Q049",
+    "category": "japan",
+    "subcategory": "ogasawara",
+    "difficulty": 3,
+    "question": "小笠原諸島の生態系を脅かしている外来種として正しいものはどれか。",
+    "choices": [
+      "A：マングース",
+      "B：グリーンアノール",
+      "C：ヤンバルクイナ",
+      "D：アカゲザル"
+    ],
+    "correct": "B",
+    "short_explanation": "グリーンアノール（北米産トカゲ）。チョウやトンボなどを絶滅に追い込んでいる。",
+    "detailed_explanation": "北米原産のグリーンアノールは小笠原諸島に持ち込まれた外来種で、在来の昆虫（チョウ・トンボなど）を捕食し絶滅に追い込んでいる深刻な問題。マングースは沖縄・奄美の外来種問題で知られる（ハブ対策として導入された）のと混同しやすい点に注意。",
+    "related_video": "https://www.youtube.com/watch?v=p2Fv8rQygAY",
+    "related_heritage_ids": [
+      "WH_JP_016"
+    ],
+    "related_question_ids": [
+      "Q048"
+    ],
+    "source": "tool_08",
+    "tags": [
+      "小笠原",
+      "グリーンアノール",
+      "外来種",
+      "生態系",
+      "トカゲ"
+    ]
+  },
+  {
+    "id": "Q050",
+    "category": "japan",
+    "subcategory": "fujisan",
+    "difficulty": 1,
+    "question": "「信仰の対象と芸術の源泉」として2013年に文化遺産登録された山はどれか。",
+    "choices": [
+      "A：大山",
+      "B：日光山",
+      "C：富士山",
+      "D：白山"
+    ],
+    "correct": "C",
+    "short_explanation": "富士山―信仰の対象と芸術の源泉（静岡・山梨）。25の構成資産。自然遺産ではなく文化遺産。2013年登録。",
+    "detailed_explanation": "富士山は2013年に「富士山―信仰の対象と芸術の源泉」として文化遺産登録（自然遺産ではない点に注意）。富士山域と登山道・富士五湖・三保松原など25の構成資産から構成。江戸時代には富士講（集団登拝）が流行し、御師（案内人）が活躍。成層火山。登録基準(iii)(vi)。",
+    "related_video": "https://www.youtube.com/watch?v=p2Fv8rQygAY",
+    "related_heritage_ids": [
+      "WH_JP_017"
+    ],
+    "related_question_ids": [
+      "Q051"
+    ],
+    "source": "tool_09",
+    "tags": [
+      "富士山",
+      "文化遺産",
+      "信仰",
+      "芸術",
+      "2013年",
+      "富士講",
+      "成層火山"
+    ]
+  },
+  {
+    "id": "Q051",
+    "category": "japan",
+    "subcategory": "fujisan",
+    "difficulty": 2,
+    "question": "富士山が現在のような円錐形になった理由として正しいものはどれか。",
+    "choices": [
+      "A：氷河の侵食",
+      "B：度重なる噴火",
+      "C：海底から隆起",
+      "D：風化・侵食"
+    ],
+    "correct": "B",
+    "short_explanation": "度重なる噴火による成層火山。溶岩・火山灰の層が積み重なって円錐形になった。",
+    "detailed_explanation": "富士山は度重なる噴火により溶岩と火山灰が交互に積み重なってできた成層火山（コンポジット火山）。この形成過程が美しい円錐形を生んだ。富士山は現在も活火山であり、最後の噴火は1707年の「宝永大噴火」。8世紀末にも噴火を繰り返し、噴火を鎮めるため富士山本宮浅間大社が創建された。",
+    "related_video": "https://www.youtube.com/watch?v=p2Fv8rQygAY",
+    "related_heritage_ids": [
+      "WH_JP_017"
+    ],
+    "related_question_ids": [
+      "Q050"
+    ],
+    "source": "tool_09",
+    "tags": [
+      "富士山",
+      "成層火山",
+      "噴火",
+      "円錐形"
+    ]
+  },
+  {
+    "id": "Q052",
+    "category": "japan",
+    "subcategory": "tomioka",
+    "difficulty": 2,
+    "question": "明治政府が近代化のためにフランス人技師を招いて建設した、日本初の官営工場の世界遺産はどれか。",
+    "choices": [
+      "A：八幡製鉄所",
+      "B：富岡製糸場と絹産業遺産群",
+      "C：三池炭鉱",
+      "D：長崎の造船所"
+    ],
+    "correct": "B",
+    "short_explanation": "富岡製糸場（群馬県）。フランス人技師ポール・ブリュナが建設を指導。木骨レンガ造。2014年登録。",
+    "detailed_explanation": "群馬県富岡市の富岡製糸場は1872年（明治5年）に明治政府が設立した日本初の官営工場。フランス人技師ポール・ブリュナを招聘し、器械製糸技術の導入と技術者育成を図った。木骨レンガ造（日本の木骨＋西欧のレンガ）の建築が特徴。富岡製糸場・田島弥平旧宅・高山社跡・荒船風穴の4資産。2014年文化遺産登録。",
+    "related_video": "https://www.youtube.com/watch?v=p2Fv8rQygAY",
+    "related_heritage_ids": [
+      "WH_JP_018"
+    ],
+    "related_question_ids": [
+      "Q053"
+    ],
+    "source": "tool_08",
+    "tags": [
+      "富岡製糸場",
+      "群馬",
+      "ポール・ブリュナ",
+      "木骨レンガ造",
+      "2014年",
+      "絹産業"
+    ]
+  },
+  {
+    "id": "Q053",
+    "category": "japan",
+    "subcategory": "tomioka",
+    "difficulty": 3,
+    "question": "富岡製糸場の建物に用いられた「木骨レンガ造」の説明として正しいものはどれか。",
+    "choices": [
+      "A：レンガの柱に木の壁を組み合わせた構造",
+      "B：木造の骨組みにレンガを組み合わせた構造",
+      "C：コンクリートにレンガを貼り付けた構造",
+      "D：木材とレンガを交互に積み上げた構造"
+    ],
+    "correct": "B",
+    "short_explanation": "木骨レンガ造：日本古来の木造の骨組み（柱・梁）に、西欧のレンガを組み合わせた和洋折衷の構造。",
+    "detailed_explanation": "木骨レンガ造は、日本の伝統的な木造軸組工法の骨組み（柱・梁）に、西欧から導入したレンガを壁として組み合わせた構造。富岡製糸場の繭倉庫（置繭所）や操糸場などに用いられている。フランスで製糸技術を学んだポール・ブリュナが指導した。",
+    "related_video": "https://www.youtube.com/watch?v=p2Fv8rQygAY",
+    "related_heritage_ids": [
+      "WH_JP_018"
+    ],
+    "related_question_ids": [
+      "Q052"
+    ],
+    "source": "tool_08",
+    "tags": [
+      "富岡製糸場",
+      "木骨レンガ造",
+      "建築様式",
+      "和洋折衷"
+    ]
+  },
+  {
+    "id": "Q054",
+    "category": "japan",
+    "subcategory": "meiji",
+    "difficulty": 2,
+    "question": "九州・山口など8県にまたがる23の構成資産からなる2015年登録の世界遺産はどれか。",
+    "choices": [
+      "A：九州の縄文遺跡群",
+      "B：明治日本の産業革命遺産 製鉄・製鋼、造船、石炭産業",
+      "C：長崎の教会群",
+      "D：豊後竹田の城下町"
+    ],
+    "correct": "B",
+    "short_explanation": "明治日本の産業革命遺産（8県23資産）。八幡製鉄所・三池炭鉱・端島（軍艦島）など。2015年登録。",
+    "detailed_explanation": "「明治日本の産業革命遺産」は岩手・静岡・山口・福岡・佐賀・長崎・熊本・鹿児島の8県23資産。幕末・明治期（1850s〜1910s）の日本が西洋の技術を取り入れた産業化の過程を示す。八幡製鉄所・三池炭鉱・端島炭坑（軍艦島）・韮山反射炉・萩の反射炉・長崎造船所など。2015年文化遺産登録。",
+    "related_video": "https://www.youtube.com/watch?v=p2Fv8rQygAY",
+    "related_heritage_ids": [
+      "WH_JP_019"
+    ],
+    "related_question_ids": [
+      "Q055"
+    ],
+    "source": "original",
+    "tags": [
+      "明治産業革命",
+      "八幡製鉄所",
+      "軍艦島",
+      "三池炭鉱",
+      "2015年",
+      "23資産"
+    ]
+  },
+  {
+    "id": "Q055",
+    "category": "japan",
+    "subcategory": "lecorbusier",
+    "difficulty": 2,
+    "question": "7カ国にまたがる17資産で構成され、日本初のトランスバウンダリー・サイトとなった世界遺産はどれか。",
+    "choices": [
+      "A：「神宿る島」宗像・沖ノ島",
+      "B：ル・コルビュジエの建築作品：近代建築運動への顕著な貢献",
+      "C：長崎と天草地方の潜伏キリシタン関連遺産",
+      "D：富岡製糸場と絹産業遺産群"
+    ],
+    "correct": "B",
+    "short_explanation": "ル・コルビュジエの建築作品（7カ国17資産）。日本の構成資産は国立西洋美術館。2016年登録。",
+    "detailed_explanation": "「ル・コルビュジエの建築作品」は日本・フランス・スイス・ドイツ・ベルギー・インド・アルゼンチンの7カ国17資産で構成。日本初のトランスバウンダリー・サイト。日本の構成資産は東京上野の「国立西洋美術館」で、ピロティ（1階を柱で支えて空中に浮かせる様式）などコルビュジエの5原則が取り入れられている。2016年文化遺産登録。",
+    "related_video": "https://www.youtube.com/watch?v=p2Fv8rQygAY",
+    "related_heritage_ids": [
+      "WH_JP_020"
+    ],
+    "related_question_ids": [
+      "Q019",
+      "Q056"
+    ],
+    "source": "tool_09",
+    "tags": [
+      "ル・コルビュジエ",
+      "国立西洋美術館",
+      "ピロティ",
+      "7カ国",
+      "2016年"
+    ]
+  },
+  {
+    "id": "Q056",
+    "category": "japan",
+    "subcategory": "lecorbusier",
+    "difficulty": 3,
+    "question": "国立西洋美術館に取り入れられているル・コルビュジエの建築様式のうち「建物を柱で支え地面から浮かせる手法」は何か。",
+    "choices": [
+      "A：ラーメン構造",
+      "B：カーテンウォール",
+      "C：ピロティ",
+      "D：バットレス"
+    ],
+    "correct": "C",
+    "short_explanation": "ピロティ。1階を柱のみにして床を地面から浮かせ、軽やかな印象を与える。サヴォア邸などにも採用。",
+    "detailed_explanation": "ピロティ（pilotis）はル・コルビュジエが提唱した近代建築の「5原則」の一つ。建物を柱だけで支え、1階を開放的な空間にする手法。国立西洋美術館はピロティのほか、螺旋状に展示室を増設できる「無限成長美術館」の概念も取り入れている。",
+    "related_video": "https://www.youtube.com/watch?v=p2Fv8rQygAY",
+    "related_heritage_ids": [
+      "WH_JP_020"
+    ],
+    "related_question_ids": [
+      "Q055"
+    ],
+    "source": "tool_09",
+    "tags": [
+      "ル・コルビュジエ",
+      "ピロティ",
+      "国立西洋美術館",
+      "近代建築"
+    ]
+  },
+  {
+    "id": "Q057",
+    "category": "japan",
+    "subcategory": "munakata",
+    "difficulty": 2,
+    "question": "「神宿る島」として知られ、島への上陸が厳しく制限されている2017年登録の世界遺産はどれか。",
+    "choices": [
+      "A：五島列島",
+      "B：「神宿る島」宗像・沖ノ島と関連遺産群",
+      "C：壱岐島",
+      "D：対馬"
+    ],
+    "correct": "B",
+    "short_explanation": "「神宿る島」宗像・沖ノ島（福岡県）。沖ノ島は一般立入禁止。4〜9世紀の祭祀遺物が出土。2017年登録。",
+    "detailed_explanation": "福岡県宗像市・福津市の「神宿る島」宗像・沖ノ島と関連遺産群は、玄界灘に浮かぶ沖ノ島と大島の沖津宮・中津宮・辺津宮（宗像大社）などで構成。沖ノ島は神聖な島として女人禁制・一般上陸禁止が続き、4〜9世紀の祭祀遺物（国宝）が手つかずで残る。2017年文化遺産登録。",
+    "related_video": "https://www.youtube.com/watch?v=p2Fv8rQygAY",
+    "related_heritage_ids": [
+      "WH_JP_021"
+    ],
+    "related_question_ids": [
+      "Q058"
+    ],
+    "source": "original",
+    "tags": [
+      "宗像・沖ノ島",
+      "神宿る島",
+      "福岡",
+      "上陸禁止",
+      "2017年"
+    ]
+  },
+  {
+    "id": "Q058",
+    "category": "japan",
+    "subcategory": "kakure",
+    "difficulty": 2,
+    "question": "禁教期に信仰を続けた「潜伏キリシタン」の歴史的証拠を示す長崎・熊本の世界遺産はどれか。",
+    "choices": [
+      "A：出島",
+      "B：長崎と天草地方の潜伏キリシタン関連遺産",
+      "C：五島の教会群",
+      "D：島原城"
+    ],
+    "correct": "B",
+    "short_explanation": "長崎と天草地方の潜伏キリシタン関連遺産（長崎・熊本、12資産）。禁教期の潜伏・復活の歴史。2018年登録。",
+    "detailed_explanation": "「長崎と天草地方の潜伏キリシタン関連遺産」は長崎・熊本の12の構成資産。16世紀にキリスト教が伝来後、江戸幕府の禁教令（1620年代〜）から明治初期まで約250年間、潜伏キリシタンが独自の信仰を守り続けた歴史的証拠を示す。2018年文化遺産登録。",
+    "related_video": "https://www.youtube.com/watch?v=p2Fv8rQygAY",
+    "related_heritage_ids": [
+      "WH_JP_022"
+    ],
+    "related_question_ids": [
+      "Q057"
+    ],
+    "source": "original",
+    "tags": [
+      "潜伏キリシタン",
+      "長崎",
+      "天草",
+      "禁教期",
+      "2018年",
+      "12資産"
+    ]
+  },
+  {
+    "id": "Q059",
+    "category": "japan",
+    "subcategory": "mozu",
+    "difficulty": 2,
+    "question": "世界最大級の墳墓である仁徳天皇陵古墳（大山古墳）を含む大阪府の世界遺産はどれか。",
+    "choices": [
+      "A：飛鳥の文化的景観",
+      "B：纒向遺跡",
+      "C：百舌鳥・古市古墳群",
+      "D：吉野ヶ里遺跡"
+    ],
+    "correct": "C",
+    "short_explanation": "百舌鳥・古市古墳群（大阪府）。仁徳天皇陵（大山古墳）は世界最大の墳墓の一つ。2019年登録。",
+    "detailed_explanation": "大阪府堺市・羽曳野市・藤井寺市の「百舌鳥・古市古墳群」は4〜5世紀に造られた49基の古墳群。仁徳天皇陵古墳（大山古墳）は全長約486mで世界最大級の墳墓。前方後円墳・円墳・方墳の多様な形態が含まれる。2019年文化遺産登録。",
+    "related_video": "https://www.youtube.com/watch?v=p2Fv8rQygAY",
+    "related_heritage_ids": [
+      "WH_JP_023"
+    ],
+    "related_question_ids": [
+      "Q060"
+    ],
+    "source": "original",
+    "tags": [
+      "百舌鳥・古市古墳群",
+      "仁徳天皇陵",
+      "大山古墳",
+      "大阪",
+      "2019年",
+      "古墳"
+    ]
+  },
+  {
+    "id": "Q060",
+    "category": "japan",
+    "subcategory": "amami",
+    "difficulty": 2,
+    "question": "アマミノクロウサギやイリオモテヤマネコなど固有種が多く、2021年に自然遺産登録されたのはどれか。",
+    "choices": [
+      "A：小笠原諸島と鹿児島諸島",
+      "B：奄美大島・徳之島・沖縄島北部及び西表島",
+      "C：沖縄全島と奄美群島",
+      "D：屋久島と西表島"
+    ],
+    "correct": "B",
+    "short_explanation": "奄美大島・徳之島・沖縄島北部及び西表島（2021年自然遺産）。アマミノクロウサギ・イリオモテヤマネコなど固有種が豊富。",
+    "detailed_explanation": "「奄美大島、徳之島、沖縄島北部及び西表島」は鹿児島・沖縄の4島の特定地域。アマミノクロウサギ・ヤンバルクイナ（沖縄島北部）・イリオモテヤマネコ（西表島）など固有種・固有亜種が多い。2021年自然遺産登録。登録基準(x)（生物多様性）のみで登録。",
+    "related_video": "https://www.youtube.com/watch?v=p2Fv8rQygAY",
+    "related_heritage_ids": [
+      "WH_JP_024"
+    ],
+    "related_question_ids": [
+      "Q061"
+    ],
+    "source": "original",
+    "tags": [
+      "奄美大島",
+      "西表島",
+      "イリオモテヤマネコ",
+      "アマミノクロウサギ",
+      "2021年"
+    ]
+  },
+  {
+    "id": "Q061",
+    "category": "japan",
+    "subcategory": "jomon",
+    "difficulty": 2,
+    "question": "約1万5000年前〜約2400年前の縄文時代の遺跡群として2021年に登録されたのはどれか。",
+    "choices": [
+      "A：東北地方の弥生遺跡群",
+      "B：北海道・北東北の縄文遺跡群",
+      "C：関東地方の縄文貝塚群",
+      "D：九州の縄文時代遺跡"
+    ],
+    "correct": "B",
+    "short_explanation": "北海道・北東北の縄文遺跡群（北海道・青森・岩手・秋田の17遺跡）。三内丸山遺跡が代表。2021年登録。",
+    "detailed_explanation": "「北海道・北東北の縄文遺跡群」は北海道・青森県・岩手県・秋田県の17の遺跡。三内丸山遺跡（青森）・亀ヶ岡石器時代遺跡（青森）・大湯環状列石（秋田）・垣ノ島遺跡（北海道）など。農耕を行わずに狩猟採集で定住した縄文文化の特異性を証明する。2021年文化遺産登録。",
+    "related_video": "https://www.youtube.com/watch?v=p2Fv8rQygAY",
+    "related_heritage_ids": [
+      "WH_JP_025"
+    ],
+    "related_question_ids": [
+      "Q060"
+    ],
+    "source": "original",
+    "tags": [
+      "縄文遺跡群",
+      "北海道",
+      "北東北",
+      "三内丸山",
+      "2021年",
+      "縄文時代"
+    ]
+  },
+  {
+    "id": "Q062",
+    "category": "nature",
+    "subcategory": "galapagos",
+    "difficulty": 1,
+    "question": "進化論のアイデアを得てチャールズ・ダーウィンが訪れた、太平洋のエクアドル領の世界遺産はどれか。",
+    "choices": [
+      "A：コモド国立公園",
+      "B：ガラパゴス諸島",
+      "C：グレート・バリア・リーフ",
+      "D：小笠原諸島"
+    ],
+    "correct": "B",
+    "short_explanation": "ガラパゴス諸島（エクアドル）。ダーウィンが「種の起源」を書くきっかけとなった島。ゾウガメ・ウミイグアナなど固有種多数。",
+    "detailed_explanation": "エクアドル領のガラパゴス諸島は太平洋に浮かぶ孤島群。1835年にチャールズ・ダーウィンが訪れ、ゾウガメ・ウミイグアナ・フィンチなどの観察から進化論のアイデアを得て「種の起源」（1859年）を著した。世界遺産最初の12件の一つ（1978年登録）。1979年に危機遺産にも記載（後に除外）。登録基準(vii)(viii)(ix)(x)。",
+    "related_video": "https://www.youtube.com/watch?v=p2Fv8rQygAY",
+    "related_heritage_ids": [
+      "WH_W_001"
+    ],
+    "related_question_ids": [
+      "Q063"
+    ],
+    "source": "tool_08",
+    "tags": [
+      "ガラパゴス諸島",
+      "エクアドル",
+      "ダーウィン",
+      "進化論",
+      "固有種",
+      "1978年"
+    ]
+  },
+  {
+    "id": "Q063",
+    "category": "nature",
+    "subcategory": "galapagos",
+    "difficulty": 2,
+    "question": "ガラパゴス諸島を訪れ進化論を唱えた英国の博物学者は誰か。",
+    "choices": [
+      "A：アイザック・ニュートン",
+      "B：チャールズ・ダーウィン",
+      "C：アルフレッド・ウォレス",
+      "D：アレクサンダー・フォン・フンボルト"
+    ],
+    "correct": "B",
+    "short_explanation": "チャールズ・ダーウィン（1809-1882）。ガラパゴス諸島の観察から進化論を確立し「種の起源」を著した。",
+    "detailed_explanation": "チャールズ・ダーウィンはHMSビーグル号の航海（1831-1836年）でガラパゴス諸島を訪れた。島ごとに異なるゾウガメの形や、フィンチ（スズメ目の鳥）のくちばしの形の違いが、環境への適応進化を示すと気づいた。1859年に「種の起源」を著し、自然選択による進化論を提唱した。",
+    "related_video": "https://www.youtube.com/watch?v=p2Fv8rQygAY",
+    "related_heritage_ids": [
+      "WH_W_001"
+    ],
+    "related_question_ids": [
+      "Q062"
+    ],
+    "source": "tool_08",
+    "tags": [
+      "ダーウィン",
+      "ガラパゴス",
+      "進化論",
+      "種の起源",
+      "博物学者"
+    ]
+  },
+  {
+    "id": "Q064",
+    "category": "nature",
+    "subcategory": "serengeti",
+    "difficulty": 2,
+    "question": "マサイ族の言葉で「果てしない草原」を意味するタンザニアの世界自然遺産はどれか。",
+    "choices": [
+      "A：クルーガー国立公園",
+      "B：ンゴロンゴロ保全地域",
+      "C：セレンゲティ国立公園",
+      "D：ビクトリア湖国立公園"
+    ],
+    "correct": "C",
+    "short_explanation": "セレンゲティ国立公園（タンザニア）。ヌーの大移動で有名。「セレンゲティ」はマサイ語で「果てしない草原」。",
+    "detailed_explanation": "タンザニアのセレンゲティ国立公園は、マサイ族の言葉で「果てしない草原」を意味する「セレンゲティ」から命名。年間を通じてヌー・シマウマ・ガゼルなど約200万頭が移動する「グレート・マイグレーション（大移動）」で世界的に知られる。ライオン・チーター・ヒョウなど多くの肉食動物も生息。1978年自然遺産登録。",
+    "related_video": "https://www.youtube.com/watch?v=p2Fv8rQygAY",
+    "related_heritage_ids": [
+      "WH_W_002"
+    ],
+    "related_question_ids": [
+      "Q065"
+    ],
+    "source": "tool_06",
+    "tags": [
+      "セレンゲティ",
+      "タンザニア",
+      "ヌーの大移動",
+      "マサイ族",
+      "草原"
+    ]
+  },
+  {
+    "id": "Q065",
+    "category": "nature",
+    "subcategory": "sagarmatha",
+    "difficulty": 2,
+    "question": "世界最高峰エベレスト（サガルマータ）を含み、シェルパ族が暮らすネパールの世界遺産はどれか。",
+    "choices": [
+      "A：アナプルナ保全地域",
+      "B：サガルマータ国立公園",
+      "C：チトワン国立公園",
+      "D：カンチェンジュンガ国立公園"
+    ],
+    "correct": "B",
+    "short_explanation": "サガルマータ国立公園（ネパール）。サガルマータ＝エベレスト。シェルパ族が登山隊のポーターとして活躍。",
+    "detailed_explanation": "ネパールのサガルマータ国立公園は世界最高峰のエベレスト（ネパール語でサガルマータ、標高8,848m）を含む。シェルパ族（チベット系民族）は標高3,500〜5,000m付近で登山隊のポーターや案内人として活躍する。1979年自然遺産登録。",
+    "related_video": "https://www.youtube.com/watch?v=p2Fv8rQygAY",
+    "related_heritage_ids": [
+      "WH_W_003"
+    ],
+    "related_question_ids": [
+      "Q064"
+    ],
+    "source": "tool_06",
+    "tags": [
+      "サガルマータ",
+      "エベレスト",
+      "ネパール",
+      "シェルパ族",
+      "世界最高峰"
+    ]
+  },
+  {
+    "id": "Q066",
+    "category": "nature",
+    "subcategory": "yellowstone",
+    "difficulty": 2,
+    "question": "世界初の国立公園に指定され、間欠泉「オールド・フェイスフル」で知られるアメリカの世界遺産はどれか。",
+    "choices": [
+      "A：グランドキャニオン国立公園",
+      "B：イエローストーン国立公園",
+      "C：ヨセミテ国立公園",
+      "D：グレーシャー国立公園"
+    ],
+    "correct": "B",
+    "short_explanation": "イエローストーン国立公園（米国）。1872年世界初の国立公園。間欠泉・熱水地帯・バイソンの群れで有名。1978年登録。",
+    "detailed_explanation": "ワイオミング・モンタナ・アイダホ3州にまたがるイエローストーン国立公園は1872年に世界初の国立公園として指定された。間欠泉「オールド・フェイスフル」や熱水池・泥火山など地熱現象が特徴。バイソン・ハイイロオオカミ・グリズリーなど野生動物も豊富。世界遺産最初の12件の一つ（1978年）。",
+    "related_video": "https://www.youtube.com/watch?v=p2Fv8rQygAY",
+    "related_heritage_ids": [
+      "WH_W_004"
+    ],
+    "related_question_ids": [
+      "Q067"
+    ],
+    "source": "original",
+    "tags": [
+      "イエローストーン",
+      "アメリカ",
+      "世界初の国立公園",
+      "間欠泉",
+      "1872年",
+      "1978年"
+    ]
+  },
+  {
+    "id": "Q067",
+    "category": "nature",
+    "subcategory": "gbr",
+    "difficulty": 1,
+    "question": "世界最大のサンゴ礁地帯として知られるオーストラリアの世界遺産はどれか。",
+    "choices": [
+      "A：カカドゥ国立公園",
+      "B：ウルル-カタ・ジュタ国立公園",
+      "C：グレート・バリア・リーフ",
+      "D：フレーザー島"
+    ],
+    "correct": "C",
+    "short_explanation": "グレート・バリア・リーフ（オーストラリア）。全長2,300km以上、世界最大のサンゴ礁。海洋自然遺産。1981年登録。",
+    "detailed_explanation": "オーストラリア・クイーンズランド州沖に広がるグレート・バリア・リーフ（大堡礁）は全長約2,300km・面積約34万㎢の世界最大のサンゴ礁地帯。約1,500種の魚類・4,000種の軟体動物などが生息する。近年は海水温上昇による珊瑚の白化が深刻な問題に。1981年自然遺産登録。",
+    "related_video": "https://www.youtube.com/watch?v=p2Fv8rQygAY",
+    "related_heritage_ids": [
+      "WH_W_005"
+    ],
+    "related_question_ids": [
+      "Q066"
+    ],
+    "source": "original",
+    "tags": [
+      "グレート・バリア・リーフ",
+      "オーストラリア",
+      "サンゴ礁",
+      "海洋遺産",
+      "1981年"
+    ]
+  },
+  {
+    "id": "Q068",
+    "category": "nature",
+    "subcategory": "shiretoko_nat",
+    "difficulty": 2,
+    "question": "知床で行われた「しれとこ100平方メートル運動」の手本となった運動はどれか。",
+    "choices": [
+      "A：ランド・フォー・ライフ運動",
+      "B：ナショナル・トラスト運動",
+      "C：グリーン・ベルト運動",
+      "D：アース・デイ運動"
+    ],
+    "correct": "B",
+    "short_explanation": "ナショナル・トラスト運動（19世紀末の英国発祥）。国民の寄付で自然・歴史的土地を取得保護する運動。",
+    "detailed_explanation": "ナショナル・トラスト運動は19世紀末に英国で始まった、国民の寄付や会費をもとに民間団体が良好な自然環境や歴史的環境をもつ土地を取得・保護する運動。これを手本に知床では「しれとこ100平方メートル運動」が展開され、1977年から官民が協力して土地を買い取り自然を守った。この運動が世界遺産登録にも貢献した。",
+    "related_video": "https://www.youtube.com/watch?v=p2Fv8rQygAY",
+    "related_heritage_ids": [
+      "WH_JP_013"
+    ],
+    "related_question_ids": [
+      "Q044"
+    ],
+    "source": "tool_06",
+    "tags": [
+      "知床",
+      "ナショナル・トラスト",
+      "100平方メートル運動",
+      "英国",
+      "自然保護"
+    ]
+  },
+  {
+    "id": "Q069",
+    "category": "nature",
+    "subcategory": "tongariro",
+    "difficulty": 2,
+    "question": "1993年に世界初の「文化的景観」として複合遺産となったニュージーランドの世界遺産はどれか。",
+    "choices": [
+      "A：フィヨルドランド国立公園",
+      "B：トンガリロ国立公園",
+      "C：ウェストランド国立公園",
+      "D：マウント・クック国立公園"
+    ],
+    "correct": "B",
+    "short_explanation": "トンガリロ国立公園（ニュージーランド）。マオリの聖地。1993年に世界初の文化的景観として複合遺産に。",
+    "detailed_explanation": "ニュージーランドのトンガリロ国立公園は活火山（トンガリロ・ルアペフ・ナウルホエ）を含む。古くから先住民マオリの聖地で、英国植民地化の際に乱開発防止のためマオリが政府に土地を寄贈。1990年に自然遺産登録後、1993年にマオリとの文化的つながりが認められ世界初の文化的景観として複合遺産となった。",
+    "related_video": "https://www.youtube.com/watch?v=p2Fv8rQygAY",
+    "related_heritage_ids": [
+      "WH_W_NZ001"
+    ],
+    "related_question_ids": [
+      "Q017"
+    ],
+    "source": "tool_09",
+    "tags": [
+      "トンガリロ",
+      "ニュージーランド",
+      "マオリ",
+      "文化的景観",
+      "世界初",
+      "複合遺産"
+    ]
+  },
+  {
+    "id": "Q070",
+    "category": "culture",
+    "subcategory": "tajmahal",
+    "difficulty": 1,
+    "question": "ムガル帝国の皇帝シャー・ジャハーンが亡き妃のために建てたインドの世界遺産はどれか。",
+    "choices": [
+      "A：アジャンター石窟",
+      "B：エローラ石窟",
+      "C：タージ・マハル",
+      "D：クトゥブ・ミナール"
+    ],
+    "correct": "C",
+    "short_explanation": "タージ・マハル（インド・アーグラ）。ムガル帝国のシャー・ジャハーンが妃ムムターズ・マハルのために建造。1983年登録。",
+    "detailed_explanation": "インドのアーグラにあるタージ・マハルは17世紀ムガル帝国の皇帝シャー・ジャハーンが愛妃ムムターズ・マハルの死を悼んで建設した白大理石の霊廟。約2万人の職人が22年かけて建設（1632〜1653年）。ムガル建築の最高傑作とされ、「インドのイスラム美術の至宝」。登録基準(i)。1983年文化遺産登録。",
+    "related_video": "https://www.youtube.com/watch?v=p2Fv8rQygAY",
+    "related_heritage_ids": [
+      "WH_W_IN001"
+    ],
+    "related_question_ids": [
+      "Q071"
+    ],
+    "source": "original",
+    "tags": [
+      "タージ・マハル",
+      "インド",
+      "ムガル帝国",
+      "シャー・ジャハーン",
+      "1983年",
+      "霊廟"
+    ]
+  },
+  {
+    "id": "Q071",
+    "category": "culture",
+    "subcategory": "pyramids",
+    "difficulty": 1,
+    "question": "古代エジプトのファラオの墓として建設されたギザの三大ピラミッドを含む世界遺産はどれか。",
+    "choices": [
+      "A：カルナック神殿",
+      "B：ルクソール神殿",
+      "C：メンフィスとその墓地遺跡—ギザからダハシュールにかけてのピラミッド地帯",
+      "D：アブ・シンベルからフィラエまでのヌビア遺跡"
+    ],
+    "correct": "C",
+    "short_explanation": "メンフィスとその墓地遺跡（エジプト）。クフ王・カフラー王・メンカウラー王のギザ三大ピラミッドを含む。1979年登録。",
+    "detailed_explanation": "エジプトのギザにある三大ピラミッドは古王国時代（紀元前2600〜2500年頃）に建設。最大のクフ王のピラミッドは元の高さ約146m。「メンフィスとその墓地遺跡」として1979年文化遺産登録。世界遺産の中で唯一「世界七不思議」に現存する遺産。スフィンクスも構成資産の一つ。",
+    "related_video": "https://www.youtube.com/watch?v=p2Fv8rQygAY",
+    "related_heritage_ids": [
+      "WH_W_EG001"
+    ],
+    "related_question_ids": [
+      "Q070"
+    ],
+    "source": "original",
+    "tags": [
+      "ピラミッド",
+      "エジプト",
+      "ギザ",
+      "クフ王",
+      "1979年",
+      "古代エジプト"
+    ]
+  },
+  {
+    "id": "Q072",
+    "category": "culture",
+    "subcategory": "greatwall",
+    "difficulty": 1,
+    "question": "北方の遊牧民族の侵入を防ぐために建設された、全長2万kmを超える中国の世界遺産はどれか。",
+    "choices": [
+      "A：秦始皇帝陵",
+      "B：万里の長城",
+      "C：明・清朝の皇宮（北京と瀋陽の故宮）",
+      "D：泰山"
+    ],
+    "correct": "B",
+    "short_explanation": "万里の長城（中国）。全長約21,196km。紀元前7世紀から明代（14〜17世紀）まで増改築が続いた。1987年登録。",
+    "detailed_explanation": "万里の長城は紀元前7世紀頃から建設が始まり、秦の始皇帝が統一後に各国の城壁を結合・延長した。その後も明代まで延長・補修が続き、総延長は約21,196km（調査による）。北方の匈奴など遊牧民族の侵入防止のために建設。1987年文化遺産登録。登録基準(i)(ii)(iii)(iv)(vi)。",
+    "related_video": "https://www.youtube.com/watch?v=p2Fv8rQygAY",
+    "related_heritage_ids": [
+      "WH_W_CN001"
+    ],
+    "related_question_ids": [
+      "Q073"
+    ],
+    "source": "original",
+    "tags": [
+      "万里の長城",
+      "中国",
+      "秦の始皇帝",
+      "1987年",
+      "城壁"
+    ]
+  },
+  {
+    "id": "Q073",
+    "category": "culture",
+    "subcategory": "qin",
+    "difficulty": 2,
+    "question": "中国初の統一国家・秦を建てた始皇帝の陵墓と、約8,000体の兵馬俑で知られる世界遺産はどれか。",
+    "choices": [
+      "A：泰山",
+      "B：周口店の北京原人遺跡",
+      "C：秦始皇帝陵と兵馬俑坑",
+      "D：黄山"
+    ],
+    "correct": "C",
+    "short_explanation": "秦始皇帝陵と兵馬俑坑（中国・西安）。始皇帝陵から東1.5kmに約8,000体の等身大の兵馬俑が埋葬。1987年登録。",
+    "detailed_explanation": "紀元前221年に中国初の統一国家・秦を築いた始皇帝（嬴政）の陵墓は陝西省西安市郊外にある。陵墓から東1.5kmの兵馬俑坑には等身大の陶製の兵士・馬など約8,000体が埋葬されており、1974年に農民が掘削中に偶然発見した。1987年文化遺産登録。",
+    "related_video": "https://www.youtube.com/watch?v=p2Fv8rQygAY",
+    "related_heritage_ids": [
+      "WH_W_CN002"
+    ],
+    "related_question_ids": [
+      "Q072"
+    ],
+    "source": "tool_07",
+    "tags": [
+      "始皇帝",
+      "兵馬俑",
+      "秦",
+      "中国",
+      "西安",
+      "1987年"
+    ]
+  },
+  {
+    "id": "Q074",
+    "category": "culture",
+    "subcategory": "machupicchu",
+    "difficulty": 1,
+    "question": "標高2,430mのアンデスに建つインカ帝国の「空中都市」として知られるペルーの世界遺産はどれか。",
+    "choices": [
+      "A：チチカカ湖",
+      "B：ナスカの地上絵",
+      "C：マチュ・ピチュの歴史的聖域",
+      "D：クスコ市街"
+    ],
+    "correct": "C",
+    "short_explanation": "マチュ・ピチュの歴史的聖域（ペルー）。15世紀インカ帝国が建設。1911年ハイラム・ビンガムが再発見。1983年登録。",
+    "detailed_explanation": "ペルーのアンデス山脈・標高2,430mに位置するマチュ・ピチュは15世紀にインカ帝国が建設した都市。「空中の都市」「天空の都市」とも呼ばれる。1911年にアメリカ人探検家ハイラム・ビンガムが再発見するまで外部に知られていなかった。精巧な石組みが特徴。複合遺産として1983年登録。",
+    "related_video": "https://www.youtube.com/watch?v=p2Fv8rQygAY",
+    "related_heritage_ids": [
+      "WH_W_PE001"
+    ],
+    "related_question_ids": [
+      "Q075"
+    ],
+    "source": "original",
+    "tags": [
+      "マチュ・ピチュ",
+      "ペルー",
+      "インカ帝国",
+      "空中都市",
+      "1983年",
+      "ハイラム・ビンガム"
+    ]
+  },
+  {
+    "id": "Q075",
+    "category": "culture",
+    "subcategory": "angkor",
+    "difficulty": 1,
+    "question": "12世紀に建設されたヒンドゥー教・後に仏教寺院となったカンボジアの巨大遺跡群はどれか。",
+    "choices": [
+      "A：ボロブドゥール",
+      "B：アユタヤ遺跡",
+      "C：アンコールの遺跡群",
+      "D：バガン遺跡群"
+    ],
+    "correct": "C",
+    "short_explanation": "アンコールの遺跡群（カンボジア）。クメール王朝の最盛期（12世紀）に建設。アンコール・ワット・アンコール・トムなど。1992年登録。",
+    "detailed_explanation": "カンボジアのアンコールはクメール王朝（802〜1431年）の首都。アンコール・ワットはスーリャヴァルマン2世が12世紀前半にヒンドゥー教（ヴィシュヌ神）の寺院として建設し、後に仏教寺院になった。広さ約200㎢の敷地に100以上の神殿・遺跡が分布。内戦で危機遺産リストに記載されたが、国際的な修復支援で2004年に除外。1992年文化遺産登録。",
+    "related_video": "https://www.youtube.com/watch?v=p2Fv8rQygAY",
+    "related_heritage_ids": [
+      "WH_W_KH001"
+    ],
+    "related_question_ids": [
+      "Q074"
+    ],
+    "source": "original",
+    "tags": [
+      "アンコール・ワット",
+      "カンボジア",
+      "クメール王朝",
+      "12世紀",
+      "1992年",
+      "ヒンドゥー教"
+    ]
+  },
+  {
+    "id": "Q076",
+    "category": "culture",
+    "subcategory": "auschwitz",
+    "difficulty": 1,
+    "question": "ナチス・ドイツによるユダヤ人虐殺の舞台となった「負の遺産」として知られるポーランドの世界遺産はどれか。",
+    "choices": [
+      "A：ワルシャワ歴史地区",
+      "B：ヴィエリチカとボフニャの王立岩塩坑",
+      "C：アウシュビッツ・ビルケナウ ナチスドイツの強制絶滅収容所（1940-1945）",
+      "D：クラクフの歴史地区"
+    ],
+    "correct": "C",
+    "short_explanation": "アウシュビッツ・ビルケナウ（ポーランド）。第二次世界大戦中にユダヤ人ら約150万人が殺害された「負の遺産」。1979年登録。",
+    "detailed_explanation": "ポーランドのオシフィエンチムにあるアウシュビッツ・ビルケナウは第二次世界大戦中（1940〜1945年）にナチス・ドイツが設置した強制・絶滅収容所。ユダヤ人を中心に約150万人が殺害された。「二度と繰り返さない」という人類の誓いとして1979年文化遺産登録。登録基準(vi)のみ。原爆ドームと並ぶ代表的な「負の遺産」。",
+    "related_video": "https://www.youtube.com/watch?v=p2Fv8rQygAY",
+    "related_heritage_ids": [
+      "WH_W_PL001"
+    ],
+    "related_question_ids": [
+      "Q037"
+    ],
+    "source": "original",
+    "tags": [
+      "アウシュビッツ",
+      "ポーランド",
+      "負の遺産",
+      "ナチス",
+      "ユダヤ人",
+      "1979年"
+    ]
+  },
+  {
+    "id": "Q077",
+    "category": "culture",
+    "subcategory": "mont_saint_michel",
+    "difficulty": 1,
+    "question": "フランスのノルマンディー地方の海に浮かぶ岩山に建つ修道院の世界遺産はどれか。",
+    "choices": [
+      "A：シャルトル大聖堂",
+      "B：ヴェルサイユの宮殿と庭園",
+      "C：モン・サン・ミシェルとその湾",
+      "D：ストラスブール大聖堂"
+    ],
+    "correct": "C",
+    "short_explanation": "モン・サン・ミシェルとその湾（フランス）。潮汐の干満で「海に浮かぶ」絶景を生む岩山の修道院。1979年登録。",
+    "detailed_explanation": "フランス・ノルマンディーのモン・サン・ミシェルは、大潮時に海に囲まれる小島の頂上に建つカトリックの修道院。大天使ミカエル（サン・ミシェル）に捧げられた島で、708年に創建の伝説がある。中世ゴシック建築の傑作で「西洋の不思議」とも称される。世界遺産最初の12件の一つ（ただし元の12件には入っておらず1979年登録）。",
+    "related_video": "https://www.youtube.com/watch?v=p2Fv8rQygAY",
+    "related_heritage_ids": [
+      "WH_W_FR001"
+    ],
+    "related_question_ids": [
+      "Q078"
+    ],
+    "source": "original",
+    "tags": [
+      "モン・サン・ミシェル",
+      "フランス",
+      "修道院",
+      "ノルマンディー",
+      "1979年"
+    ]
+  },
+  {
+    "id": "Q078",
+    "category": "culture",
+    "subcategory": "lalibela",
+    "difficulty": 2,
+    "question": "岩を削って造られた11の聖堂群で構成されるエチオピアの世界遺産はどれか。",
+    "choices": [
+      "A：アクスム",
+      "B：ラリベラの岩の聖堂群",
+      "C：ファジル・ゲビ",
+      "D：コンソの文化的景観"
+    ],
+    "correct": "B",
+    "short_explanation": "ラリベラの岩の聖堂群（エチオピア）。12世紀末に「第二のエルサレム」として建設。全11ヵ所の岩窟聖堂。1978年登録。",
+    "detailed_explanation": "エチオピアのラリベラには、12〜13世紀にエルサレムがイスラム占領下にあった時期、ラリベラ王が「第二のエルサレム」を目指して巨大な一枚岩を彫刻して建てた11の聖堂がある。最も新しくギリシャ十字の形をしているのが「ギョルギス聖堂」。コプト教（エチオピア正教）の聖地として現在も使用されている。世界遺産最初の12件の一つ（1978年）。",
+    "related_video": "https://www.youtube.com/watch?v=p2Fv8rQygAY",
+    "related_heritage_ids": [
+      "WH_W_ET001"
+    ],
+    "related_question_ids": [
+      "Q079"
+    ],
+    "source": "tool_07",
+    "tags": [
+      "ラリベラ",
+      "エチオピア",
+      "岩窟聖堂",
+      "12世紀",
+      "ギョルギス聖堂",
+      "1978年"
+    ]
+  },
+  {
+    "id": "Q079",
+    "category": "culture",
+    "subcategory": "lalibela",
+    "difficulty": 3,
+    "question": "ラリベラの岩の聖堂群の中で最も新しく、ギリシャ十字の形をしている聖堂はどれか。",
+    "choices": [
+      "A：ベテ・メドハネ・アレム",
+      "B：ベテ・マリアム",
+      "C：ギョルギス聖堂",
+      "D：ベテ・ゴルゴタ"
+    ],
+    "correct": "C",
+    "short_explanation": "ギョルギス聖堂（ゲオルギウス聖堂）。完璧な十字形に彫られた岩窟聖堂で、ラリベラで最も新しい。",
+    "detailed_explanation": "ラリベラの11の聖堂のうち、ギョルギス聖堂（ゲオルギウス聖堂）が最も新しく建てられた。上から見ると完璧なギリシャ十字の形で、屋根に大きな十字が刻まれている。聖ゲオルギウス（竜退治で知られる聖人）に捧げられた聖堂。",
+    "related_video": "https://www.youtube.com/watch?v=p2Fv8rQygAY",
+    "related_heritage_ids": [
+      "WH_W_ET001"
+    ],
+    "related_question_ids": [
+      "Q078"
+    ],
+    "source": "tool_07",
+    "tags": [
+      "ラリベラ",
+      "ギョルギス聖堂",
+      "岩窟聖堂",
+      "エチオピア",
+      "十字形"
+    ]
+  },
+  {
+    "id": "Q080",
+    "category": "culture",
+    "subcategory": "lyon",
+    "difficulty": 3,
+    "question": "16世紀初めに絹織物産業を推奨し、リヨンを絹産業の中心地とした人物は誰か。",
+    "choices": [
+      "A：ナポレオン1世",
+      "B：ルイ14世",
+      "C：フランソワ1世",
+      "D：シャルルマーニュ"
+    ],
+    "correct": "C",
+    "short_explanation": "フランソワ1世（ヴァロワ朝）。16世紀初め、リヨンで絹織物産業を推奨。18世紀末フランス革命まで欧州絹産業の中心地。",
+    "detailed_explanation": "フランスのリヨンはヴァロワ朝のフランソワ1世（在位1515〜1547年）が16世紀初めに絹織物産業を推奨したことで、ヨーロッパの絹産業の中心地となった。フランス革命（18世紀末）が起こるまで約300年間にわたり絹産業で栄えた。富岡製糸場の建設を指導したポール・ブリュナもリヨンで製糸技術を学んだ。リヨンの歴史地区は1998年文化遺産登録。",
+    "related_video": "https://www.youtube.com/watch?v=p2Fv8rQygAY",
+    "related_heritage_ids": [
+      "WH_W_FR002"
+    ],
+    "related_question_ids": [
+      "Q052"
+    ],
+    "source": "tool_08",
+    "tags": [
+      "リヨン",
+      "フランソワ1世",
+      "絹織物",
+      "フランス",
+      "16世紀"
+    ]
+  },
+  {
+    "id": "Q081",
+    "category": "culture",
+    "subcategory": "sydney",
+    "difficulty": 2,
+    "question": "帆船の帆のような屋根が特徴のシドニー・オペラハウスを設計した建築家は誰か。",
+    "choices": [
+      "A：フランク・ロイド・ライト",
+      "B：ル・コルビュジエ",
+      "C：ヨーン・ウッツォン",
+      "D：フランク・ゲーリー"
+    ],
+    "correct": "C",
+    "short_explanation": "ヨーン・ウッツォン（デンマーク）。世界中から設計案を公募し採用された。2007年登録。",
+    "detailed_explanation": "オーストラリアのシドニー・オペラハウスはデンマークの建築家ヨーン・ウッツォン（1918〜2008年）が設計。1957年に世界規模のコンペで採用されたが工事が難航し費用超過で彼は監督を辞任。1973年に完成。独創的な「貝殻形」の屋根が特徴。2007年文化遺産登録。登録基準(i)のみ。",
+    "related_video": "https://www.youtube.com/watch?v=p2Fv8rQygAY",
+    "related_heritage_ids": [
+      "WH_W_AU001"
+    ],
+    "related_question_ids": [
+      "Q082"
+    ],
+    "source": "tool_09",
+    "tags": [
+      "シドニーのオペラハウス",
+      "ヨーン・ウッツォン",
+      "デンマーク",
+      "2007年",
+      "建築"
+    ]
+  },
+  {
+    "id": "Q082",
+    "category": "culture",
+    "subcategory": "rome",
+    "difficulty": 1,
+    "question": "古代ローマの剣闘士試合・猛獣狩りが行われた円形闘技場を含むイタリアの世界遺産はどれか。",
+    "choices": [
+      "A：ポンペイの考古地区",
+      "B：ローマの歴史地区",
+      "C：フィレンツェの歴史地区",
+      "D：ヴェネツィアとその潟"
+    ],
+    "correct": "B",
+    "short_explanation": "ローマの歴史地区（イタリア）。コロッセオ・フォロ・ロマーノ・パンテオン・トレヴィの泉など。1980年登録。",
+    "detailed_explanation": "「ローマの歴史地区とバチカン市国の教会群（エクストラテリトリアル）」には古代ローマの円形闘技場コロッセオ（約7万人収容、1世紀完成）・フォロ・ロマーノ・カラカラ浴場・アッピア街道などが含まれる。ローマはバチカンを含め2500年以上の歴史を持つ。1980年文化遺産登録。",
+    "related_video": "https://www.youtube.com/watch?v=p2Fv8rQygAY",
+    "related_heritage_ids": [
+      "WH_W_IT001"
+    ],
+    "related_question_ids": [
+      "Q081"
+    ],
+    "source": "original",
+    "tags": [
+      "ローマ",
+      "コロッセオ",
+      "イタリア",
+      "1980年",
+      "古代ローマ"
+    ]
+  },
+  {
+    "id": "Q083",
+    "category": "culture",
+    "subcategory": "goree",
+    "difficulty": 2,
+    "question": "15〜19世紀にアフリカ最大の奴隷貿易の拠点となったセネガルの世界遺産はどれか。",
+    "choices": [
+      "A：ジェンネの旧市街",
+      "B：ゴレ島",
+      "C：ラムの旧市街",
+      "D：ブレヌ・ブレスタンの要塞"
+    ],
+    "correct": "B",
+    "short_explanation": "ゴレ島（セネガル）。15〜19世紀に奴隷貿易の拠点。「奴隷の家」が有名。1978年文化遺産登録（最初の12件）。",
+    "detailed_explanation": "セネガルのダカール沖に浮かぶゴレ島は15世紀にポルトガルが奴隷貿易の拠点として開発。その後オランダ・フランス・イギリスが支配し、推定2,000万人のアフリカ人がここを経由してアメリカ大陸に送られたとされる。「奴隷の家」が記念施設として残る。世界遺産最初の12件（1978年）の一つ。",
+    "related_video": "https://www.youtube.com/watch?v=p2Fv8rQygAY",
+    "related_heritage_ids": [
+      "WH_W_SN001"
+    ],
+    "related_question_ids": [
+      "Q076"
+    ],
+    "source": "original",
+    "tags": [
+      "ゴレ島",
+      "セネガル",
+      "奴隷貿易",
+      "負の遺産",
+      "1978年",
+      "最初の12件"
+    ]
+  },
+  {
+    "id": "Q084",
+    "category": "culture",
+    "subcategory": "acropolis",
+    "difficulty": 1,
+    "question": "パルテノン神殿が立つ丘として知られるギリシャの世界遺産はどれか。",
+    "choices": [
+      "A：デルフィの考古遺跡",
+      "B：アテネのアクロポリス",
+      "C：ミケーネとティリンスの考古遺跡",
+      "D：オリンピアの考古遺跡"
+    ],
+    "correct": "B",
+    "short_explanation": "アテネのアクロポリス（ギリシャ）。パルテノン神殿・エレクテイオン・ニケ神殿など。古代ギリシャ文明の象徴。1987年登録。",
+    "detailed_explanation": "アテネのアクロポリス（「高い丘の城市」の意）には、紀元前5世紀ペリクレス時代に建設されたパルテノン神殿（女神アテナに捧げられた神殿）が立つ。古代ギリシャ建築の最高傑作とされ、民主主義・芸術・哲学の発祥地アテネの象徴。1987年文化遺産登録。",
+    "related_video": "https://www.youtube.com/watch?v=p2Fv8rQygAY",
+    "related_heritage_ids": [
+      "WH_W_GR001"
+    ],
+    "related_question_ids": [
+      "Q083"
+    ],
+    "source": "original",
+    "tags": [
+      "アクロポリス",
+      "ギリシャ",
+      "パルテノン神殿",
+      "古代ギリシャ",
+      "1987年"
+    ]
+  },
+  {
+    "id": "Q085",
+    "category": "culture",
+    "subcategory": "gaudi",
+    "difficulty": 2,
+    "question": "カタルーニャの建築家アントニ・ガウディの作品群として登録されたスペインの世界遺産はどれか。",
+    "choices": [
+      "A：グラナダのアルハンブラ宮殿",
+      "B：アントニ・ガウディの作品群",
+      "C：バルセロナのゴシック地区",
+      "D：セビリャの大聖堂"
+    ],
+    "correct": "B",
+    "short_explanation": "アントニ・ガウディの作品群（スペイン）。サグラダ・ファミリア・グエル公園・カサ・ミラ等。1984・2005年登録。",
+    "detailed_explanation": "スペインのカタルーニャを代表する建築家アントニ・ガウディ（1852〜1926年）の作品7件が世界遺産に登録されている。サグラダ・ファミリア（聖家族教会）・グエル公園・カサ・ミラ・カサ・バトリョ・グエル別邸・グエル邸・テレジア学院。ガウディは晩年の43年間をサグラダ・ファミリアの建設に捧げ、1926年に路面電車に轢かれて死亡。",
+    "related_video": "https://www.youtube.com/watch?v=p2Fv8rQygAY",
+    "related_heritage_ids": [
+      "WH_W_ES001"
+    ],
+    "related_question_ids": [
+      "Q084"
+    ],
+    "source": "original",
+    "tags": [
+      "ガウディ",
+      "サグラダ・ファミリア",
+      "スペイン",
+      "バルセロナ",
+      "建築"
+    ]
+  },
+  {
+    "id": "Q086",
+    "category": "culture",
+    "subcategory": "wieliczka",
+    "difficulty": 2,
+    "question": "地下に礼拝堂や彫刻が作られた13世紀から操業するポーランドの岩塩坑の世界遺産はどれか。",
+    "choices": [
+      "A：クラクフの歴史地区",
+      "B：ヴィエリチカとボフニャの王立岩塩坑",
+      "C：ビャウォヴィエジャの森",
+      "D：ワルシャワの歴史地区"
+    ],
+    "correct": "B",
+    "short_explanation": "ヴィエリチカとボフニャの王立岩塩坑（ポーランド）。地下に礼拝堂・シャンデリアを塩で作成。1978年登録（最初の12件）。",
+    "detailed_explanation": "ポーランドのヴィエリチカ岩塩坑は13世紀から20世紀まで操業した岩塩坑。坑道総延長300km・深さ327m。坑内には塩で作られたシャンデリア・祭壇・彫刻で飾られた礼拝堂があり「地下の大聖堂」と呼ばれる。世界遺産最初の12件の一つ（1978年）。",
+    "related_video": "https://www.youtube.com/watch?v=p2Fv8rQygAY",
+    "related_heritage_ids": [
+      "WH_W_PL002"
+    ],
+    "related_question_ids": [
+      "Q076"
+    ],
+    "source": "original",
+    "tags": [
+      "ヴィエリチカ",
+      "岩塩坑",
+      "ポーランド",
+      "1978年",
+      "最初の12件",
+      "礼拝堂"
+    ]
+  }
+]
