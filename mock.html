@@ -72,6 +72,11 @@
       </div>
       <div id="mock-q-num" style="font-size:0.85rem;color:#888;margin-bottom:0.5rem;"></div>
       <div class="question-text" id="mock-question-text"></div>
+      <div id="mock-image-area" style="display:none;margin:0.6rem 0 0.8rem;">
+        <img id="mock-image" src="" alt="問題の画像"
+          style="max-width:100%;border-radius:8px;border:1px solid #e2e8f0;display:block;margin:0 auto;">
+        <div style="font-size:0.72rem;color:#aaa;text-align:right;margin-top:0.2rem;">© Wikimedia Commons</div>
+      </div>
       <div id="mock-choices-area"></div>
       <div style="display:flex;justify-content:space-between;margin-top:1.2rem;gap:0.5rem;">
         <button class="btn btn-outline" id="prev-btn" onclick="navigate(-1)">← 前へ</button>
@@ -198,6 +203,11 @@ function showQ(idx) {
 
   document.getElementById('mock-q-num').textContent = `問題 ${idx+1} / ${questions.length}`;
   document.getElementById('mock-question-text').textContent = q.question;
+
+  const mockImgArea = document.getElementById('mock-image-area');
+  const mockImgEl   = document.getElementById('mock-image');
+  if (q.image) { mockImgEl.src = q.image; mockImgArea.style.display = ''; }
+  else { mockImgArea.style.display = 'none'; mockImgEl.src = ''; }
 
   // マークボタン
   updateMarkBtn();

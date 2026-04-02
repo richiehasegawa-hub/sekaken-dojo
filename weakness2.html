@@ -84,6 +84,11 @@
           <span id="train-flag" style="font-size:0.82rem;color:#f59e0b;font-weight:bold;"></span>
         </div>
         <div class="question-text" id="train-question-text"></div>
+        <div id="train-image-area" style="display:none;margin:0.6rem 0 0.8rem;">
+          <img id="train-image" src="" alt="問題の画像"
+            style="max-width:100%;border-radius:8px;border:1px solid #e2e8f0;display:block;margin:0 auto;">
+          <div style="font-size:0.72rem;color:#aaa;text-align:right;margin-top:0.2rem;">© Wikimedia Commons</div>
+        </div>
         <div id="train-choices-area"></div>
         <div id="train-feedback" style="display:none;margin-top:0.8rem;"></div>
         <div id="train-action" style="margin-top:1rem;display:none;"></div>
@@ -288,6 +293,11 @@ function showTrainQ(idx) {
   document.getElementById('train-flag').textContent = rec.weak_flag ? '🚩 苦手フラグあり' : '';
 
   document.getElementById('train-question-text').textContent = q.question;
+
+  const tImgArea = document.getElementById('train-image-area');
+  const tImgEl   = document.getElementById('train-image');
+  if (q.image) { tImgEl.src = q.image; tImgArea.style.display = ''; }
+  else { tImgArea.style.display = 'none'; tImgEl.src = ''; }
 
   const area = document.getElementById('train-choices-area');
   area.innerHTML = '';

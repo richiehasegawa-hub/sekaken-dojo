@@ -85,6 +85,11 @@
         </button>
       </div>
       <div class="question-text" id="question-text"></div>
+      <div id="q-image-area" style="display:none;margin:0.6rem 0 0.8rem;">
+        <img id="q-image" src="" alt="問題の画像"
+          style="max-width:100%;border-radius:8px;border:1px solid #e2e8f0;display:block;margin:0 auto;">
+        <div style="font-size:0.72rem;color:#aaa;text-align:right;margin-top:0.2rem;">© Wikimedia Commons</div>
+      </div>
       <div id="choices-area"></div>
       <div id="feedback-area" style="display:none;"></div>
       <div id="action-btns" style="margin-top:1rem;display:none;"></div>
@@ -263,6 +268,17 @@ function showQuestion(idx) {
 
   // 問題文
   document.getElementById('question-text').textContent = currentQ.question;
+
+  // 画像表示
+  const imgArea = document.getElementById('q-image-area');
+  const imgEl   = document.getElementById('q-image');
+  if (currentQ.image) {
+    imgEl.src = currentQ.image;
+    imgArea.style.display = '';
+  } else {
+    imgArea.style.display = 'none';
+    imgEl.src = '';
+  }
 
   // 選択肢
   const choicesArea = document.getElementById('choices-area');
