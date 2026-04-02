@@ -1,0 +1,398 @@
+<!DOCTYPE html>
+<html lang="ja">
+<head>
+<meta charset="UTF-8"><meta name="viewport" content="width=device-width,initial-scale=1">
+<title>苦手克服（2級）— せかけん道場</title>
+<link rel="stylesheet" href="css/style.css">
+</head>
+<body>
+<div id="nav-placeholder"></div>
+<div class="container" style="padding-top:1.2rem">
+
+  <!-- ヘッダー -->
+  <div class="card" style="background:linear-gradient(135deg,#5b21b6,#7c3aed);color:#fff;margin-bottom:1rem;">
+    <div style="font-size:1.3rem;font-weight:bold;">🎯 苦手克服トレーニング</div>
+    <div style="display:inline-block;background:#fef3c7;color:#7c3aed;font-size:0.75rem;font-weight:bold;padding:0.15rem 0.5rem;border-radius:999px;margin-top:0.3rem;">2 級</div>
+    <div style="opacity:0.85;margin-top:0.3rem;font-size:0.9rem;">間違いが多い問題を集中特訓しましょう</div>
+  </div>
+
+  <!-- ローディング中 -->
+  <div id="loading" class="loading">📊 苦手問題を分析中…</div>
+
+  <!-- 苦手なし画面 -->
+  <div id="no-weakness" style="display:none;">
+    <div class="card" style="text-align:center;padding:2rem;">
+      <div style="font-size:2.5rem;margin-bottom:0.8rem;">🎉</div>
+      <div style="font-size:1.1rem;font-weight:bold;margin-bottom:0.5rem;">現在、苦手問題はありません！</div>
+      <div style="color:#7f8c8d;margin-bottom:1.2rem;">問題を解き進めると苦手な問題が登録されます</div>
+      <a href="quiz2.html" class="btn btn-block" style="max-width:300px;margin:0 auto;background:#7c3aed;color:#fff;">📚 問題演習へ</a>
+    </div>
+  </div>
+
+  <!-- 苦手リスト＆演習画面 -->
+  <div id="weakness-content" style="display:none;">
+
+    <!-- サマリー -->
+    <div class="stat-grid" style="margin-bottom:1rem;" id="summary-grid"></div>
+
+    <!-- タブ切り替え -->
+    <div style="display:flex;gap:0;margin-bottom:1rem;border-bottom:2px solid #e2e8f0;">
+      <button class="tab-btn" id="tab-list" onclick="switchTab('list')"
+        style="padding:0.6rem 1.2rem;border:none;background:none;cursor:pointer;font-size:0.92rem;font-weight:bold;color:#7c3aed;border-bottom:3px solid #7c3aed;margin-bottom:-2px;">
+        📋 苦手リスト
+      </button>
+      <button class="tab-btn" id="tab-train" onclick="switchTab('train')"
+        style="padding:0.6rem 1.2rem;border:none;background:none;cursor:pointer;font-size:0.92rem;color:#888;border-bottom:3px solid transparent;margin-bottom:-2px;">
+        ▶ 特訓開始
+      </button>
+    </div>
+
+    <!-- 苦手リストタブ -->
+    <div id="tab-list-content">
+      <div class="card" style="margin-bottom:1rem;">
+        <div class="section-title">⚠️ 苦手フラグ付き問題</div>
+        <div id="weak-list"></div>
+      </div>
+      <div class="card">
+        <div class="section-title">📉 習熟度が低い問題</div>
+        <div id="low-mastery-list"></div>
+      </div>
+      <div style="margin-top:1rem;">
+        <button class="btn btn-block btn-lg" onclick="switchTab('train')" style="background:#7c3aed;color:#fff;">
+          🎯 苦手問題を一括特訓する
+        </button>
+      </div>
+    </div>
+
+    <!-- 特訓タブ（問題演習） -->
+    <div id="tab-train-content" style="display:none;">
+      <!-- 進捗 -->
+      <div style="margin-bottom:0.8rem;">
+        <div style="display:flex;justify-content:space-between;font-size:0.85rem;color:#666;margin-bottom:0.3rem;">
+          <span id="train-progress-txt">問題 1 / ?</span>
+          <span id="train-score-txt">正解: 0問</span>
+        </div>
+        <div class="progress-bar"><div class="progress-fill" id="train-progress-fill" style="width:0%;background:#7c3aed;"></div></div>
+      </div>
+      <!-- 問題 -->
+      <div class="question-card" id="train-card">
+        <div style="display:flex;justify-content:space-between;align-items:flex-start;margin-bottom:0.8rem;flex-wrap:wrap;gap:0.4rem;">
+          <div>
+            <span class="badge" id="train-cat-badge"></span>
+            <span class="badge" id="train-diff-badge" style="margin-left:0.3rem;"></span>
+          </div>
+          <span id="train-flag" style="font-size:0.82rem;color:#f59e0b;font-weight:bold;"></span>
+        </div>
+        <div class="question-text" id="train-question-text"></div>
+        <div id="train-choices-area"></div>
+        <div id="train-feedback" style="display:none;margin-top:0.8rem;"></div>
+        <div id="train-action" style="margin-top:1rem;display:none;"></div>
+      </div>
+      <!-- 完了画面 -->
+      <div id="train-end" style="display:none;">
+        <div class="card" style="text-align:center;">
+          <div style="font-size:1.4rem;font-weight:bold;margin-bottom:0.8rem;">🏆 特訓完了！</div>
+          <div id="train-end-stats" style="margin-bottom:1.2rem;"></div>
+          <div style="display:flex;flex-direction:column;gap:0.6rem;max-width:300px;margin:0 auto;">
+            <button class="btn btn-block" onclick="restartTraining()" style="background:#7c3aed;color:#fff;">🔄 もう一度特訓</button>
+            <a href="index.html" class="btn btn-outline btn-block">📊 ダッシュボードへ</a>
+          </div>
+        </div>
+      </div>
+    </div>
+
+  </div>
+</div>
+
+<script src="data/questions_data2.js"></script>
+<script src="js/storage2.js"></script>
+<script src="js/adaptive2.js"></script>
+<script src="js/app2.js"></script>
+<script>
+'use strict';
+
+let weakPool = [];
+let trainQs  = [];
+let trainIdx = 0;
+let trainCorrect = 0;
+let trainAnswered = false;
+
+document.addEventListener('DOMContentLoaded', async () => {
+  injectNav2();
+  await loadData2();
+  document.getElementById('loading').style.display = 'none';
+  initWeakness();
+});
+
+function initWeakness() {
+  const weakIds     = storage2.getWeakQuestions(50);
+  const weakFlagIds = new Set(weakIds.filter(id => {
+    const rec = storage2.getQRecord(id);
+    return rec.weak_flag;
+  }));
+
+  const qMap = {};
+  QUESTIONS2.forEach(q => qMap[q.id] = q);
+
+  weakPool = weakIds.map(id => qMap[id]).filter(Boolean);
+
+  if (weakPool.length === 0) {
+    document.getElementById('no-weakness').style.display = '';
+    return;
+  }
+
+  document.getElementById('weakness-content').style.display = '';
+
+  // サマリー
+  const flaggedCount = weakPool.filter(q => {
+    const rec = storage2.getQRecord(q.id);
+    return rec.weak_flag;
+  }).length;
+  const lowMasteryCount = weakPool.filter(q => {
+    const rec = storage2.getQRecord(q.id);
+    return !rec.weak_flag && rec.mastery < 3;
+  }).length;
+
+  document.getElementById('summary-grid').innerHTML = `
+    <div class="stat-card" style="border-top-color:#E74C3C;">
+      <div class="val" style="color:#E74C3C;">${weakPool.length}</div>
+      <div class="lbl">🎯 特訓対象</div>
+    </div>
+    <div class="stat-card" style="border-top-color:#F39C12;">
+      <div class="val" style="color:#F39C12;">${flaggedCount}</div>
+      <div class="lbl">🚩 苦手フラグ</div>
+    </div>
+    <div class="stat-card" style="border-top-color:#8e44ad;">
+      <div class="val" style="color:#8e44ad;">${lowMasteryCount}</div>
+      <div class="lbl">📉 低習熟度</div>
+    </div>
+    <div class="stat-card" style="border-top-color:#27AE60;">
+      <div class="val" style="color:#27AE60;">${storage2.getMasteredCount()}</div>
+      <div class="lbl">✅ 習熟済み</div>
+    </div>`;
+
+  // 苦手リスト（フラグ付き）
+  const flagged = weakPool.filter(q => {
+    const rec = storage2.getQRecord(q.id);
+    return rec.weak_flag;
+  });
+  if (flagged.length > 0) {
+    document.getElementById('weak-list').innerHTML = renderQuestionList(flagged);
+  } else {
+    document.getElementById('weak-list').innerHTML = '<div style="color:#888;font-size:0.9rem;">苦手フラグ付きの問題はありません</div>';
+  }
+
+  // 低習熟度リスト
+  const lowMastery = weakPool.filter(q => {
+    const rec = storage2.getQRecord(q.id);
+    return !rec.weak_flag && rec.mastery < 3;
+  });
+  if (lowMastery.length > 0) {
+    document.getElementById('low-mastery-list').innerHTML = renderQuestionList(lowMastery);
+  } else {
+    document.getElementById('low-mastery-list').innerHTML = '<div style="color:#888;font-size:0.9rem;">現在、低習熟度の問題はありません</div>';
+  }
+
+  // 特訓用問題セット構築
+  trainQs = [];
+  const usedIds = [];
+  for (let i = 0; i < weakPool.length; i++) {
+    const q = adaptive2.selectNext(weakPool, usedIds, 'adaptive');
+    if (!q) break;
+    trainQs.push(q);
+    usedIds.push(q.id);
+  }
+  trainIdx = 0;
+  trainCorrect = 0;
+}
+
+function renderQuestionList(questions) {
+  return questions.map(q => {
+    const rec = storage2.getQRecord(q.id);
+    const masteryPct = Math.round((rec.mastery || 0) / 10 * 100);
+    const diffMap = {1:'★☆☆ 易', 2:'★★☆ 普', 3:'★★★ 難'};
+    return `
+      <div style="border:1px solid #ede9fe;border-radius:6px;padding:0.7rem 0.9rem;margin-bottom:0.5rem;background:#faf5ff;">
+        <div style="display:flex;justify-content:space-between;align-items:flex-start;flex-wrap:wrap;gap:0.3rem;">
+          <div style="display:flex;gap:0.3rem;flex-wrap:wrap;align-items:center;">
+            ${rec.weak_flag ? '<span style="font-size:0.78rem;color:#dc2626;font-weight:bold;">🚩</span>' : ''}
+            <span class="badge badge-${q.category}">${CAT_NAMES2[q.category]||q.category}</span>
+            <span style="font-size:0.78rem;color:#888;">${diffMap[q.difficulty]||''}</span>
+          </div>
+          <a href="quiz2.html?id=${q.id}" class="btn btn-sm" style="background:#7c3aed;color:#fff;font-size:0.78rem;padding:0.2rem 0.6rem;">解く</a>
+        </div>
+        <div style="font-size:0.88rem;margin:0.4rem 0 0.5rem;">${escHtml2(q.question.slice(0,55))}${q.question.length>55?'…':''}</div>
+        <div style="display:flex;align-items:center;gap:0.5rem;font-size:0.78rem;color:#888;">
+          <span>習熟度:</span>
+          <div class="progress-bar" style="flex:1;height:5px;">
+            <div class="progress-fill" style="width:${masteryPct}%;background:${masteryPct < 30?'#dc2626':masteryPct < 60?'#f59e0b':'#059669'};"></div>
+          </div>
+          <span>${rec.mastery||0}/10</span>
+          <span>誤答${rec.wrong_count||0}回</span>
+        </div>
+      </div>`;
+  }).join('');
+}
+
+function switchTab(tab) {
+  const listTab  = document.getElementById('tab-list');
+  const trainTab = document.getElementById('tab-train');
+  const listContent  = document.getElementById('tab-list-content');
+  const trainContent = document.getElementById('tab-train-content');
+
+  if (tab === 'list') {
+    listContent.style.display = '';
+    trainContent.style.display = 'none';
+    listTab.style.color = '#7c3aed';
+    listTab.style.borderBottomColor = '#7c3aed';
+    trainTab.style.color = '#888';
+    trainTab.style.borderBottomColor = 'transparent';
+  } else {
+    listContent.style.display = 'none';
+    trainContent.style.display = '';
+    listTab.style.color = '#888';
+    listTab.style.borderBottomColor = 'transparent';
+    trainTab.style.color = '#7c3aed';
+    trainTab.style.borderBottomColor = '#7c3aed';
+
+    if (trainIdx === 0 && !trainAnswered) {
+      storage2.startSession();
+      if (trainQs.length > 0) showTrainQ(0);
+    }
+  }
+}
+
+function showTrainQ(idx) {
+  trainIdx = idx;
+  trainAnswered = false;
+  const q = trainQs[idx];
+  const total = trainQs.length;
+
+  document.getElementById('train-card').style.display = '';
+  document.getElementById('train-end').style.display = 'none';
+
+  document.getElementById('train-progress-txt').textContent = `問題 ${idx+1} / ${total}`;
+  document.getElementById('train-score-txt').textContent = `正解: ${trainCorrect}問`;
+  document.getElementById('train-progress-fill').style.width = `${(idx/total)*100}%`;
+
+  const catBadge = document.getElementById('train-cat-badge');
+  catBadge.textContent = CAT_NAMES2[q.category] || q.category;
+  catBadge.className = `badge badge-${q.category}`;
+
+  const diffBadge = document.getElementById('train-diff-badge');
+  const diffMap = {1:'★☆☆ 易', 2:'★★☆ 普', 3:'★★★ 難'};
+  diffBadge.textContent = diffMap[q.difficulty] || '';
+  diffBadge.className = `badge badge-${q.difficulty===1?'easy':q.difficulty===2?'normal':'hard'}`;
+
+  const rec = storage2.getQRecord(q.id);
+  document.getElementById('train-flag').textContent = rec.weak_flag ? '🚩 苦手フラグあり' : '';
+
+  document.getElementById('train-question-text').textContent = q.question;
+
+  const area = document.getElementById('train-choices-area');
+  area.innerHTML = '';
+  q.choices.forEach((choice, i) => {
+    const btn = document.createElement('button');
+    btn.className = 'choice-btn';
+    btn.textContent = `${['A','B','C','D'][i]}．${choice}`;
+    btn.addEventListener('click', () => handleTrainAnswer(i, btn, q));
+    area.appendChild(btn);
+  });
+
+  document.getElementById('train-feedback').style.display = 'none';
+  document.getElementById('train-action').style.display = 'none';
+}
+
+function handleTrainAnswer(idx, clickedBtn, q) {
+  if (trainAnswered) return;
+  trainAnswered = true;
+
+  const correctIdx = ['A','B','C','D'].indexOf(q.correct);
+  const isCorrect  = idx === correctIdx;
+  if (isCorrect) trainCorrect++;
+
+  storage2.updateAfterAnswer(q.id, q.category, isCorrect);
+
+  document.querySelectorAll('#train-choices-area .choice-btn').forEach((btn, i) => {
+    btn.disabled = true;
+    if (i === correctIdx) btn.classList.add('correct');
+    else if (i === idx && !isCorrect) btn.classList.add('wrong');
+    else btn.classList.add('revealed');
+  });
+
+  const fb = document.getElementById('train-feedback');
+  fb.style.display = '';
+  if (isCorrect) {
+    fb.innerHTML = `
+      <div class="feedback feedback-correct">
+        <div class="feedback-title">✅ 正解！</div>
+        <div class="feedback-exp">${escHtml2(q.short_explanation)}</div>
+      </div>`;
+  } else {
+    fb.innerHTML = `
+      <div class="feedback feedback-wrong">
+        <div class="feedback-title">❌ 不正解… 正解: <span style="color:#155724;">${q.correct}．${escHtml2(q.choices[correctIdx])}</span></div>
+        <div class="feedback-exp">${escHtml2(q.short_explanation)}</div>
+        <button class="detail-toggle" onclick="toggleTrainDetail(this)">📖 詳細解説 ▼</button>
+        <div class="detail-body">
+          ${escHtml2(q.detailed_explanation)}
+        </div>
+      </div>`;
+  }
+
+  const action = document.getElementById('train-action');
+  action.style.display = '';
+  const isLast = trainIdx >= trainQs.length - 1;
+  if (isLast) {
+    action.innerHTML = `<button class="btn btn-block" onclick="finishTraining()" style="background:#7c3aed;color:#fff;">🏆 特訓終了</button>`;
+  } else {
+    action.innerHTML = `<button class="btn btn-block" onclick="showTrainQ(${trainIdx+1})" style="background:#059669;color:#fff;">次へ →</button>`;
+  }
+}
+
+function toggleTrainDetail(btn) {
+  const body = btn.nextElementSibling;
+  if (body.style.display === 'none' || !body.style.display) {
+    body.style.display = 'block';
+    btn.textContent = '📖 詳細解説 ▲';
+  } else {
+    body.style.display = 'none';
+    btn.textContent = '📖 詳細解説 ▼';
+  }
+}
+
+function finishTraining() {
+  const total = trainQs.length;
+  const pct = total > 0 ? Math.round(trainCorrect / total * 100) : 0;
+  storage2.endSession(total, trainCorrect);
+
+  document.getElementById('train-card').style.display = 'none';
+  document.getElementById('train-end').style.display = '';
+
+  const j = adaptive2.judge(pct);
+  document.getElementById('train-end-stats').innerHTML = `
+    <div class="judgment-badge" style="color:${j.border};border-color:${j.border};background:${j.bg};">${j.grade}</div>
+    <div style="font-size:1.1rem;font-weight:bold;margin-top:0.5rem;">${j.label}</div>
+    <div style="font-size:0.9rem;color:#666;margin-top:0.3rem;">正解 ${trainCorrect} / ${total} 問（${pct}%）</div>`;
+}
+
+function restartTraining() {
+  trainIdx = 0;
+  trainCorrect = 0;
+  trainAnswered = false;
+  const usedIds = [];
+  trainQs = [];
+  for (let i = 0; i < weakPool.length; i++) {
+    const q = adaptive2.selectNext(weakPool, usedIds, 'adaptive');
+    if (!q) break;
+    trainQs.push(q);
+    usedIds.push(q.id);
+  }
+  storage2.startSession();
+  document.getElementById('train-end').style.display = 'none';
+  document.getElementById('train-card').style.display = '';
+  showTrainQ(0);
+}
+</script>
+</body>
+</html>

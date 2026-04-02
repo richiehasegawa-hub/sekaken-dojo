@@ -1,0 +1,381 @@
+<!DOCTYPE html>
+<html lang="ja">
+<head>
+<meta charset="UTF-8"><meta name="viewport" content="width=device-width,initial-scale=1">
+<title>問題演習（2級）— せかけん道場</title>
+<link rel="stylesheet" href="css/style.css">
+</head>
+<body>
+<div id="nav-placeholder"></div>
+<div class="container" style="padding-top:1.2rem">
+
+  <!-- 設定画面 -->
+  <div id="setup-screen">
+    <div class="card" style="background:linear-gradient(135deg,#5b21b6,#7c3aed);color:#fff;margin-bottom:1rem;padding:1rem 1.2rem;">
+      <div style="font-size:1.3rem;font-weight:bold;">📝 問題演習 — 2級</div>
+      <div style="opacity:0.85;margin-top:0.2rem;font-size:0.9rem;">世界遺産検定2級 アダプティブ学習</div>
+    </div>
+    <div class="card">
+      <div class="section-title">⚙️ 演習の設定</div>
+      <div style="display:grid;gap:1.2rem;">
+
+        <div>
+          <div style="font-size:0.9rem;font-weight:bold;margin-bottom:0.5rem;color:#555;">カテゴリ</div>
+          <div style="display:flex;flex-wrap:wrap;gap:0.5rem;">
+            <button class="cat-btn btn btn-sm" data-cat="all" style="background:#7c3aed;color:#fff;">📚 全カテゴリ</button>
+            <button class="cat-btn btn btn-sm btn-outline" data-cat="basics">📖 基礎知識</button>
+            <button class="cat-btn btn btn-sm btn-outline" data-cat="japan">🏯 日本の遺産</button>
+            <button class="cat-btn btn btn-sm btn-outline" data-cat="nature">🌿 自然遺産</button>
+            <button class="cat-btn btn btn-sm btn-outline" data-cat="culture">🏛️ 文化遺産</button>
+            <button class="cat-btn btn btn-sm btn-outline" data-cat="other">🌐 その他</button>
+          </div>
+        </div>
+
+        <div>
+          <div style="font-size:0.9rem;font-weight:bold;margin-bottom:0.5rem;color:#555;">難易度</div>
+          <div style="display:flex;flex-wrap:wrap;gap:0.5rem;">
+            <button class="diff-btn btn btn-sm" data-diff="all" style="background:#7c3aed;color:#fff;">すべて</button>
+            <button class="diff-btn btn btn-sm btn-outline" data-diff="1">★☆☆ 易</button>
+            <button class="diff-btn btn btn-sm btn-outline" data-diff="2">★★☆ 普</button>
+            <button class="diff-btn btn btn-sm btn-outline" data-diff="3">★★★ 難</button>
+          </div>
+        </div>
+
+        <div>
+          <div style="font-size:0.9rem;font-weight:bold;margin-bottom:0.5rem;color:#555;">問題数</div>
+          <div style="display:flex;flex-wrap:wrap;gap:0.5rem;">
+            <button class="num-btn btn btn-sm btn-outline" data-num="5">5問</button>
+            <button class="num-btn btn btn-sm" data-num="10" style="background:#7c3aed;color:#fff;">10問</button>
+            <button class="num-btn btn btn-sm btn-outline" data-num="20">20問</button>
+            <button class="num-btn btn btn-sm btn-outline" data-num="30">30問</button>
+            <button class="num-btn btn btn-sm btn-outline" data-num="all">全問</button>
+          </div>
+        </div>
+
+        <div>
+          <div style="font-size:0.9rem;font-weight:bold;margin-bottom:0.5rem;color:#555;">出題モード</div>
+          <div style="display:flex;flex-wrap:wrap;gap:0.5rem;">
+            <button class="mode-btn btn btn-sm" data-mode="adaptive" style="background:#7c3aed;color:#fff;">🧠 適応型（苦手優先）</button>
+            <button class="mode-btn btn btn-sm btn-outline" data-mode="random">🎲 ランダム</button>
+          </div>
+        </div>
+
+        <button id="start-btn" class="btn btn-lg btn-block" style="margin-top:0.5rem;background:#7c3aed;color:#fff;">
+          ▶ 演習スタート
+        </button>
+      </div>
+    </div>
+  </div>
+
+  <!-- 問題画面 -->
+  <div id="quiz-screen" style="display:none;">
+    <div style="margin-bottom:0.8rem;">
+      <div style="display:flex;justify-content:space-between;font-size:0.85rem;color:#666;margin-bottom:0.3rem;">
+        <span id="progress-txt">問題 1 / 10</span>
+        <span id="score-txt">正解: 0問</span>
+      </div>
+      <div class="progress-bar"><div class="progress-fill" id="progress-fill" style="width:0%;background:#7c3aed;"></div></div>
+    </div>
+
+    <div class="question-card" id="question-card">
+      <div style="display:flex;justify-content:space-between;align-items:flex-start;margin-bottom:1rem;flex-wrap:wrap;gap:0.4rem;">
+        <div style="display:flex;gap:0.4rem;flex-wrap:wrap;">
+          <span class="badge" id="q-category-badge"></span>
+          <span class="badge" id="q-diff-badge"></span>
+        </div>
+        <button id="flag-btn" onclick="toggleFlag()" style="background:none;border:1px solid #ddd;border-radius:4px;padding:0.25rem 0.7rem;cursor:pointer;font-size:0.85rem;color:#888;">
+          🚩 苦手登録
+        </button>
+      </div>
+      <div class="question-text" id="question-text"></div>
+      <div id="choices-area"></div>
+      <div id="feedback-area" style="display:none;"></div>
+      <div id="action-btns" style="margin-top:1rem;display:none;"></div>
+    </div>
+  </div>
+
+  <!-- セッション終了画面 -->
+  <div id="end-screen" style="display:none;">
+    <div class="card" style="text-align:center;">
+      <div style="font-size:1.5rem;font-weight:bold;margin-bottom:1rem;">🎉 演習終了！</div>
+      <div class="score-circle" id="end-circle" style="margin-bottom:1.2rem;"></div>
+      <div id="end-stats" style="margin-bottom:1.4rem;"></div>
+      <div style="display:flex;flex-direction:column;gap:0.6rem;max-width:320px;margin:0 auto;">
+        <button class="btn btn-block" onclick="restartSameSettings()" style="background:#7c3aed;color:#fff;">🔄 同じ設定でもう一度</button>
+        <a href="weakness2.html" class="btn btn-warning btn-block">🎯 苦手問題を特訓</a>
+        <a href="index.html" class="btn btn-outline btn-block">📊 ダッシュボードへ</a>
+      </div>
+    </div>
+  </div>
+
+</div>
+
+<script src="data/questions_data2.js"></script>
+<script src="js/storage2.js"></script>
+<script src="js/adaptive2.js"></script>
+<script src="js/app2.js"></script>
+<script>
+'use strict';
+
+let settings = { cat: 'all', diff: 'all', num: 10, mode: 'adaptive' };
+let pool = [];
+let sessionQs = [];
+let currentIdx = 0;
+let correctCount = 0;
+let answered = false;
+let currentQ = null;
+
+document.addEventListener('DOMContentLoaded', async () => {
+  injectNav2();
+  await loadData2();
+
+  const catParam = qs2('cat');
+  const idParam  = qs2('id');
+
+  if (idParam) {
+    settings.cat = 'all'; settings.num = 'all'; settings.mode = 'adaptive';
+    applySettingUI();
+    startSessionWith([QUESTIONS2.find(q => q.id === idParam)].filter(Boolean));
+    return;
+  }
+  if (catParam && catParam !== 'all') {
+    settings.cat = catParam;
+    applySettingUI();
+  }
+  setupSettingBtns();
+});
+
+function applySettingUI() {
+  document.querySelectorAll('.cat-btn').forEach(b => {
+    const on = b.dataset.cat === settings.cat;
+    b.style.background = on ? '#7c3aed' : '';
+    b.style.color = on ? '#fff' : '';
+    b.classList.toggle('btn-outline', !on);
+  });
+}
+
+function setupSettingBtns() {
+  const activeStyle = (btns, key, val) => {
+    document.querySelectorAll(btns).forEach(b => {
+      const on = b.dataset[key] === val || (typeof val === 'number' && parseInt(b.dataset[key]) === val);
+      b.style.background = on ? '#7c3aed' : '';
+      b.style.color = on ? '#fff' : '';
+      b.classList.toggle('btn-outline', !on);
+    });
+  };
+  document.querySelectorAll('.cat-btn').forEach(b => {
+    b.addEventListener('click', () => { settings.cat = b.dataset.cat; activeStyle('.cat-btn','cat',settings.cat); });
+  });
+  document.querySelectorAll('.diff-btn').forEach(b => {
+    b.addEventListener('click', () => { settings.diff = b.dataset.diff; activeStyle('.diff-btn','diff',settings.diff); });
+  });
+  document.querySelectorAll('.num-btn').forEach(b => {
+    b.addEventListener('click', () => {
+      settings.num = b.dataset.num === 'all' ? 'all' : parseInt(b.dataset.num);
+      document.querySelectorAll('.num-btn').forEach(x => { x.style.background=''; x.style.color=''; x.classList.add('btn-outline'); });
+      b.style.background='#7c3aed'; b.style.color='#fff'; b.classList.remove('btn-outline');
+    });
+  });
+  document.querySelectorAll('.mode-btn').forEach(b => {
+    b.addEventListener('click', () => { settings.mode = b.dataset.mode; activeStyle('.mode-btn','mode',settings.mode); });
+  });
+  document.getElementById('start-btn').addEventListener('click', startSession);
+}
+
+function startSession() {
+  let filtered = QUESTIONS2;
+  if (settings.cat !== 'all') filtered = filtered.filter(q => q.category === settings.cat);
+  if (settings.diff !== 'all') filtered = filtered.filter(q => q.difficulty === parseInt(settings.diff));
+  if (filtered.length === 0) { alert('該当する問題がありません。条件を変更してください。'); return; }
+  startSessionWith(filtered);
+}
+
+function startSessionWith(filteredPool) {
+  pool = filteredPool;
+  sessionQs = [];
+  currentIdx = 0;
+  correctCount = 0;
+  const total = settings.num === 'all' ? pool.length : Math.min(settings.num, pool.length);
+  const usedIds = [];
+  for (let i = 0; i < total; i++) {
+    const q = adaptive2.selectNext(pool, usedIds, settings.mode);
+    if (!q) break;
+    sessionQs.push(q);
+    usedIds.push(q.id);
+  }
+  if (sessionQs.length === 0) { alert('問題を取得できませんでした。'); return; }
+  storage2.startSession();
+  document.getElementById('setup-screen').style.display = 'none';
+  document.getElementById('quiz-screen').style.display = '';
+  showQuestion(0);
+}
+
+function showQuestion(idx) {
+  currentIdx = idx;
+  currentQ = sessionQs[idx];
+  answered = false;
+  const total = sessionQs.length;
+  document.getElementById('progress-txt').textContent = `問題 ${idx+1} / ${total}`;
+  document.getElementById('score-txt').textContent = `正解: ${correctCount}問`;
+  document.getElementById('progress-fill').style.width = `${(idx/total)*100}%`;
+
+  const catBadge = document.getElementById('q-category-badge');
+  catBadge.textContent = CAT_NAMES2[currentQ.category] || currentQ.category;
+  catBadge.className = `badge badge-${currentQ.category}`;
+
+  const diffBadge = document.getElementById('q-diff-badge');
+  diffBadge.textContent = {1:'★☆☆ 易', 2:'★★☆ 普', 3:'★★★ 難'}[currentQ.difficulty] || '';
+  diffBadge.className = `badge badge-${currentQ.difficulty===1?'easy':currentQ.difficulty===2?'normal':'hard'}`;
+
+  const rec = storage2.getQRecord(currentQ.id);
+  updateFlagBtn(rec.weak_flag);
+  document.getElementById('question-text').textContent = currentQ.question;
+
+  const choicesArea = document.getElementById('choices-area');
+  choicesArea.innerHTML = '';
+  currentQ.choices.forEach((choice, i) => {
+    const btn = document.createElement('button');
+    btn.className = 'choice-btn';
+    btn.textContent = `${['A','B','C','D'][i]}．${choice}`;
+    btn.addEventListener('click', () => handleAnswer(i, btn));
+    choicesArea.appendChild(btn);
+  });
+
+  document.getElementById('feedback-area').style.display = 'none';
+  document.getElementById('feedback-area').innerHTML = '';
+  document.getElementById('action-btns').style.display = 'none';
+  document.getElementById('action-btns').innerHTML = '';
+}
+
+function handleAnswer(idx, clickedBtn) {
+  if (answered) return;
+  answered = true;
+  const correctIdx = ['A','B','C','D'].indexOf(currentQ.correct);
+  const isCorrect = idx === correctIdx;
+  if (isCorrect) correctCount++;
+  storage2.updateAfterAnswer(currentQ.id, currentQ.category, isCorrect);
+
+  document.querySelectorAll('.choice-btn').forEach((btn, i) => {
+    btn.disabled = true;
+    if (i === correctIdx) btn.classList.add('correct');
+    else if (i === idx && !isCorrect) btn.classList.add('wrong');
+    else btn.classList.add('revealed');
+  });
+
+  const fbArea = document.getElementById('feedback-area');
+  fbArea.style.display = '';
+  if (isCorrect) {
+    fbArea.innerHTML = `
+      <div class="feedback feedback-correct">
+        <div class="feedback-title">✅ 正解！</div>
+        <div class="feedback-exp">${escHtml2(currentQ.short_explanation)}</div>
+      </div>`;
+  } else {
+    fbArea.innerHTML = `
+      <div class="feedback feedback-wrong">
+        <div class="feedback-title">❌ 不正解…  正解: <span style="color:#155724;">${currentQ.correct}．${currentQ.choices[correctIdx]}</span></div>
+        <div class="feedback-exp">${escHtml2(currentQ.short_explanation)}</div>
+        <button class="detail-toggle" onclick="toggleDetail(this)" style="margin-top:0.6rem;">📖 詳細解説を見る ▼</button>
+        <div class="detail-body">
+          <div>${escHtml2(currentQ.detailed_explanation)}</div>
+          ${currentQ.related_video ? `<div style="margin-top:0.6rem;">🎬 <a href="${currentQ.related_video}" target="_blank" rel="noopener" style="color:#7c3aed;">関連動画を見る</a></div>` : ''}
+        </div>
+      </div>`;
+  }
+  buildActionBtns(isCorrect);
+}
+
+function toggleDetail(btn) {
+  const body = btn.nextElementSibling;
+  if (!body.style.display || body.style.display === 'none') {
+    body.style.display = 'block'; btn.textContent = '📖 詳細解説を閉じる ▲';
+  } else {
+    body.style.display = 'none'; btn.textContent = '📖 詳細解説を見る ▼';
+  }
+}
+
+function buildActionBtns(isCorrect) {
+  const area = document.getElementById('action-btns');
+  area.style.display = '';
+  area.innerHTML = '';
+  const isLast = currentIdx >= sessionQs.length - 1;
+
+  if (!isCorrect && !isLast) {
+    const usedIds = sessionQs.map(q => q.id);
+    const similar = adaptive2.getSimilar(pool, currentQ, usedIds);
+    if (similar) {
+      const simBtn = document.createElement('button');
+      simBtn.className = 'btn btn-warning btn-block';
+      simBtn.style.marginBottom = '0.5rem';
+      simBtn.textContent = '🔁 類似問題を解く';
+      simBtn.addEventListener('click', () => { sessionQs.splice(currentIdx + 1, 0, similar); nextQuestion(); });
+      area.appendChild(simBtn);
+    }
+  }
+
+  if (isLast) {
+    const endBtn = document.createElement('button');
+    endBtn.className = 'btn btn-block';
+    endBtn.style.cssText = 'background:#7c3aed;color:#fff;';
+    endBtn.textContent = '🏁 結果を見る';
+    endBtn.addEventListener('click', showEndScreen);
+    area.appendChild(endBtn);
+  } else {
+    const nextBtn = document.createElement('button');
+    nextBtn.className = 'btn btn-success btn-block';
+    nextBtn.textContent = '次の問題へ →';
+    nextBtn.addEventListener('click', nextQuestion);
+    area.appendChild(nextBtn);
+  }
+}
+
+function nextQuestion() { showQuestion(currentIdx + 1); }
+
+function showEndScreen() {
+  const total = sessionQs.length;
+  const pct = total > 0 ? Math.round(correctCount / total * 100) : 0;
+  storage2.endSession(total, correctCount);
+  document.getElementById('quiz-screen').style.display = 'none';
+  document.getElementById('end-screen').style.display = '';
+
+  const colors = pct >= 70 ? ['#059669','#d1fae5'] : pct >= 50 ? ['#2563eb','#dbeafe'] : ['#dc2626','#fee2e2'];
+  document.getElementById('end-circle').style.cssText +=
+    `background:${colors[1]};border:6px solid ${colors[0]};`;
+  document.getElementById('end-circle').innerHTML = `
+    <div style="font-size:2.2rem;font-weight:bold;color:${colors[0]};">${pct}%</div>
+    <div style="font-size:0.85rem;color:#555;">${correctCount}/${total}</div>`;
+
+  const j = adaptive2.judge(pct);
+  document.getElementById('end-stats').innerHTML = `
+    <div class="judgment-badge" style="color:${j.border};border-color:${j.border};background:${j.bg};">${j.grade}</div>
+    <div style="font-size:1.1rem;font-weight:bold;margin-top:0.5rem;">${j.label}</div>
+    <div style="font-size:0.9rem;color:#666;margin-top:0.3rem;">正解 ${correctCount} / ${total} 問（${pct}%）</div>`;
+  document.getElementById('progress-fill').style.width = '100%';
+}
+
+function restartSameSettings() {
+  document.getElementById('end-screen').style.display = 'none';
+  document.getElementById('quiz-screen').style.display = 'none';
+  document.getElementById('setup-screen').style.display = '';
+}
+
+function toggleFlag() {
+  const rec = storage2.getQRecord(currentQ.id);
+  rec.weak_flag = !rec.weak_flag;
+  storage2.saveQRecord(currentQ.id, rec);
+  updateFlagBtn(rec.weak_flag);
+}
+
+function updateFlagBtn(flagged) {
+  const btn = document.getElementById('flag-btn');
+  if (flagged) {
+    btn.style.background = '#fef3c7'; btn.style.borderColor = '#f59e0b';
+    btn.style.color = '#92400e'; btn.textContent = '🚩 苦手登録済み';
+  } else {
+    btn.style.background = ''; btn.style.borderColor = '#ddd';
+    btn.style.color = '#888'; btn.textContent = '🚩 苦手登録';
+  }
+}
+</script>
+</body>
+</html>

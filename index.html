@@ -11,10 +11,10 @@
 <div class="container" style="padding-top:1.2rem">
 
   <!-- ヘッダー -->
-  <div class="card" style="background:linear-gradient(135deg,#1A5A8D,#2E75B6);color:#fff;margin-bottom:1rem;">
+  <div class="card" style="background:linear-gradient(135deg,#1A3A5C,#2E75B6);color:#fff;margin-bottom:1rem;">
     <div style="display:flex;justify-content:space-between;align-items:center;flex-wrap:wrap;gap:0.5rem;">
       <div>
-        <div style="font-size:0.85rem;opacity:0.8;">世界遺産検定3級対策</div>
+        <div style="font-size:0.85rem;opacity:0.8;">世界遺産検定 対策アプリ</div>
         <div style="font-size:1.4rem;font-weight:bold;">🏛️ せかけん道場</div>
         <div id="last-study-txt" style="font-size:0.82rem;opacity:0.8;margin-top:0.2rem;"></div>
       </div>
@@ -27,89 +27,219 @@
     </div>
   </div>
 
-  <!-- 統計カード -->
-  <div class="stat-grid" style="margin-bottom:1rem;">
-    <div class="stat-card">
-      <div class="val" id="stat-total-q">0</div>
-      <div class="lbl">📝 総問題数</div>
-    </div>
-    <div class="stat-card" style="border-top-color:#27AE60">
-      <div class="val" id="stat-accuracy" style="color:#27AE60">--%</div>
-      <div class="lbl">✅ 全体正答率</div>
-    </div>
-    <div class="stat-card" style="border-top-color:#F39C12">
-      <div class="val" id="stat-study-time" style="color:#F39C12">0</div>
-      <div class="lbl">⏱️ 総学習時間(分)</div>
-    </div>
-    <div class="stat-card" style="border-top-color:#E74C3C">
-      <div class="val" id="stat-mock-score" style="color:#E74C3C">--</div>
-      <div class="lbl">🎓 最新模擬点数</div>
-    </div>
+  <!-- 級選択タブ -->
+  <div style="display:flex;gap:0;margin-bottom:1rem;border-bottom:2px solid #e2e8f0;">
+    <button id="grade3-tab" onclick="switchGrade(3)"
+      style="flex:1;padding:0.7rem 1rem;border:none;background:none;cursor:pointer;font-size:0.95rem;font-weight:bold;color:#1A5A8D;border-bottom:3px solid #1A5A8D;margin-bottom:-2px;">
+      🎓 3級
+    </button>
+    <button id="grade2-tab" onclick="switchGrade(2)"
+      style="flex:1;padding:0.7rem 1rem;border:none;background:none;cursor:pointer;font-size:0.95rem;font-weight:bold;color:#888;border-bottom:3px solid transparent;margin-bottom:-2px;">
+      🎓 2級
+    </button>
   </div>
 
-  <!-- 合格可能性 + レーダーチャート -->
-  <div style="display:grid;grid-template-columns:1fr 1fr;gap:1rem;margin-bottom:1rem;" id="charts-row">
-    <div class="card">
-      <div class="section-title">🎯 合格可能性</div>
-      <div id="judgment-area" style="text-align:center;padding:0.6rem 0;">
-        <div style="font-size:0.9rem;color:#7f8c8d;">模擬テストを受験すると表示されます</div>
+  <!-- ══════ 3級ダッシュボード ══════ -->
+  <div id="grade3-content">
+
+    <!-- 統計カード -->
+    <div class="stat-grid" style="margin-bottom:1rem;">
+      <div class="stat-card">
+        <div class="val" id="stat-total-q">0</div>
+        <div class="lbl">📝 総問題数</div>
+      </div>
+      <div class="stat-card" style="border-top-color:#27AE60">
+        <div class="val" id="stat-accuracy" style="color:#27AE60">--%</div>
+        <div class="lbl">✅ 全体正答率</div>
+      </div>
+      <div class="stat-card" style="border-top-color:#F39C12">
+        <div class="val" id="stat-study-time" style="color:#F39C12">0</div>
+        <div class="lbl">⏱️ 総学習時間(分)</div>
+      </div>
+      <div class="stat-card" style="border-top-color:#E74C3C">
+        <div class="val" id="stat-mock-score" style="color:#E74C3C">--</div>
+        <div class="lbl">🎓 最新模擬点数</div>
       </div>
     </div>
-    <div class="card">
-      <div class="section-title">📊 カテゴリ別習熟度</div>
-      <div style="max-height:200px;"><canvas id="radar-chart"></canvas></div>
-    </div>
-  </div>
 
-  <!-- 今日のおすすめ & クイックスタート -->
-  <div style="display:grid;grid-template-columns:1fr 1fr;gap:1rem;margin-bottom:1rem;" id="bottom-row">
-    <div class="card">
-      <div class="section-title">⚡ 今日のおすすめ</div>
-      <div id="recommend-area">
-        <div style="font-size:0.9rem;color:#7f8c8d;text-align:center;padding:1rem 0;">
-          問題を解くとおすすめが表示されます
+    <!-- 合格可能性 + レーダーチャート -->
+    <div style="display:grid;grid-template-columns:1fr 1fr;gap:1rem;margin-bottom:1rem;" id="charts-row">
+      <div class="card">
+        <div class="section-title">🎯 合格可能性（3級）</div>
+        <div id="judgment-area" style="text-align:center;padding:0.6rem 0;">
+          <div style="font-size:0.9rem;color:#7f8c8d;">模擬テストを受験すると表示されます</div>
         </div>
       </div>
-      <a href="weakness.html" class="btn btn-warning btn-block" style="margin-top:0.8rem;font-size:0.9rem;">
-        🎯 苦手問題を集中特訓
-      </a>
-    </div>
-    <div class="card">
-      <div class="section-title">🚀 クイックスタート</div>
-      <div style="display:flex;flex-direction:column;gap:0.6rem;">
-        <a href="quiz.html?cat=all" class="btn btn-primary btn-block">📚 全カテゴリ演習</a>
-        <a href="quiz.html?cat=basics" class="btn btn-block" style="background:#2E75B6;color:#fff;">📖 基礎知識</a>
-        <a href="quiz.html?cat=japan" class="btn btn-block" style="background:#E74C3C;color:#fff;">🏯 日本の遺産</a>
-        <a href="quiz.html?cat=nature" class="btn btn-block" style="background:#27AE60;color:#fff;">🌿 自然遺産</a>
-        <a href="quiz.html?cat=culture" class="btn btn-block" style="background:#F39C12;color:#fff;">🏛️ 文化遺産</a>
-        <a href="mock.html" class="btn btn-block" style="background:#8e44ad;color:#fff;">⏱️ 模擬テスト（50問）</a>
+      <div class="card">
+        <div class="section-title">📊 カテゴリ別習熟度</div>
+        <div style="max-height:200px;"><canvas id="radar-chart"></canvas></div>
       </div>
     </div>
+
+    <!-- 今日のおすすめ & クイックスタート -->
+    <div style="display:grid;grid-template-columns:1fr 1fr;gap:1rem;margin-bottom:1rem;" id="bottom-row">
+      <div class="card">
+        <div class="section-title">⚡ 今日のおすすめ</div>
+        <div id="recommend-area">
+          <div style="font-size:0.9rem;color:#7f8c8d;text-align:center;padding:1rem 0;">
+            問題を解くとおすすめが表示されます
+          </div>
+        </div>
+        <a href="weakness.html" class="btn btn-warning btn-block" style="margin-top:0.8rem;font-size:0.9rem;">
+          🎯 苦手問題を集中特訓
+        </a>
+      </div>
+      <div class="card">
+        <div class="section-title">🚀 クイックスタート（3級）</div>
+        <div style="display:flex;flex-direction:column;gap:0.6rem;">
+          <a href="quiz.html?cat=all" class="btn btn-primary btn-block">📚 全カテゴリ演習</a>
+          <a href="quiz.html?cat=basics" class="btn btn-block" style="background:#2E75B6;color:#fff;">📖 基礎知識</a>
+          <a href="quiz.html?cat=japan" class="btn btn-block" style="background:#E74C3C;color:#fff;">🏯 日本の遺産</a>
+          <a href="quiz.html?cat=nature" class="btn btn-block" style="background:#27AE60;color:#fff;">🌿 自然遺産</a>
+          <a href="quiz.html?cat=culture" class="btn btn-block" style="background:#F39C12;color:#fff;">🏛️ 文化遺産</a>
+          <a href="mock.html" class="btn btn-block" style="background:#8e44ad;color:#fff;">⏱️ 模擬テスト（50問）</a>
+        </div>
+      </div>
+    </div>
+
+    <!-- 学習進捗グラフ -->
+    <div class="card">
+      <div class="section-title">📈 カテゴリ別正答率（3級）</div>
+      <canvas id="bar-chart" style="max-height:180px;"></canvas>
+    </div>
+
+    <!-- フッター -->
+    <div style="text-align:right;margin-top:0.8rem;padding-bottom:1.5rem;">
+      <button onclick="storage.exportJSON()" class="btn btn-sm btn-outline" style="margin-right:0.4rem;">💾 データ保存</button>
+      <button onclick="storage.reset()" class="btn btn-sm" style="background:#e0e0e0;color:#666;">🗑️ リセット</button>
+    </div>
   </div>
 
-  <!-- 学習進捗グラフ -->
-  <div class="card">
-    <div class="section-title">📈 カテゴリ別正答率</div>
-    <canvas id="bar-chart" style="max-height:180px;"></canvas>
+  <!-- ══════ 2級ダッシュボード ══════ -->
+  <div id="grade2-content" style="display:none;">
+
+    <!-- 統計カード -->
+    <div class="stat-grid" style="margin-bottom:1rem;">
+      <div class="stat-card">
+        <div class="val" id="stat2-total-q">0</div>
+        <div class="lbl">📝 総問題数</div>
+      </div>
+      <div class="stat-card" style="border-top-color:#27AE60">
+        <div class="val" id="stat2-accuracy" style="color:#27AE60">--%</div>
+        <div class="lbl">✅ 全体正答率</div>
+      </div>
+      <div class="stat-card" style="border-top-color:#F39C12">
+        <div class="val" id="stat2-study-time" style="color:#F39C12">0</div>
+        <div class="lbl">⏱️ 総学習時間(分)</div>
+      </div>
+      <div class="stat-card" style="border-top-color:#7c3aed">
+        <div class="val" id="stat2-mock-score" style="color:#7c3aed">--</div>
+        <div class="lbl">🎓 最新模擬点数</div>
+      </div>
+    </div>
+
+    <!-- 合格可能性 + レーダーチャート -->
+    <div style="display:grid;grid-template-columns:1fr 1fr;gap:1rem;margin-bottom:1rem;" id="charts2-row">
+      <div class="card">
+        <div class="section-title">🎯 合格可能性（2級）</div>
+        <div id="judgment2-area" style="text-align:center;padding:0.6rem 0;">
+          <div style="font-size:0.9rem;color:#7f8c8d;">模擬テストを受験すると表示されます</div>
+        </div>
+      </div>
+      <div class="card">
+        <div class="section-title">📊 カテゴリ別習熟度</div>
+        <div style="max-height:200px;"><canvas id="radar2-chart"></canvas></div>
+      </div>
+    </div>
+
+    <!-- 今日のおすすめ & クイックスタート -->
+    <div style="display:grid;grid-template-columns:1fr 1fr;gap:1rem;margin-bottom:1rem;" id="bottom2-row">
+      <div class="card">
+        <div class="section-title">⚡ 今日のおすすめ（2級）</div>
+        <div id="recommend2-area">
+          <div style="font-size:0.9rem;color:#7f8c8d;text-align:center;padding:1rem 0;">
+            問題を解くとおすすめが表示されます
+          </div>
+        </div>
+        <a href="weakness2.html" class="btn btn-block" style="margin-top:0.8rem;font-size:0.9rem;background:#7c3aed;color:#fff;">
+          🎯 苦手問題を集中特訓
+        </a>
+      </div>
+      <div class="card">
+        <div class="section-title">🚀 クイックスタート（2級）</div>
+        <div style="display:flex;flex-direction:column;gap:0.6rem;">
+          <a href="quiz2.html" class="btn btn-block" style="background:#7c3aed;color:#fff;">📚 全カテゴリ演習</a>
+          <a href="quiz2.html?cat=basics" class="btn btn-block" style="background:#2E75B6;color:#fff;">📖 基礎知識</a>
+          <a href="quiz2.html?cat=japan" class="btn btn-block" style="background:#E74C3C;color:#fff;">🏯 日本の世界遺産</a>
+          <a href="quiz2.html?cat=nature" class="btn btn-block" style="background:#27AE60;color:#fff;">🌿 世界の自然遺産</a>
+          <a href="quiz2.html?cat=culture" class="btn btn-block" style="background:#F39C12;color:#fff;">🏛️ 世界の文化遺産</a>
+          <a href="quiz2.html?cat=other" class="btn btn-block" style="background:#8E44AD;color:#fff;">🌐 その他</a>
+          <a href="mock2.html" class="btn btn-block" style="background:#5b21b6;color:#fff;">⏱️ 模擬テスト（60問）</a>
+        </div>
+      </div>
+    </div>
+
+    <!-- 学習進捗グラフ -->
+    <div class="card">
+      <div class="section-title">📈 カテゴリ別正答率（2級）</div>
+      <canvas id="bar2-chart" style="max-height:180px;"></canvas>
+    </div>
+
+    <!-- フッター -->
+    <div style="text-align:right;margin-top:0.8rem;padding-bottom:1.5rem;">
+      <button onclick="storage2.exportJSON()" class="btn btn-sm btn-outline" style="margin-right:0.4rem;">💾 データ保存</button>
+      <button onclick="storage2.reset()" class="btn btn-sm" style="background:#e0e0e0;color:#666;">🗑️ リセット</button>
+    </div>
   </div>
 
-  <!-- フッター -->
-  <div style="text-align:right;margin-top:0.8rem;padding-bottom:1.5rem;">
-    <button onclick="storage.exportJSON()" class="btn btn-sm btn-outline" style="margin-right:0.4rem;">💾 データ保存</button>
-    <button onclick="storage.reset()" class="btn btn-sm" style="background:#e0e0e0;color:#666;">🗑️ リセット</button>
-  </div>
 </div>
 
 <script src="data/questions_data.js"></script>
 <script src="data/heritage_data.js"></script>
+<script src="data/questions_data2.js"></script>
 <script src="js/storage.js"></script>
 <script src="js/adaptive.js"></script>
 <script src="js/app.js"></script>
+<script src="js/storage2.js"></script>
+<script src="js/adaptive2.js"></script>
+<script src="js/app2.js"></script>
 <script>
+'use strict';
+
+let radar2ChartObj = null;
+let bar2ChartObj = null;
+
+function switchGrade(grade) {
+  const tab3 = document.getElementById('grade3-tab');
+  const tab2 = document.getElementById('grade2-tab');
+  const c3   = document.getElementById('grade3-content');
+  const c2   = document.getElementById('grade2-content');
+
+  if (grade === 3) {
+    c3.style.display = '';
+    c2.style.display = 'none';
+    tab3.style.color = '#1A5A8D';
+    tab3.style.borderBottomColor = '#1A5A8D';
+    tab2.style.color = '#888';
+    tab2.style.borderBottomColor = 'transparent';
+    localStorage.setItem('sekaken_last_grade', '3');
+  } else {
+    c3.style.display = 'none';
+    c2.style.display = '';
+    tab3.style.color = '#888';
+    tab3.style.borderBottomColor = 'transparent';
+    tab2.style.color = '#7c3aed';
+    tab2.style.borderBottomColor = '#7c3aed';
+    localStorage.setItem('sekaken_last_grade', '2');
+    if (!radar2ChartObj) initGrade2Charts();
+  }
+}
+
 document.addEventListener('DOMContentLoaded', async () => {
+  // ナビは3級用（index.htmlは共通ハブなのでカスタム）
   injectNav();
 
-  // 目標日まであと何日
+  // 目標日
   const target = new Date('2025-08-31');
   const today  = new Date();
   const diff   = Math.ceil((target - today) / 86400000);
@@ -117,37 +247,32 @@ document.addEventListener('DOMContentLoaded', async () => {
   if (diff > 0) daysEl.textContent = `⏳ あと約 ${diff} 日`;
   else daysEl.textContent = '🎓 試験期間中！';
 
+  // ── 3級データ ──
   const d = storage.load();
   const last = d.last_study;
   document.getElementById('last-study-txt').textContent =
     last ? `最終学習日: ${last}` : '学習はまだ始まっていません';
 
-  // 統計カード
   const totalQ = storage.getTotalQuestions();
   const acc    = storage.getOverallAccuracy();
   document.getElementById('stat-total-q').textContent = totalQ.toLocaleString();
-  document.getElementById('stat-accuracy').textContent =
-    totalQ > 0 ? acc + '%' : '--%';
+  document.getElementById('stat-accuracy').textContent = totalQ > 0 ? acc + '%' : '--%';
   document.getElementById('stat-study-time').textContent = d.total_study_minutes;
 
   const mock = storage.getLastMockScore();
-  document.getElementById('stat-mock-score').textContent =
-    mock ? mock.score + '点' : '--';
+  document.getElementById('stat-mock-score').textContent = mock ? mock.score + '点' : '--';
 
-  // 合格可能性
   if (mock) {
     const j = adaptive.judge(mock.score);
     document.getElementById('judgment-area').innerHTML = `
-      <div class="judgment-badge" style="color:${j.border};border-color:${j.border};background:${j.bg};">
-        ${j.grade}
-      </div>
+      <div class="judgment-badge" style="color:${j.border};border-color:${j.border};background:${j.bg};">${j.grade}</div>
       <div style="font-size:1.1rem;font-weight:bold;margin-top:0.5rem;">${j.label}</div>
       <div style="font-size:0.85rem;color:#666;margin-top:0.2rem;">最新模擬テスト: ${mock.score}点</div>
       <div style="font-size:0.8rem;color:#888;">(${mock.date})</div>`;
   }
 
-  // レーダーチャート
   const catAcc = storage.getCategoryAccuracy();
+
   const radarCtx = document.getElementById('radar-chart').getContext('2d');
   new Chart(radarCtx, {
     type: 'radar',
@@ -160,21 +285,16 @@ document.addEventListener('DOMContentLoaded', async () => {
         backgroundColor: 'rgba(46,117,182,0.2)',
         borderColor: '#2E75B6',
         pointBackgroundColor: '#2E75B6',
-        pointBorderColor: '#fff',
-        pointRadius: 5
+        pointBorderColor: '#fff', pointRadius: 5
       }]
     },
     options: {
       responsive: true, maintainAspectRatio: true,
-      scales: { r: { beginAtZero: true, max: 100,
-        ticks: { stepSize: 25, font:{size:10} },
-        pointLabels: { font: { size: 11 } }
-      }},
+      scales: { r: { beginAtZero: true, max: 100, ticks: { stepSize: 25, font:{size:10} }, pointLabels: { font: { size: 11 } } } },
       plugins: { legend: { display: false } }
     }
   });
 
-  // 棒グラフ（カテゴリ別正答率）
   const barCtx = document.getElementById('bar-chart').getContext('2d');
   new Chart(barCtx, {
     type: 'bar',
@@ -190,10 +310,7 @@ document.addEventListener('DOMContentLoaded', async () => {
     options: {
       responsive: true, maintainAspectRatio: false,
       scales: { y: { beginAtZero: true, max: 100, ticks: { callback: v => v+'%' } } },
-      plugins: {
-        legend: { display: false },
-        tooltip: { callbacks: { label: ctx => ` ${ctx.raw}%` } }
-      }
+      plugins: { legend: { display: false }, tooltip: { callbacks: { label: ctx => ` ${ctx.raw}%` } } }
     }
   });
 
@@ -226,7 +343,104 @@ document.addEventListener('DOMContentLoaded', async () => {
     document.getElementById('charts-row').style.gridTemplateColumns = '1fr';
     document.getElementById('bottom-row').style.gridTemplateColumns = '1fr';
   }
+
+  // 前回の級を復元
+  const lastGrade = localStorage.getItem('sekaken_last_grade');
+  if (lastGrade === '2') switchGrade(2);
 });
+
+function initGrade2Charts() {
+  // ── 2級データ ──
+  const d2 = storage2.load();
+  const totalQ2 = storage2.getTotalQuestions();
+  const acc2    = storage2.getOverallAccuracy();
+  document.getElementById('stat2-total-q').textContent = totalQ2.toLocaleString();
+  document.getElementById('stat2-accuracy').textContent = totalQ2 > 0 ? acc2 + '%' : '--%';
+  document.getElementById('stat2-study-time').textContent = d2.total_study_minutes;
+
+  const mock2 = storage2.getLastMockScore();
+  document.getElementById('stat2-mock-score').textContent = mock2 ? mock2.score + '点' : '--';
+
+  if (mock2) {
+    const j2 = adaptive2.judge(mock2.score);
+    document.getElementById('judgment2-area').innerHTML = `
+      <div class="judgment-badge" style="color:${j2.border};border-color:${j2.border};background:${j2.bg};">${j2.grade}</div>
+      <div style="font-size:1.1rem;font-weight:bold;margin-top:0.5rem;">${j2.label}</div>
+      <div style="font-size:0.85rem;color:#666;margin-top:0.2rem;">最新模擬テスト: ${mock2.score}点</div>
+      <div style="font-size:0.8rem;color:#888;">(${mock2.date})</div>`;
+  }
+
+  const catAcc2 = storage2.getCategoryAccuracy();
+
+  const radar2Ctx = document.getElementById('radar2-chart').getContext('2d');
+  radar2ChartObj = new Chart(radar2Ctx, {
+    type: 'radar',
+    data: {
+      labels: ['基礎知識', '日本の遺産', '自然遺産', '文化遺産', 'その他'],
+      datasets: [{
+        label: '正答率(%)',
+        data: [catAcc2.basics||0, catAcc2.japan||0, catAcc2.nature||0, catAcc2.culture||0, catAcc2.other||0],
+        fill: true,
+        backgroundColor: 'rgba(124,58,237,0.2)',
+        borderColor: '#7c3aed',
+        pointBackgroundColor: '#7c3aed',
+        pointBorderColor: '#fff', pointRadius: 5
+      }]
+    },
+    options: {
+      responsive: true, maintainAspectRatio: true,
+      scales: { r: { beginAtZero: true, max: 100, ticks: { stepSize: 25, font:{size:10} }, pointLabels: { font: { size: 10 } } } },
+      plugins: { legend: { display: false } }
+    }
+  });
+
+  const bar2Ctx = document.getElementById('bar2-chart').getContext('2d');
+  bar2ChartObj = new Chart(bar2Ctx, {
+    type: 'bar',
+    data: {
+      labels: ['基礎知識', '日本の遺産', '自然遺産', '文化遺産', 'その他'],
+      datasets: [{
+        label: '正答率(%)',
+        data: [catAcc2.basics||0, catAcc2.japan||0, catAcc2.nature||0, catAcc2.culture||0, catAcc2.other||0],
+        backgroundColor: ['#2E75B6','#E74C3C','#27AE60','#F39C12','#8E44AD'],
+        borderRadius: 6
+      }]
+    },
+    options: {
+      responsive: true, maintainAspectRatio: false,
+      scales: { y: { beginAtZero: true, max: 100, ticks: { callback: v => v+'%' } } },
+      plugins: { legend: { display: false }, tooltip: { callbacks: { label: ctx => ` ${ctx.raw}%` } } }
+    }
+  });
+
+  // 2級おすすめ問題
+  const weakIds2 = storage2.getWeakQuestions(3);
+  if (weakIds2.length > 0 && typeof QUESTIONS_DATA2 !== 'undefined') {
+    const qMap2 = {};
+    QUESTIONS_DATA2.forEach(q => qMap2[q.id] = q);
+    let html2 = '';
+    weakIds2.forEach(id => {
+      const q = qMap2[id];
+      if (!q) return;
+      const rec = storage2.getQRecord(id);
+      html2 += `
+        <div style="border:1px solid #ede9fe;border-radius:6px;padding:0.6rem 0.8rem;margin-bottom:0.5rem;background:#faf5ff;">
+          <div style="font-size:0.78rem;color:#7c3aed;margin-bottom:0.2rem;">
+            <span class="badge badge-${q.category}">${CAT_NAMES2[q.category]||q.category}</span>
+            誤答${rec.wrong_count||0}回
+          </div>
+          <div style="font-size:0.88rem;font-weight:bold;">${escHtml2(q.question.slice(0,45))}${q.question.length>45?'…':''}</div>
+          <a href="quiz2.html?id=${q.id}" class="btn btn-sm" style="margin-top:0.4rem;background:#7c3aed;color:#fff;font-size:0.78rem;padding:0.2rem 0.6rem;">解く</a>
+        </div>`;
+    });
+    document.getElementById('recommend2-area').innerHTML = html2;
+  }
+
+  if (window.innerWidth < 600) {
+    document.getElementById('charts2-row').style.gridTemplateColumns = '1fr';
+    document.getElementById('bottom2-row').style.gridTemplateColumns = '1fr';
+  }
+}
 </script>
 </body>
 </html>
