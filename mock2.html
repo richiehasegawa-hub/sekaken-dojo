@@ -78,6 +78,8 @@
       <div style="display:flex;justify-content:space-between;margin-top:1.2rem;gap:0.5rem;">
         <button class="btn btn-outline" id="prev-btn" onclick="navigate(-1)">← 前へ</button>
         <button class="btn btn-block" id="next-btn" onclick="navigate(1)" style="background:#7c3aed;color:#fff;max-width:180px;">次へ →</button>
+        <button class="btn" id="submit-shortcut-btn" onclick="confirmSubmit()"
+          style="display:none;background:#E74C3C;color:#fff;font-weight:bold;max-width:180px;">📝 提出する</button>
       </div>
     </div>
   </div>
@@ -207,7 +209,9 @@ function showQ(idx) {
   });
 
   document.getElementById('prev-btn').disabled = idx === 0;
-  document.getElementById('next-btn').disabled = idx === questions.length - 1;
+  const isLast = idx === questions.length - 1;
+  document.getElementById('next-btn').style.display = isLast ? 'none' : '';
+  document.getElementById('submit-shortcut-btn').style.display = isLast ? '' : 'none';
   updateNav();
 }
 
