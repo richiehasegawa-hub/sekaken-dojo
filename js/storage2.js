@@ -45,7 +45,8 @@ const storage2 = {
     return d.question_records[id] || {
       attempts: 0, correct: 0, mastery: 0,
       weak_flag: false, mastered: false,
-      last_attempt: null, wrong_count: 0
+      last_attempt: null, wrong_count: 0,
+      wrong_streak: 0, correct_streak: 0
     };
   },
   saveQRecord(id, rec) {
@@ -53,23 +54,41 @@ const storage2 = {
     d.question_records[id] = rec;
     this.save(d);
   },
-  updateAfterAnswer(id, category, isCorrect) {
+  updateAfterAnswer(id, category, isCorrect, difficulty) {
     const d = this.load();
     const rec = d.question_records[id] || {
       attempts: 0, correct: 0, mastery: 0,
       weak_flag: false, mastered: false,
-      last_attempt: null, wrong_count: 0
+      last_attempt: null, wrong_count: 0,
+      wrong_streak: 0, correct_streak: 0
     };
+    // フィールド後方互換
+    if (rec.wrong_streak  === undefined) rec.wrong_streak  = 0;
+    if (rec.correct_streak === undefined) rec.correct_streak = 0;
+
     rec.attempts++;
     rec.last_attempt = new Date().toISOString().slice(0, 10);
+
+    // 難易度加重マスタリー変動（adaptive2.calcMasteryDelta を参照）
+    const diff  = difficulty ?? 2;
+    const delta = typeof adaptive2 !== 'undefined'
+      ? adaptive2.calcMasteryDelta(diff, isCorrect)
+      : (isCorrect ? 2 : -3); // fallback
+
     if (isCorrect) {
       rec.correct++;
-      rec.mastery = Math.min(10, (rec.mastery || 0) + 2);
+      rec.mastery = Math.min(10, (rec.mastery || 0) + delta);
+      rec.correct_streak = (rec.correct_streak || 0) + 1;
+      rec.wrong_streak   = 0;
+      rec.wrong_count    = Math.max(0, (rec.wrong_count || 0) - 1);
+      // 連続3正解で弱点フラグ解除
+      if (rec.correct_streak >= 3) rec.weak_flag = false;
       if (rec.mastery >= 8) rec.mastered = true;
-      if (rec.wrong_count >= 1) rec.wrong_count = Math.max(0, rec.wrong_count - 1);
     } else {
-      rec.mastery = Math.max(0, (rec.mastery || 0) - 3);
-      rec.wrong_count = (rec.wrong_count || 0) + 1;
+      rec.mastery = Math.max(0, (rec.mastery || 0) + delta); // deltaは負値
+      rec.wrong_count   = (rec.wrong_count   || 0) + 1;
+      rec.wrong_streak  = (rec.wrong_streak  || 0) + 1;
+      rec.correct_streak = 0;
       rec.mastered = false;
       if (rec.wrong_count >= 2) rec.weak_flag = true;
     }

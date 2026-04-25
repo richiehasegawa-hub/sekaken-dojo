@@ -87,7 +87,7 @@
         <div id="train-image-area" style="display:none;margin:0.6rem 0 0.8rem;">
           <img id="train-image" src="" alt="" onerror="this.parentElement.style.display='none'"
             style="max-width:100%;max-height:220px;height:auto;border-radius:8px;border:1px solid #e2e8f0;display:block;margin:0 auto;">
-          <div style="font-size:0.72rem;color:#aaa;text-align:right;margin-top:0.2rem;">© Wikimedia Commons</div>
+          <div id="train-image-credit" style="font-size:0.72rem;color:#aaa;text-align:right;margin-top:0.2rem;">© Wikimedia Commons</div>
         </div>
         <div id="train-choices-area"></div>
         <div id="train-feedback" style="display:none;margin-top:0.8rem;"></div>
@@ -296,8 +296,11 @@ function showTrainQ(idx) {
 
   const tImgArea = document.getElementById('train-image-area');
   const tImgEl   = document.getElementById('train-image');
-  if (q.image) { tImgEl.src = q.image; tImgArea.style.display = ''; }
-  else { tImgArea.style.display = 'none'; tImgEl.src = ''; }
+  if (q.image) {
+    tImgEl.src = q.image; tImgArea.style.display = '';
+    const cEl = document.getElementById('train-image-credit');
+    if (cEl) cEl.textContent = q.image_credit || '© Wikimedia Commons';
+  } else { tImgArea.style.display = 'none'; tImgEl.src = ''; }
 
   const area = document.getElementById('train-choices-area');
   area.innerHTML = '';
@@ -321,7 +324,7 @@ function handleTrainAnswer(idx, clickedBtn, q) {
   const isCorrect  = idx === correctIdx;
   if (isCorrect) trainCorrect++;
 
-  storage2.updateAfterAnswer(q.id, q.category, isCorrect);
+  storage2.updateAfterAnswer(q.id, q.category, isCorrect, q.difficulty);
 
   document.querySelectorAll('#train-choices-area .choice-btn').forEach((btn, i) => {
     btn.disabled = true;

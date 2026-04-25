@@ -72,7 +72,7 @@
       <div id="mock-image-area" style="display:none;margin:0.6rem 0 0.8rem;">
         <img id="mock-image" src="" alt="" onerror="this.parentElement.style.display='none'"
           style="max-width:100%;max-height:220px;height:auto;border-radius:8px;border:1px solid #e2e8f0;display:block;margin:0 auto;">
-        <div style="font-size:0.72rem;color:#aaa;text-align:right;margin-top:0.2rem;">© Wikimedia Commons</div>
+        <div id="mock-image-credit" style="font-size:0.72rem;color:#aaa;text-align:right;margin-top:0.2rem;">© Wikimedia Commons</div>
       </div>
       <div id="mock-choices-area"></div>
       <div style="display:flex;justify-content:space-between;margin-top:1.2rem;gap:0.5rem;">
@@ -191,8 +191,11 @@ function showQ(idx) {
 
   const mockImgArea = document.getElementById('mock-image-area');
   const mockImgEl   = document.getElementById('mock-image');
-  if (q.image) { mockImgEl.src = q.image; mockImgArea.style.display = ''; }
-  else { mockImgArea.style.display = 'none'; mockImgEl.src = ''; }
+  if (q.image) {
+    mockImgEl.src = q.image; mockImgArea.style.display = '';
+    const cEl = document.getElementById('mock-image-credit');
+    if (cEl) cEl.textContent = q.image_credit || '© Wikimedia Commons';
+  } else { mockImgArea.style.display = 'none'; mockImgEl.src = ''; }
 
   updateMarkBtn();
 
@@ -256,7 +259,7 @@ function submitTest() {
     const userChoice = answers[i] !== null ? ['A','B','C','D'][answers[i]] : null;
     const isCorrect = userChoice === q.correct;
     if (isCorrect) correct++;
-    if (userChoice !== null) storage2.updateAfterAnswer(q.id, q.category, isCorrect);
+    if (userChoice !== null) storage2.updateAfterAnswer(q.id, q.category, isCorrect, q.difficulty);
   });
 
   const score = Math.round(correct / questions.length * 100);
