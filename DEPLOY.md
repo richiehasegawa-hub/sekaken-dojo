@@ -21,7 +21,7 @@ GitHub CLI がない場合 → https://cli.github.com/ からインストール�
 
 ```bash
 # sekaken-dojo フォルダに移動
-cd ~/Desktop/Cowork/Projects/世界遺産検定/sekaken-dojo
+cd ~/Desktop/ClaudeDesktop/Projects/WorldHeritage/01_Inbox/sekaken-dojo
 
 # git 初期化
 git init
@@ -47,7 +47,7 @@ gh api repos/{owner}/sekaken-dojo/pages \
 
 2. ターミナルで実行（`<your-username>` を自分のGitHubユーザー名に変更）:
    ```bash
-   cd ~/Desktop/Cowork/Projects/世界遺産検定/sekaken-dojo
+   cd ~/Desktop/ClaudeDesktop/Projects/WorldHeritage/01_Inbox/sekaken-dojo
    git init
    git branch -M main
    git add .
@@ -79,7 +79,7 @@ https://<your-username>.github.io/sekaken-dojo/
 問題を追加・修正した後は以下を実行：
 
 ```bash
-cd ~/Desktop/Cowork/Projects/世界遺産検定/sekaken-dojo
+cd ~/Desktop/ClaudeDesktop/Projects/WorldHeritage/01_Inbox/sekaken-dojo
 git add .
 git commit -m "問題データ更新"
 git push
